@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio de Flora: proyectos, experiencia, habilidades y contacto."
+    />
+    <title>Flora | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark" aria-hidden="true">F</span>
+        <span>Flora</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegacion principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow">Portfolio V1</p>
+          <h1>Construyo experiencias digitales claras, cuidadas y faciles de usar.</h1>
+          <p class="hero-text">
+            Soy Flora. Este espacio reune mi trabajo, mi forma de pensar productos y
+            algunos proyectos que quiero seguir puliendo. Varias partes todavia estan
+            en construccion, pero la base ya esta viva.
+          </p>
+          <div class="hero-actions" aria-label="Acciones principales">
+            <a class="button primary" href="#proyectos">Ver proyectos</a>
+            <a class="button secondary" href="mailto:hola@example.com">Escribirme</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Resumen visual del portfolio">
+          <div class="visual-shell">
+            <div class="visual-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="visual-grid">
+              <div class="visual-panel focus-panel">
+                <span class="panel-label">Producto</span>
+                <strong>Ideas que se pueden usar</strong>
+              </div>
+              <div class="visual-panel">
+                <span class="panel-label">UX</span>
+                <strong>Flujos simples</strong>
+              </div>
+              <div class="visual-panel">
+                <span class="panel-label">Dev</span>
+                <strong>Webs mantenibles</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-section" aria-labelledby="sobre-mi-title">
+        <div>
+          <p class="eyebrow">Sobre mi</p>
+          <h2 id="sobre-mi-title">Una base para contar quien soy y como trabajo.</h2>
+        </div>
+        <p>
+          Aca va una bio breve: que haces, que te interesa, que tipo de problemas te
+          gusta resolver y que energia queres transmitir profesionalmente. Por ahora
+          queda como placeholder editable.
+        </p>
+      </section>
+
+      <section class="section" id="proyectos" aria-labelledby="proyectos-title">
+        <div class="section-heading">
+          <p class="eyebrow">Proyectos</p>
+          <h2 id="proyectos-title">Trabajos seleccionados</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-media project-media-one" aria-hidden="true"></div>
+            <div class="project-content">
+              <p class="project-kicker">Proyecto destacado</p>
+              <h3>Nombre del proyecto</h3>
+              <p>
+                Descripcion corta del problema, tu rol y el resultado. Idealmente una
+                frase concreta que explique por que vale la pena verlo.
+              </p>
+              <a href="#" aria-label="Ver caso de estudio del proyecto destacado">
+                Ver caso
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media project-media-two" aria-hidden="true"></div>
+            <div class="project-content">
+              <p class="project-kicker">Experimento</p>
+              <h3>Otro proyecto</h3>
+              <p>
+                Placeholder para una herramienta, app, investigacion, visualizacion o
+                pieza de portfolio que quieras mostrar pronto.
+              </p>
+              <a href="#" aria-label="Ver detalle de otro proyecto">Ver detalle</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-media project-media-three" aria-hidden="true"></div>
+            <div class="project-content">
+              <p class="project-kicker">En progreso</p>
+              <h3>Idea en construccion</h3>
+              <p>
+                Espacio reservado para algo que todavia no esta listo, pero que puede
+                crecer en una iteracion siguiente.
+              </p>
+              <a href="#" aria-label="Ver notas de la idea en construccion">Ver notas</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section" id="experiencia" aria-labelledby="experiencia-title">
+        <div>
+          <p class="eyebrow">Experiencia</p>
+          <h2 id="experiencia-title">Skills y recorrido</h2>
+        </div>
+
+        <div class="stack-list">
+          <div class="stack-item">
+            <span>01</span>
+            <div>
+              <h3>Producto y estrategia</h3>
+              <p>Discovery, priorizacion, definicion de alcance y mejora de flujos.</p>
+            </div>
+          </div>
+          <div class="stack-item">
+            <span>02</span>
+            <div>
+              <h3>Diseño de interfaces</h3>
+              <p>Wireframes, sistemas visuales livianos, prototipos y UX writing.</p>
+            </div>
+          </div>
+          <div class="stack-item">
+            <span>03</span>
+            <div>
+              <h3>Implementacion web</h3>
+              <p>HTML, CSS, JavaScript y bases listas para evolucionar a React.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contacto" aria-labelledby="contacto-title">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2 id="contacto-title">Hablemos de proyectos, ideas o colaboraciones.</h2>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:hola@example.com">hola@example.com</a>
+          <a class="button secondary" href="https://github.com/" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a class="button secondary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Hecho por Flora. V1 en progreso.</p>
+      <a href="#inicio">Volver arriba</a>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
