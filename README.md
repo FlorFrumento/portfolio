@@ -1,49 +1,50 @@
 # Portfolio
 
-V1 estatica del portfolio personal.
+Static V1 of my personal portfolio.
 
-## Estructura
+## Structure
 
-- `index.html`: contenido y secciones principales.
-- `styles.css`: sistema visual inicial y responsive.
-- `script.js`: comportamiento minimo.
-- `firebase.json`: configuracion base para Firebase Hosting.
+- `index.html`: main content and page sections.
+- `styles.css`: initial visual system and responsive styles.
+- `script.js`: minimal behavior.
+- `firebase.json`: Firebase Hosting configuration.
+- `.firebaserc`: linked Firebase project.
 
-## Requisitos
+## Requirements
 
-Este proyecto usa `npm` y Vite para desarrollo local y build.
+This project uses `npm` and Vite for local development and production builds.
 
-Probado con:
+Tested with:
 
 - Node.js `v24.15.0`
 - npm `11.12.1`
 
-Para verificar tu version local:
+Check your local version:
 
 ```bash
 node --version
 npm --version
 ```
 
-Si usas `nvm` y la terminal no encuentra `npm`, carga `nvm` con:
+If you use `nvm` and your terminal cannot find `npm`, load `nvm` with:
 
 ```bash
 source "$HOME/.nvm/nvm.sh"
 ```
 
-## Instalar dependencias
+## Install Dependencies
 
 ```bash
 npm install
 ```
 
-## Ver localmente
+## Run Locally
 
 ```bash
 npm run dev
 ```
 
-Vite va a mostrar una URL local similar a:
+Vite will print a local URL similar to:
 
 ```text
 http://localhost:5173
@@ -55,9 +56,9 @@ http://localhost:5173
 npm run build
 ```
 
-El sitio compilado queda en `dist/`.
+The compiled site is generated in `dist/`.
 
-## Preview del build
+## Preview The Build
 
 ```bash
 npm run preview
@@ -65,27 +66,29 @@ npm run preview
 
 ## Tests
 
-Todavia no hay tests automatizados. El comando disponible por ahora es:
+There are no automated tests yet. The current command is:
 
 ```bash
 npm run test
 ```
 
-## Deploy en Firebase
+## Firebase Deploy
 
-Primero generar el build:
+Initial setup TLDR: [docs/firebase-hosting.md](docs/firebase-hosting.md).
+
+For regular deploys, first generate the build:
 
 ```bash
 npm run build
 ```
 
-Instalar Firebase CLI si no esta disponible:
+Install Firebase CLI if it is not available:
 
 ```bash
 npm install -g firebase-tools
 ```
 
-Iniciar sesion y desplegar:
+Log in and deploy:
 
 ```bash
 firebase login
@@ -93,16 +96,12 @@ firebase init hosting
 firebase deploy
 ```
 
-Durante `firebase init hosting`, usar:
+The full initialization flow is documented in the guide linked above.
 
-- Public directory: `dist`
-- Configure as single-page app: `No`
-- Overwrite `index.html`: `No`
+## Next Steps
 
-## Proximos pasos
-
-- Reemplazar placeholders por bio, email y links reales.
-- Agregar proyectos con links o casos de estudio.
-- Sumar imagenes/screenshot reales de proyectos.
-- Ajustar colores, tipografia y tono visual.
-- Migrar a Vite/React si el portfolio crece en interactividad.
+- Replace placeholders with real bio, email, and links.
+- Add projects with links or case studies.
+- Add real project images/screenshots.
+- Refine colors, typography, and visual tone.
+- Migrate to Vite/React if the portfolio grows in interactivity.
