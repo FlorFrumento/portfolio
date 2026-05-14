@@ -42,7 +42,7 @@
           </p>
           <div class="hero-actions" aria-label="Acciones principales">
             <a class="button primary" href="#proyectos">Ver casos</a>
-            <a class="button secondary" href="mailto:hola@example.com">Escribirme</a>
+            <a class="button secondary" href="mailto:florencia.frumento@gmail.com">Escribirme</a>
           </div>
         </div>
       </section>
@@ -177,7 +177,7 @@
       </section>
 
       <section class="section contact-section" id="contacto" aria-labelledby="contacto-title">
-        <div>
+        <div class="contact-copy">
           <p class="eyebrow">Contacto</p>
           <h2 id="contacto-title">Estoy buscando mi próximo lugar para crecer.</h2>
           <p>
@@ -186,16 +186,56 @@
             mirada que combine escritura, UX y sensibilidad por las personas, me
             encantará conversar.
           </p>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:florencia.frumento@gmail.com">florencia.frumento@gmail.com</a>
+            <a class="button secondary" href="https://github.com/FlorFrumento" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            <a class="button secondary" href="https://www.linkedin.com/in/florenciafrumento/" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+          </div>
         </div>
-        <div class="contact-actions">
-          <a class="button primary" href="mailto:hola@example.com">hola@example.com</a>
-          <a class="button secondary" href="https://github.com/FlorFrumento" target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <a class="button secondary" href="https://www.linkedin.com/in/florenciafrumento/" target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-        </div>
+        <form class="contact-form" id="contact-form" novalidate>
+          <p class="form-eyebrow">Escribime</p>
+          <label class="field">
+            <span>Nombre</span>
+            <input
+              type="text"
+              name="name"
+              id="contact-name"
+              autocomplete="name"
+              placeholder="Tu nombre"
+              required
+            />
+          </label>
+          <label class="field">
+            <span>Correo</span>
+            <input
+              type="email"
+              name="email"
+              id="contact-email"
+              autocomplete="email"
+              placeholder="nombre@correo.com"
+              required
+            />
+          </label>
+          <label class="field">
+            <span>Mensaje</span>
+            <textarea
+              name="message"
+              id="contact-message"
+              rows="6"
+              placeholder="Contame un poco sobre vos, el rol o la oportunidad."
+              required
+            ></textarea>
+          </label>
+          <input type="text" name="company" class="bot-field" tabindex="-1" autocomplete="off" />
+          <div class="form-footer">
+            <button class="button primary submit-button" type="submit">Enviar mensaje</button>
+            <p class="form-status" id="contact-form-status" aria-live="polite"></p>
+          </div>
+        </form>
       </section>
     </main>
 

@@ -441,12 +441,114 @@ h3 {
   padding-bottom: 110px;
 }
 
+.contact-copy {
+  max-width: 620px;
+}
+
 .contact-section h2 {
   font-size: 4.5rem;
 }
 
 .contact-actions {
+  margin-top: 32px;
   align-content: start;
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(252, 249, 248, 0.8);
+}
+
+.form-eyebrow {
+  margin: 0 0 6px;
+  color: var(--olive);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.field span {
+  color: var(--olive);
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  font: inherit;
+  padding: 16px 18px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--muted-soft);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: rgba(120, 89, 0, 0.45);
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.16);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.field textarea {
+  min-height: 170px;
+  resize: vertical;
+}
+
+.bot-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.form-footer {
+  display: grid;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.submit-button {
+  width: fit-content;
+}
+
+.form-status {
+  min-height: 24px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.form-status.is-error {
+  color: #8f2f2f;
+}
+
+.form-status.is-success {
+  color: var(--olive);
 }
 
 .site-footer {
@@ -518,6 +620,10 @@ h3 {
     font-size: 3.4rem;
   }
 
+  .contact-form {
+    padding: 24px;
+  }
+
   .project-card,
   .project-card:first-child,
   .project-card:last-child {
@@ -577,7 +683,16 @@ h3 {
     font-size: 2.9rem;
   }
 
+  .contact-form {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
   .button {
+    width: 100%;
+  }
+
+  .submit-button {
     width: 100%;
   }
 
