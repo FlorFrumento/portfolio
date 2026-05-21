@@ -17,6 +17,8 @@ const externalProjectLinks = document.querySelectorAll('.project-content a[href=
 const siteHeader = document.querySelector(".site-header");
 const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#contact-form-status");
+const carousels = document.querySelectorAll("[data-carousel]");
+let activeLightbox = null;
 
 const updateHeaderState = () => {
   siteHeader?.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -35,6 +37,173 @@ externalProjectLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault();
   });
+});
+
+carousels.forEach((carousel) => {
+  const track = carousel.querySelector("[data-carousel-track]");
+  const previousButton = carousel.querySelector("[data-carousel-prev]");
+  const nextButton = carousel.querySelector("[data-carousel-next]");
+
+  if (!track || !previousButton || !nextButton) return;
+
+  const getSlides = () => Array.from(track.querySelectorAll(".carousel-slide"));
+
+  const getCurrentIndex = () => {
+    const slides = getSlides();
+    if (!slides.length) return 0;
+
+    return slides.reduce((closestIndex, slide, index) => {
+      const currentDistance = Math.abs(slide.offsetLeft - track.scrollLeft);
+      const closestDistance = Math.abs(slides[closestIndex].offsetLeft - track.scrollLeft);
+      return currentDistance < closestDistance ? index : closestIndex;
+    }, 0);
+  };
+
+  const scrollToSlide = (index) => {
+    const slides = getSlides();
+    if (!slides.length) return;
+
+    track.scrollTo({
+      left: slides[index].offsetLeft,
+      behavior: "smooth"
+    });
+  };
+
+  const moveCarousel = (direction) => {
+    const slides = getSlides();
+    if (!slides.length) return;
+
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const edgeTolerance = 4;
+
+    if (direction > 0 && track.scrollLeft >= maxScroll - edgeTolerance) {
+      scrollToSlide(0);
+      return;
+    }
+
+    if (direction < 0 && track.scrollLeft <= edgeTolerance) {
+      scrollToSlide(slides.length - 1);
+      return;
+    }
+
+    const currentIndex = getCurrentIndex();
+    const nextIndex = (currentIndex + direction + slides.length) % slides.length;
+    scrollToSlide(nextIndex);
+  };
+
+  previousButton.addEventListener("click", () => moveCarousel(-1));
+  nextButton.addEventListener("click", () => moveCarousel(1));
+
+  track.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      moveCarousel(-1);
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      moveCarousel(1);
+    }
+  });
+
+  const lightboxTriggers = carousel.querySelectorAll("[data-lightbox-trigger]");
+
+  lightboxTriggers.forEach((trigger, index) => {
+    trigger.addEventListener("click", () => {
+      const images = Array.from(carousel.querySelectorAll(".case-carousel-slide img")).map((image) => ({
+        alt: image.alt,
+        src: image.currentSrc || image.src
+      }));
+
+      if (images.length) {
+        openLightbox(images, index);
+      }
+    });
+  });
+});
+
+const closeLightbox = () => {
+  if (!activeLightbox) return;
+
+  activeLightbox.element.remove();
+  document.body.classList.remove("has-lightbox");
+  activeLightbox = null;
+};
+
+const updateLightbox = () => {
+  if (!activeLightbox) return;
+
+  const item = activeLightbox.items[activeLightbox.index];
+  activeLightbox.image.src = item.src;
+  activeLightbox.image.alt = item.alt;
+  activeLightbox.caption.textContent = item.alt;
+};
+
+const moveLightbox = (direction) => {
+  if (!activeLightbox) return;
+
+  activeLightbox.index =
+    (activeLightbox.index + direction + activeLightbox.items.length) % activeLightbox.items.length;
+  updateLightbox();
+};
+
+function openLightbox(items, startIndex) {
+  closeLightbox();
+
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.setAttribute("aria-label", "Vista ampliada de páginas del informe");
+  lightbox.innerHTML = `
+    <button class="lightbox-button lightbox-close" type="button" aria-label="Cerrar vista ampliada">×</button>
+    <button class="lightbox-button lightbox-prev" type="button" aria-label="Ver imagen anterior">←</button>
+    <figure class="lightbox-figure">
+      <img class="lightbox-image" alt="" />
+      <figcaption class="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-button lightbox-next" type="button" aria-label="Ver imagen siguiente">→</button>
+  `;
+
+  document.body.append(lightbox);
+  document.body.classList.add("has-lightbox");
+
+  activeLightbox = {
+    caption: lightbox.querySelector(".lightbox-caption"),
+    element: lightbox,
+    image: lightbox.querySelector(".lightbox-image"),
+    index: startIndex,
+    items
+  };
+
+  lightbox.querySelector(".lightbox-close")?.addEventListener("click", closeLightbox);
+  lightbox.querySelector(".lightbox-prev")?.addEventListener("click", () => moveLightbox(-1));
+  lightbox.querySelector(".lightbox-next")?.addEventListener("click", () => moveLightbox(1));
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  updateLightbox();
+  lightbox.querySelector(".lightbox-close")?.focus();
+}
+
+window.addEventListener("keydown", (event) => {
+  if (!activeLightbox) return;
+
+  if (event.key === "Escape") {
+    closeLightbox();
+  }
+
+  if (event.key === "ArrowLeft") {
+    moveLightbox(-1);
+  }
+
+  if (event.key === "ArrowRight") {
+    moveLightbox(1);
+  }
 });
 
 contactForm?.addEventListener("submit", async (event) => {
