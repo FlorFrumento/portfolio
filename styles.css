@@ -275,25 +275,16 @@ h3 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: 0 28px 0 28px;
-  border-right: 1px solid var(--line);
-}
-
-.project-card:first-child {
-  padding-left: 0;
-}
-
-.project-card:last-child {
-  padding-right: 0;
-  border-right: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
 }
 
 .project-media {
@@ -329,6 +320,10 @@ h3 {
 
 .project-media-resource img {
   object-position: 50% 45%;
+}
+
+.project-media-ristretto img {
+  object-position: center;
 }
 
 .project-media::before,
@@ -809,14 +804,14 @@ h3 {
 
 .related-cases-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
 .related-case-card {
   display: grid;
   min-width: 0;
-  grid-template-columns: minmax(150px, 0.72fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 22px;
   padding: 22px;
   border: 1px solid var(--line);
@@ -833,7 +828,7 @@ h3 {
 
 .related-case-card .project-media {
   align-self: start;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   min-height: 0;
   margin: 0;
 }
@@ -1312,7 +1307,9 @@ h3 {
 
   .main-nav {
     width: 100%;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 14px 22px;
   }
 
   .section {
