@@ -697,6 +697,16 @@ h3 {
   object-fit: cover;
 }
 
+.case-carousel-landscape .case-carousel-track {
+  grid-auto-columns: minmax(320px, 68%);
+}
+
+.case-carousel-landscape img {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: var(--surface);
+}
+
 .case-media figcaption,
 .case-video figcaption,
 .case-carousel figcaption {
@@ -1366,6 +1376,10 @@ h3 {
 
   .case-carousel-track {
     grid-auto-columns: minmax(220px, 78%);
+  }
+
+  .case-carousel-landscape .case-carousel-track {
+    grid-auto-columns: minmax(260px, 92%);
   }
 
   .stack-list {
