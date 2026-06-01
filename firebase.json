@@ -5,10 +5,19 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/contact",
+        "function": "contactForm"
+      }
     ]
   },
   "firestore": {
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "source": "functions"
   }
 }

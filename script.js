@@ -1,18 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { addDoc, collection, getFirestore, serverTimestamp } from "firebase/firestore";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBjOPddXrcn-py4PRrQvXOoz3HhN4_toFk",
-  authDomain: "florencia-frumento.firebaseapp.com",
-  projectId: "florencia-frumento",
-  storageBucket: "florencia-frumento.firebasestorage.app",
-  messagingSenderId: "914854241829",
-  appId: "1:914854241829:web:1d58c9a454fd9462bec1cc",
-  measurementId: "G-WFMZ4DVP69"
-};
-
-const firebaseApp = initializeApp(firebaseConfig);
-const firestore = getFirestore(firebaseApp);
 const externalProjectLinks = document.querySelectorAll('.project-content a[href="#"]');
 const siteHeader = document.querySelector(".site-header");
 const contactForm = document.querySelector("#contact-form");
@@ -231,20 +216,30 @@ contactForm?.addEventListener("submit", async (event) => {
   setFormStatus("Enviando mensaje...");
 
   try {
-    await addDoc(collection(firestore, "contactMessages"), {
-      name,
-      email,
-      message,
-      source: window.location.href,
-      createdAt: serverTimestamp()
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        company: honeypot,
+        email,
+        message,
+        name,
+        source: window.location.href
+      })
     });
+
+    if (!response.ok) {
+      throw new Error(`Contact request failed with status ${response.status}`);
+    }
 
     form.reset();
     setFormStatus("Mensaje enviado. Gracias por escribirme.", "is-success");
   } catch (error) {
-    console.error("Error saving contact form:", error);
+    console.error("Error sending contact form:", error);
     setFormStatus(
-      "No pude enviar el mensaje. Revisamos juntos la configuración de Firebase en el siguiente paso.",
+      "No pude enviar el mensaje. Probá de nuevo en un rato o escribime por correo.",
       "is-error"
     );
   } finally {
