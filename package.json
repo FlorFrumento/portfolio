@@ -4,9 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "setup": "npm install && npm install --prefix functions",
     "dev": "vite --host 0.0.0.0",
-    "dev:firebase": "firebase emulators:start --only hosting,functions,firestore",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "echo \"No tests configured yet.\"",
@@ -14,5 +12,8 @@
   },
   "devDependencies": {
     "vite": "^8.0.10"
+  },
+  "dependencies": {
+    "firebase": "^12.12.1"
   }
 }

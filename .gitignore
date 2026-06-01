@@ -1,7 +1,6 @@
 .firebase/
 firebase-debug.log
 node_modules/
-functions/.env
 dist/
 .DS_Store
 .stitch/
