@@ -866,7 +866,7 @@ h3 {
 .about-article {
   max-width: 1120px;
   padding-top: 88px;
-  padding-bottom: 104px;
+  padding-bottom: 64px;
 }
 
 .about-hero {
@@ -881,7 +881,7 @@ h3 {
 .about-hero .hero-claim {
   max-width: none;
   margin-bottom: 0;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .about-section {
@@ -956,9 +956,35 @@ h3 {
   margin-bottom: 0;
   color: var(--ink);
   font-family: "Newsreader", Georgia, serif;
-  font-size: 1.55rem;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 1.3;
+}
+
+.about-callout {
+  margin-top: 24px;
+  color: var(--ink);
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.about-callout a {
+  color: var(--sunflower-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Ajustes específicos para la sección de contacto en la página "Sobre mí" */
+.about-contact {
+  padding-top: 24px;
+  padding-bottom: 56px;
+  border-bottom: 0;
+}
+
+.about-contact .contact-actions {
+  margin-top: 16px;
 }
 
 .experience-section {
@@ -1377,6 +1403,11 @@ h3 {
 
   .about-hero .hero-claim {
     font-size: 1.75rem;
+  }
+
+  .about-signature,
+  .about-callout {
+    font-size: 1.3rem;
   }
 
   .about-section .about-quote p {
