@@ -6,6 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
+        sobreMi: resolve(__dirname, "sobre-mi/index.html"),
         bannerNubecommerce: resolve(__dirname, "casos/banner-nubecommerce.html"),
         ristretto: resolve(__dirname, "casos/ristretto.html"),
         ctaMigrarTienda: resolve(__dirname, "casos/cta-migrar-tienda.html"),

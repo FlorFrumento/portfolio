@@ -90,22 +90,16 @@ a:hover {
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
   width: 30px;
   height: 30px;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--sunflower);
-  color: var(--ink);
-  font-family: "Work Sans", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 700;
+  object-fit: contain;
 }
 
 .main-nav {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 28px;
   color: var(--muted);
   font-size: 0.88rem;
@@ -865,6 +859,108 @@ h3 {
   text-transform: uppercase;
 }
 
+.about-main {
+  background: var(--bg);
+}
+
+.about-article {
+  max-width: 1120px;
+  padding-top: 88px;
+  padding-bottom: 104px;
+}
+
+.about-hero {
+  padding-bottom: 64px;
+}
+
+.about-hero h1 {
+  margin-bottom: 22px;
+  font-size: 4.2rem;
+}
+
+.about-hero .hero-claim {
+  max-width: none;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+
+.about-section {
+  padding: 24px 0;
+}
+
+.about-section:last-child {
+  border-bottom: 0;
+}
+
+.about-section h2 {
+  margin: 0 0 28px;
+  padding-top: 0;
+  font-size: 3rem;
+}
+
+.about-quote {
+  margin: 0 0 56px;
+  padding-left: 28px;
+  border-left: 4px solid var(--sunflower);
+}
+
+.about-section .about-quote p {
+  margin-bottom: 18px;
+  color: var(--ink);
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1.18;
+}
+
+.about-quote cite {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.about-quote cite span {
+  font-style: italic;
+}
+
+.about-section p,
+.about-section li {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+.about-emphasis {
+  margin: 30px 0;
+  color: var(--ink);
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 2rem;
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.about-section ul {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 24px;
+  padding-left: 20px;
+}
+
+.about-section li::marker {
+  color: var(--sunflower-dark);
+}
+
+.about-signature {
+  margin-top: 34px;
+  margin-bottom: 0;
+  color: var(--ink);
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
 .experience-section {
   display: grid;
   grid-template-columns: minmax(0, 4fr) minmax(320px, 8fr);
@@ -1275,6 +1371,18 @@ h3 {
     font-size: 2rem;
   }
 
+  .about-hero h1 {
+    font-size: 3.9rem;
+  }
+
+  .about-hero .hero-claim {
+    font-size: 1.75rem;
+  }
+
+  .about-section .about-quote p {
+    font-size: 2.2rem;
+  }
+
   .case-summary-item,
   .case-summary-item:first-child,
   .case-summary-item:last-child {
@@ -1362,6 +1470,34 @@ h3 {
 
   .case-section h2 {
     font-size: 2.05rem;
+  }
+
+  .about-hero h1 {
+    font-size: 3.1rem;
+  }
+
+  .about-hero .hero-claim {
+    font-size: 1.5rem;
+  }
+
+  .about-section h2 {
+    font-size: 2.05rem;
+  }
+
+  .about-quote {
+    padding-left: 20px;
+  }
+
+  .about-section .about-quote p {
+    font-size: 1.82rem;
+  }
+
+  .about-emphasis {
+    font-size: 1.7rem;
+  }
+
+  .about-signature {
+    font-size: 1.4rem;
   }
 
   .case-meta,
