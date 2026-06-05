@@ -1407,7 +1407,7 @@ h3 {
 
   .about-signature,
   .about-callout {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .about-section .about-quote p {
@@ -1459,6 +1459,10 @@ h3 {
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 14px 22px;
+  }
+
+  .desktop-only {
+    display: none;
   }
 
   .section {
