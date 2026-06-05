@@ -645,6 +645,16 @@ h3 {
   max-width: 440px;
 }
 
+.case-media-intrinsic {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.case-media-intrinsic img {
+  width: auto;
+  max-width: 100%;
+}
+
 .case-video video {
   aspect-ratio: 16 / 9;
   object-fit: cover;
