@@ -115,7 +115,7 @@ a:hover {
 .hero {
   position: relative;
   display: block;
-  min-height: calc(100vh - 75px);
+  min-height: auto;
   padding-top: 68px;
   padding-bottom: 64px;
   border-bottom: 1px solid var(--line);
