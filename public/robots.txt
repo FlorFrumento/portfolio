@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://florencia-frumento.web.app/sitemap.xml
