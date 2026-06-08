@@ -13,6 +13,58 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const firestore = getFirestore(firebaseApp);
+
+const headerNavItems = [
+  { href: "/#casos", label: "Casos" },
+  { href: "/#experiencia", label: "Experiencia" },
+  { className: "desktop-only", href: "/#enfoque", label: "Enfoque" },
+  { href: "/#contacto", label: "Contacto" },
+  { href: "/sobre-mi/", label: "Sobre GiraFlor", page: "about" }
+];
+
+const renderSiteHeader = () => {
+  const header = document.querySelector("[data-site-header]");
+  if (!header) return;
+
+  const currentPage = header.dataset.currentPage;
+  const inner = document.createElement("div");
+  inner.className = "header-inner";
+
+  const brand = document.createElement("a");
+  brand.className = "brand";
+  brand.href = "/#inicio";
+  brand.setAttribute("aria-label", "Ir al inicio");
+
+  const brandText = document.createElement("span");
+  brandText.textContent = "Florencia Frumento";
+  brand.append(brandText);
+
+  const nav = document.createElement("nav");
+  nav.className = "main-nav";
+  nav.setAttribute("aria-label", "Navegacion principal");
+
+  headerNavItems.forEach((item) => {
+    const link = document.createElement("a");
+    link.href = item.href;
+    link.textContent = item.label;
+
+    if (item.className) {
+      link.className = item.className;
+    }
+
+    if (item.page && item.page === currentPage) {
+      link.setAttribute("aria-current", "page");
+    }
+
+    nav.append(link);
+  });
+
+  inner.append(brand, nav);
+  header.replaceChildren(inner);
+};
+
+renderSiteHeader();
+
 const externalProjectLinks = document.querySelectorAll('.project-content a[href="#"]');
 const siteHeader = document.querySelector(".site-header");
 const contactForm = document.querySelector("#contact-form");

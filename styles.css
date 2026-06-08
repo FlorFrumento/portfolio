@@ -571,6 +571,7 @@ h3 {
 }
 
 .carousel {
+  min-width: 0;
   position: relative;
 }
 
@@ -1072,6 +1073,10 @@ h3 {
 
 .split-section {
   grid-template-columns: minmax(0, 4.5fr) minmax(320px, 7.5fr);
+}
+
+.split-section > * {
+  min-width: 0;
 }
 
 .split-section > div:first-child p:not(.eyebrow) {
