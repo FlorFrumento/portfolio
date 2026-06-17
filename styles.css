@@ -52,6 +52,16 @@ a:hover {
   color: var(--sunflower-dark);
 }
 
+.inline-link {
+  color: var(--sunflower-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.inline-link:hover {
+  color: var(--olive);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -318,6 +328,50 @@ h3 {
 
 .project-media-ristretto img {
   object-position: center;
+}
+
+.project-media-amazon {
+  background:
+    linear-gradient(135deg, rgba(255, 193, 7, 0.2), transparent 48%),
+    linear-gradient(180deg, rgba(60, 70, 50, 0.08), transparent),
+    var(--surface);
+}
+
+.project-media-amazon img {
+  object-position: center;
+}
+
+.project-media-amazon::before {
+  top: 28px;
+  left: 30px;
+  width: 128px;
+  height: 168px;
+  border: 1px solid rgba(60, 70, 50, 0.24);
+  border-radius: 22px;
+  background:
+    linear-gradient(var(--olive) 0 0) 18px 18px / 52% 8px no-repeat,
+    linear-gradient(var(--line) 0 0) 18px 40px / 68% 5px no-repeat,
+    linear-gradient(var(--line) 0 0) 18px 52px / 58% 5px no-repeat,
+    linear-gradient(var(--sunflower) 0 0) 18px 78px / 74% 34px no-repeat,
+    linear-gradient(var(--line) 0 0) 18px 126px / 46% 5px no-repeat,
+    #fffdf8;
+  transform: rotate(-7deg);
+}
+
+.project-media-amazon::after {
+  right: 28px;
+  bottom: 24px;
+  width: 158px;
+  height: 118px;
+  border: 1px solid rgba(60, 70, 50, 0.2);
+  border-radius: 18px;
+  background:
+    linear-gradient(var(--olive) 0 0) 16px 16px / 46% 7px no-repeat,
+    linear-gradient(var(--line) 0 0) 16px 34px / 70% 5px no-repeat,
+    linear-gradient(var(--line) 0 0) 16px 50px / 80% 5px no-repeat,
+    linear-gradient(var(--surface-soft) 0 0) 16px 68px / 82% 34px no-repeat,
+    #fffdf8;
+  box-shadow: 0 18px 30px rgba(60, 70, 50, 0.08);
 }
 
 .project-media::before,
@@ -712,6 +766,21 @@ h3 {
 
 .case-carousel-landscape img {
   aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: var(--surface);
+}
+
+.case-carousel-mobile .case-carousel-track {
+  grid-auto-columns: minmax(220px, 32%);
+  align-items: end;
+}
+
+.case-carousel-mobile img {
+  width: auto;
+  max-width: 100%;
+  height: min(760px, 72vh);
+  margin: 0 auto;
+  aspect-ratio: auto;
   object-fit: contain;
   background: var(--surface);
 }
@@ -1566,6 +1635,10 @@ h3 {
 
   .case-carousel-track {
     grid-auto-columns: minmax(220px, 78%);
+  }
+
+  .case-carousel-mobile .case-carousel-track {
+    grid-auto-columns: minmax(200px, 70%);
   }
 
   .case-carousel-landscape .case-carousel-track {

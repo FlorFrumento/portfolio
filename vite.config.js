@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         sobreMi: resolve(__dirname, "sobre-mi/index.html"),
         bannerNubecommerce: resolve(__dirname, "casos/banner-nubecommerce.html"),
+        carritoAmazon: resolve(__dirname, "casos/carrito-amazon.html"),
         ristretto: resolve(__dirname, "casos/ristretto.html"),
         ctaMigrarTienda: resolve(__dirname, "casos/cta-migrar-tienda.html"),
         recursosDescargables: resolve(__dirname, "casos/recursos-descargables.html")
