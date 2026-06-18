@@ -70,6 +70,7 @@ const siteHeader = document.querySelector(".site-header");
 const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#contact-form-status");
 const carousels = document.querySelectorAll("[data-carousel]");
+const lightboxGalleries = document.querySelectorAll("[data-lightbox-gallery]");
 let activeLightbox = null;
 
 const updateHeaderState = () => {
@@ -90,6 +91,23 @@ externalProjectLinks.forEach((link) => {
     event.preventDefault();
   });
 });
+
+const bindLightboxTriggers = (container, imageSelector) => {
+  const lightboxTriggers = container.querySelectorAll("[data-lightbox-trigger]");
+
+  lightboxTriggers.forEach((trigger, index) => {
+    trigger.addEventListener("click", () => {
+      const images = Array.from(container.querySelectorAll(imageSelector)).map((image) => ({
+        alt: image.alt,
+        src: image.currentSrc || image.src
+      }));
+
+      if (images.length) {
+        openLightbox(images, index);
+      }
+    });
+  });
+};
 
 carousels.forEach((carousel) => {
   const track = carousel.querySelector("[data-carousel-track]");
@@ -157,21 +175,14 @@ carousels.forEach((carousel) => {
       moveCarousel(1);
     }
   });
+});
 
-  const lightboxTriggers = carousel.querySelectorAll("[data-lightbox-trigger]");
+carousels.forEach((carousel) => {
+  bindLightboxTriggers(carousel, ".case-carousel-slide img");
+});
 
-  lightboxTriggers.forEach((trigger, index) => {
-    trigger.addEventListener("click", () => {
-      const images = Array.from(carousel.querySelectorAll(".case-carousel-slide img")).map((image) => ({
-        alt: image.alt,
-        src: image.currentSrc || image.src
-      }));
-
-      if (images.length) {
-        openLightbox(images, index);
-      }
-    });
-  });
+lightboxGalleries.forEach((gallery) => {
+  bindLightboxTriggers(gallery, "[data-lightbox-trigger] img");
 });
 
 const closeLightbox = () => {
@@ -182,13 +193,105 @@ const closeLightbox = () => {
   activeLightbox = null;
 };
 
+const applyLightboxZoom = () => {
+  if (!activeLightbox) return;
+
+  const { image, viewport, zoom } = activeLightbox;
+  const widthRatio = viewport.clientWidth / image.naturalWidth;
+  const heightRatio = viewport.clientHeight / image.naturalHeight;
+  const fitRatio = Math.min(widthRatio, heightRatio, 1);
+  const baseWidth = Math.round(image.naturalWidth * fitRatio);
+  const width = Math.round(baseWidth * zoom);
+
+  image.style.width = `${width}px`;
+  image.style.height = "auto";
+  image.style.maxWidth = "none";
+  image.style.maxHeight = "none";
+  viewport.dataset.zoomed = zoom > 1 ? "true" : "false";
+  activeLightbox.zoomOutButton.disabled = zoom <= 1;
+  activeLightbox.zoomResetButton.textContent = `${Math.round(zoom * 100)}%`;
+  activeLightbox.zoomResetButton.setAttribute(
+    "aria-label",
+    `Restablecer zoom. Zoom actual: ${Math.round(zoom * 100)} %`
+  );
+};
+
+const resetLightboxZoom = (applySize = true) => {
+  if (!activeLightbox) return;
+
+  activeLightbox.zoom = 1;
+  activeLightbox.viewport.scrollTop = 0;
+  activeLightbox.viewport.scrollLeft = 0;
+  activeLightbox.viewport.dataset.zoomed = "false";
+  activeLightbox.zoomOutButton.disabled = true;
+  activeLightbox.zoomResetButton.textContent = "100%";
+  activeLightbox.zoomResetButton.setAttribute("aria-label", "Restablecer zoom. Zoom actual: 100 %");
+
+  if (!applySize) {
+    activeLightbox.image.style.width = "";
+    activeLightbox.image.style.height = "";
+    activeLightbox.image.style.maxWidth = "";
+    activeLightbox.image.style.maxHeight = "";
+    return;
+  }
+
+  if (activeLightbox.image.complete && activeLightbox.image.naturalWidth) {
+    applyLightboxZoom();
+  }
+};
+
+const changeLightboxZoom = (delta) => {
+  if (!activeLightbox || !activeLightbox.image.naturalWidth) return;
+
+  const nextZoom = Math.max(1, Math.min(4, Number((activeLightbox.zoom + delta).toFixed(2))));
+
+  if (nextZoom === activeLightbox.zoom) return;
+
+  activeLightbox.zoom = nextZoom;
+  applyLightboxZoom();
+};
+
+const startLightboxDrag = (event) => {
+  if (!activeLightbox || activeLightbox.zoom <= 1 || event.button !== 0) return;
+
+  const { viewport } = activeLightbox;
+  const startX = event.clientX;
+  const startY = event.clientY;
+  const startScrollLeft = viewport.scrollLeft;
+  const startScrollTop = viewport.scrollTop;
+
+  viewport.dataset.dragging = "true";
+  viewport.setPointerCapture(event.pointerId);
+
+  const move = (moveEvent) => {
+    viewport.scrollLeft = startScrollLeft - (moveEvent.clientX - startX);
+    viewport.scrollTop = startScrollTop - (moveEvent.clientY - startY);
+  };
+
+  const stop = () => {
+    viewport.dataset.dragging = "false";
+    viewport.removeEventListener("pointermove", move);
+    viewport.removeEventListener("pointerup", stop);
+    viewport.removeEventListener("pointercancel", stop);
+  };
+
+  viewport.addEventListener("pointermove", move);
+  viewport.addEventListener("pointerup", stop);
+  viewport.addEventListener("pointercancel", stop);
+};
+
 const updateLightbox = () => {
   if (!activeLightbox) return;
 
   const item = activeLightbox.items[activeLightbox.index];
-  activeLightbox.image.src = item.src;
+  resetLightboxZoom(false);
   activeLightbox.image.alt = item.alt;
   activeLightbox.caption.textContent = item.alt;
+  activeLightbox.image.src = item.src;
+
+  if (activeLightbox.image.complete && activeLightbox.image.naturalWidth) {
+    applyLightboxZoom();
+  }
 };
 
 const moveLightbox = (direction) => {
@@ -204,6 +307,7 @@ function openLightbox(items, startIndex) {
 
   const lightbox = document.createElement("div");
   lightbox.className = "lightbox";
+  lightbox.classList.toggle("is-single", items.length === 1);
   lightbox.setAttribute("role", "dialog");
   lightbox.setAttribute("aria-modal", "true");
   lightbox.setAttribute("aria-label", "Vista ampliada de páginas del informe");
@@ -211,7 +315,14 @@ function openLightbox(items, startIndex) {
     <button class="lightbox-button lightbox-close" type="button" aria-label="Cerrar vista ampliada">×</button>
     <button class="lightbox-button lightbox-prev" type="button" aria-label="Ver imagen anterior">←</button>
     <figure class="lightbox-figure">
-      <img class="lightbox-image" alt="" />
+      <div class="lightbox-toolbar" aria-label="Controles de zoom">
+        <button class="lightbox-button lightbox-zoom" type="button" aria-label="Alejar imagen" data-lightbox-zoom-out>−</button>
+        <button class="lightbox-button lightbox-zoom" type="button" aria-label="Restablecer zoom" data-lightbox-zoom-reset>100%</button>
+        <button class="lightbox-button lightbox-zoom" type="button" aria-label="Acercar imagen" data-lightbox-zoom-in>+</button>
+      </div>
+      <div class="lightbox-viewport">
+        <img class="lightbox-image" alt="" draggable="false" />
+      </div>
       <figcaption class="lightbox-caption"></figcaption>
     </figure>
     <button class="lightbox-button lightbox-next" type="button" aria-label="Ver imagen siguiente">→</button>
@@ -225,12 +336,25 @@ function openLightbox(items, startIndex) {
     element: lightbox,
     image: lightbox.querySelector(".lightbox-image"),
     index: startIndex,
-    items
+    items,
+    viewport: lightbox.querySelector(".lightbox-viewport"),
+    zoom: 1,
+    zoomOutButton: lightbox.querySelector("[data-lightbox-zoom-out]"),
+    zoomResetButton: lightbox.querySelector("[data-lightbox-zoom-reset]")
   };
 
   lightbox.querySelector(".lightbox-close")?.addEventListener("click", closeLightbox);
   lightbox.querySelector(".lightbox-prev")?.addEventListener("click", () => moveLightbox(-1));
   lightbox.querySelector(".lightbox-next")?.addEventListener("click", () => moveLightbox(1));
+  lightbox.querySelector("[data-lightbox-zoom-in]")?.addEventListener("click", () => changeLightboxZoom(0.5));
+  lightbox.querySelector("[data-lightbox-zoom-out]")?.addEventListener("click", () => changeLightboxZoom(-0.5));
+  lightbox.querySelector("[data-lightbox-zoom-reset]")?.addEventListener("click", resetLightboxZoom);
+  activeLightbox.viewport.addEventListener("pointerdown", startLightboxDrag);
+
+  activeLightbox.image.addEventListener("load", () => {
+    if (!activeLightbox) return;
+    applyLightboxZoom();
+  });
 
   lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) {
@@ -255,6 +379,21 @@ window.addEventListener("keydown", (event) => {
 
   if (event.key === "ArrowRight") {
     moveLightbox(1);
+  }
+
+  if (event.key === "+" || event.key === "=") {
+    event.preventDefault();
+    changeLightboxZoom(0.5);
+  }
+
+  if (event.key === "-") {
+    event.preventDefault();
+    changeLightboxZoom(-0.5);
+  }
+
+  if (event.key === "0") {
+    event.preventDefault();
+    resetLightboxZoom();
   }
 });
 
