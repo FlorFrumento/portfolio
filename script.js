@@ -22,6 +22,69 @@ const headerNavItems = [
   { href: "/sobre-mi/", label: "Sobre GiraFlor", page: "about" }
 ];
 
+const caseStudies = [
+  {
+    id: "amazon",
+    href: "/casos/carrito-amazon.html",
+    title: "Dise\u00f1ar la decisi\u00f3n de compra",
+    kicker: "Pr\u00e1ctica profesional · Workshop",
+    description: "Research, heur\u00edsticas y redise\u00f1o del flujo mobile de Amazon para acompa\u00f1ar mejor la decisi\u00f3n de compra.",
+    imageSrc: "/case-assets/case-preview-carrito-amazon.png",
+    imageAlt: "Preview visual del caso de carrito de Amazon",
+    mediaClassName: "project-media-amazon",
+    priority: "featured",
+    tags: ["amazon", "featured", "research", "ux"]
+  },
+  {
+    id: "banner-nubecommerce",
+    href: "/casos/banner-nubecommerce.html",
+    title: "M\u00e1s respuestas, menos fricci\u00f3n",
+    kicker: "Tiendanube admin · Investigaci\u00f3n",
+    description: "Iteraci\u00f3n de microcopy y comportamiento de un banner in-app para aumentar la participaci\u00f3n en una encuesta.",
+    imageSrc: "/case-assets/case-preview-nubecommerce.jpg",
+    imageAlt: "Preview visual del caso NubeCommerce",
+    mediaClassName: "project-media-banner",
+    priority: "featured",
+    tags: ["tiendanube", "featured", "research", "product"]
+  },
+  {
+    id: "cta-migrar-tienda",
+    href: "/casos/cta-migrar-tienda.html",
+    title: "CTA para migrar tiendas",
+    kicker: "Tiendanube blog · Growth",
+    description: "A/B test de contenido y jerarqu\u00eda para abrir un nuevo punto de conversi\u00f3n hacia una landing estrat\u00e9gica.",
+    imageSrc: "/case-assets/case-preview-cta-migrar-tienda.jpg",
+    imageAlt: "Preview visual del caso CTA para migrar tiendas",
+    mediaClassName: "project-media-cta",
+    priority: "featured",
+    tags: ["tiendanube", "featured", "growth", "conversion"]
+  },
+  {
+    id: "recursos-descargables",
+    href: "/casos/recursos-descargables.html",
+    title: "Recursos descargables",
+    kicker: "Lead generation · SEO/GEO",
+    description: "Informes, e-books, playbooks y landings como experiencias completas de generaci\u00f3n de leads.",
+    imageSrc: "/case-assets/case-preview-recursos.jpg",
+    imageAlt: "Preview visual del caso de recursos descargables",
+    mediaClassName: "project-media-resource",
+    priority: "standard",
+    tags: ["lead-generation", "seo", "content"]
+  },
+  {
+    id: "ristretto",
+    href: "/casos/ristretto.html",
+    title: "Ristretto, mi app de microficci\u00f3n",
+    kicker: "Producto digital · UX/UI + IA",
+    description: "De un problema de lectura cotidiana a una experiencia digital pensada, prototipada y construida con IA.",
+    imageSrc: "/case-assets/case-preview-ristretto.jpg",
+    imageAlt: "Pantallas del prototipo de Ristretto",
+    mediaClassName: "project-media-ristretto",
+    priority: "featured",
+    tags: ["ristretto", "featured", "product", "ux"]
+  }
+];
+
 const renderSiteHeader = () => {
   const header = document.querySelector("[data-site-header]");
   if (!header) return;
@@ -64,6 +127,176 @@ const renderSiteHeader = () => {
 };
 
 renderSiteHeader();
+
+const normalizePath = (value) => value.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
+
+const hashString = (value) => {
+  let hash = 1779033703 ^ value.length;
+
+  for (let index = 0; index < value.length; index += 1) {
+    hash = Math.imul(hash ^ value.charCodeAt(index), 3432918353);
+    hash = (hash << 13) | (hash >>> 19);
+  }
+
+  return hash >>> 0;
+};
+
+const createSeededRandom = (seed) => {
+  let state = seed >>> 0;
+
+  return () => {
+    state += 0x6d2b79f5;
+    let next = state;
+    next = Math.imul(next ^ (next >>> 15), next | 1);
+    next ^= next + Math.imul(next ^ (next >>> 7), next | 61);
+    return ((next ^ (next >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
+const getRecommendationSeed = (currentCaseId) => {
+  const dayKey = new Date().toISOString().slice(0, 10);
+  return hashString(`${currentCaseId}:${dayKey}`);
+};
+
+const pickWeightedCase = (candidates, random, getWeight) => {
+  const weightedCandidates = candidates.map((candidate) => ({
+    candidate,
+    weight: Math.max(0, getWeight(candidate))
+  })).filter(({ weight }) => weight > 0);
+
+  if (!weightedCandidates.length) return null;
+
+  const totalWeight = weightedCandidates.reduce((sum, item) => sum + item.weight, 0);
+  let threshold = random() * totalWeight;
+
+  for (const item of weightedCandidates) {
+    threshold -= item.weight;
+    if (threshold <= 0) {
+      return item.candidate;
+    }
+  }
+
+  return weightedCandidates[weightedCandidates.length - 1]?.candidate ?? null;
+};
+
+const shuffleWithSeed = (items, random) => {
+  const shuffled = [...items];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+
+  return shuffled;
+};
+
+const buildRelatedCaseCard = (caseStudy) => {
+  const link = document.createElement("a");
+  link.className = "related-case-card";
+  link.href = caseStudy.href;
+
+  const media = document.createElement("div");
+  media.className = `project-media project-media-image ${caseStudy.mediaClassName}`;
+
+  const image = document.createElement("img");
+  image.src = caseStudy.imageSrc;
+  image.alt = caseStudy.imageAlt;
+  image.loading = "lazy";
+  media.append(image);
+
+  const content = document.createElement("div");
+
+  const kicker = document.createElement("p");
+  kicker.className = "project-kicker";
+  kicker.textContent = caseStudy.kicker;
+
+  const title = document.createElement("h3");
+  title.textContent = caseStudy.title;
+
+  const description = document.createElement("p");
+  description.textContent = caseStudy.description;
+
+  const cta = document.createElement("strong");
+  cta.textContent = "Ver caso";
+
+  content.append(kicker, title, description, cta);
+  link.append(media, content);
+
+  return link;
+};
+
+const selectRelatedCaseStudies = (currentCaseId, count = 3) => {
+  const currentCase = caseStudies.find((caseStudy) => caseStudy.id === currentCaseId);
+  if (!currentCase) return [];
+
+  const random = createSeededRandom(getRecommendationSeed(currentCaseId));
+  const candidates = caseStudies.filter((caseStudy) => caseStudy.id !== currentCaseId);
+  const selected = [];
+  const selectedIds = new Set();
+
+  const addCase = (caseStudy) => {
+    if (!caseStudy || selectedIds.has(caseStudy.id) || selected.length >= count) return;
+    selected.push(caseStudy);
+    selectedIds.add(caseStudy.id);
+  };
+
+  const getRemainingCandidates = (filter = () => true) => candidates.filter(
+    (caseStudy) => !selectedIds.has(caseStudy.id) && filter(caseStudy)
+  );
+
+  addCase(
+    pickWeightedCase(
+      getRemainingCandidates((caseStudy) => caseStudy.tags.includes("tiendanube")),
+      random,
+      (caseStudy) => (caseStudy.priority === "featured" ? 4 : 2)
+    )
+  );
+
+  addCase(
+    pickWeightedCase(
+      getRemainingCandidates((caseStudy) => caseStudy.id === "amazon" || caseStudy.id === "ristretto"),
+      random,
+      (caseStudy) => (caseStudy.priority === "featured" ? 4 : 2)
+    )
+  );
+
+  while (selected.length < count) {
+    const remaining = getRemainingCandidates();
+    if (!remaining.length) break;
+
+    addCase(
+      pickWeightedCase(remaining, random, (caseStudy) => {
+        let weight = caseStudy.priority === "featured" ? 3 : 2;
+
+        if (caseStudy.tags.includes("tiendanube")) {
+          weight += 1;
+        }
+
+        if (caseStudy.priority === "standard" && !selected.some((item) => item.priority === "standard")) {
+          weight += 2;
+        }
+
+        return weight;
+      })
+    );
+  }
+
+  return shuffleWithSeed(selected, random).slice(0, count);
+};
+
+const renderRelatedCases = () => {
+  const grid = document.querySelector(".related-cases-grid");
+  if (!grid) return;
+
+  const currentPath = normalizePath(window.location.pathname);
+  const currentCase = caseStudies.find((caseStudy) => normalizePath(caseStudy.href) === currentPath);
+  if (!currentCase) return;
+
+  const relatedCaseStudies = selectRelatedCaseStudies(currentCase.id);
+  grid.replaceChildren(...relatedCaseStudies.map(buildRelatedCaseCard));
+};
+
+renderRelatedCases();
 
 const externalProjectLinks = document.querySelectorAll('.project-content a[href="#"]');
 const siteHeader = document.querySelector(".site-header");
