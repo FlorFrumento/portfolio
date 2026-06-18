@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
+    "sync:social-metadata": "node scripts/sync-social-metadata.mjs",
+    "prebuild": "npm run sync:social-metadata",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "echo \"No tests configured yet.\"",

@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, getFirestore, serverTimestamp } from "firebase/firestore";
 
+import { caseStudies } from "./case-studies.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBjOPddXrcn-py4PRrQvXOoz3HhN4_toFk",
   authDomain: "florencia-frumento.firebaseapp.com",
@@ -20,69 +22,6 @@ const headerNavItems = [
   { className: "desktop-only", href: "/#enfoque", label: "Enfoque" },
   { href: "/#contacto", label: "Contacto" },
   { href: "/sobre-mi/", label: "Sobre GiraFlor", page: "about" }
-];
-
-const caseStudies = [
-  {
-    id: "amazon",
-    href: "/casos/carrito-amazon.html",
-    title: "Dise\u00f1ar la decisi\u00f3n de compra",
-    kicker: "Pr\u00e1ctica profesional · Workshop",
-    description: "Research, heur\u00edsticas y redise\u00f1o del flujo mobile de Amazon para acompa\u00f1ar mejor la decisi\u00f3n de compra.",
-    imageSrc: "/case-assets/case-preview-carrito-amazon.png",
-    imageAlt: "Preview visual del caso de carrito de Amazon",
-    mediaClassName: "project-media-amazon",
-    priority: "featured",
-    tags: ["amazon", "featured", "research", "ux"]
-  },
-  {
-    id: "banner-nubecommerce",
-    href: "/casos/banner-nubecommerce.html",
-    title: "M\u00e1s respuestas, menos fricci\u00f3n",
-    kicker: "Tiendanube admin · Investigaci\u00f3n",
-    description: "Iteraci\u00f3n de microcopy y comportamiento de un banner in-app para aumentar la participaci\u00f3n en una encuesta.",
-    imageSrc: "/case-assets/case-preview-nubecommerce.jpg",
-    imageAlt: "Preview visual del caso NubeCommerce",
-    mediaClassName: "project-media-banner",
-    priority: "featured",
-    tags: ["tiendanube", "featured", "research", "product"]
-  },
-  {
-    id: "cta-migrar-tienda",
-    href: "/casos/cta-migrar-tienda.html",
-    title: "CTA para migrar tiendas",
-    kicker: "Tiendanube blog · Growth",
-    description: "A/B test de contenido y jerarqu\u00eda para abrir un nuevo punto de conversi\u00f3n hacia una landing estrat\u00e9gica.",
-    imageSrc: "/case-assets/case-preview-cta-migrar-tienda.jpg",
-    imageAlt: "Preview visual del caso CTA para migrar tiendas",
-    mediaClassName: "project-media-cta",
-    priority: "featured",
-    tags: ["tiendanube", "featured", "growth", "conversion"]
-  },
-  {
-    id: "recursos-descargables",
-    href: "/casos/recursos-descargables.html",
-    title: "Recursos descargables",
-    kicker: "Lead generation · SEO/GEO",
-    description: "Informes, e-books, playbooks y landings como experiencias completas de generaci\u00f3n de leads.",
-    imageSrc: "/case-assets/case-preview-recursos.jpg",
-    imageAlt: "Preview visual del caso de recursos descargables",
-    mediaClassName: "project-media-resource",
-    priority: "standard",
-    tags: ["lead-generation", "seo", "content"]
-  },
-  {
-    id: "ristretto",
-    href: "/casos/ristretto.html",
-    title: "Ristretto, mi app de microficci\u00f3n",
-    kicker: "Producto digital · UX/UI + IA",
-    description: "De un problema de lectura cotidiana a una experiencia digital pensada, prototipada y construida con IA.",
-    imageSrc: "/case-assets/case-preview-ristretto.jpg",
-    imageAlt: "Pantallas del prototipo de Ristretto",
-    mediaClassName: "project-media-ristretto",
-    priority: "featured",
-    tags: ["ristretto", "featured", "product", "ux"]
-  }
 ];
 
 const renderSiteHeader = () => {
