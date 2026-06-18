@@ -309,6 +309,15 @@ h3 {
   object-fit: cover;
 }
 
+.project-media-link {
+  display: block;
+  height: 100%;
+}
+
+.project-media-link img {
+  display: block;
+}
+
 .project-media-image::before,
 .project-media-image::after {
   display: none;

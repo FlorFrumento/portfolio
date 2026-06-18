@@ -15,7 +15,10 @@ const escapeAttribute = (value) => value
   .replaceAll("\"", "&quot;");
 
 const buildSocialBlock = ({ description, pageTitle, pageUrl, caseStudy }) => {
-  const imageUrl = new URL(caseStudy.imageSrc, siteOrigin).toString();
+  const imageUrl = new URL(caseStudy.socialImageSrc ?? caseStudy.imageSrc, siteOrigin).toString();
+  const imageType = caseStudy.socialImageType ?? caseStudy.imageType;
+  const imageWidth = caseStudy.socialImageWidth ?? caseStudy.imageWidth;
+  const imageHeight = caseStudy.socialImageHeight ?? caseStudy.imageHeight;
 
   return [
     `    ${SOCIAL_BLOCK_START}`,
@@ -27,12 +30,14 @@ const buildSocialBlock = ({ description, pageTitle, pageUrl, caseStudy }) => {
     `    <meta property="og:description" content="${escapeAttribute(description)}" />`,
     `    <meta property="og:url" content="${escapeAttribute(pageUrl)}" />`,
     `    <meta property="og:image" content="${escapeAttribute(imageUrl)}" />`,
+    `    <meta property="og:image:url" content="${escapeAttribute(imageUrl)}" />`,
     `    <meta property="og:image:secure_url" content="${escapeAttribute(imageUrl)}" />`,
-    `    <meta property="og:image:type" content="${caseStudy.imageType}" />`,
-    `    <meta property="og:image:width" content="${caseStudy.imageWidth}" />`,
-    `    <meta property="og:image:height" content="${caseStudy.imageHeight}" />`,
+    `    <meta property="og:image:type" content="${imageType}" />`,
+    `    <meta property="og:image:width" content="${imageWidth}" />`,
+    `    <meta property="og:image:height" content="${imageHeight}" />`,
     `    <meta property="og:image:alt" content="${escapeAttribute(caseStudy.imageAlt)}" />`,
     '    <meta name="twitter:card" content="summary_large_image" />',
+    `    <meta name="twitter:url" content="${escapeAttribute(pageUrl)}" />`,
     `    <meta name="twitter:title" content="${escapeAttribute(pageTitle)}" />`,
     `    <meta name="twitter:description" content="${escapeAttribute(description)}" />`,
     `    <meta name="twitter:image" content="${escapeAttribute(imageUrl)}" />`,
