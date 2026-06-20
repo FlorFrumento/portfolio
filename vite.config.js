@@ -3,6 +3,7 @@ import { relative, resolve } from "node:path";
 import { defineConfig } from "vite";
 
 import { i18nConfig } from "./i18n.config.js";
+import { getCanonicalPathname, getLocalizedPagePath, normalizeRoutePath } from "./route-utils.js";
 import { generateLocalizedPages } from "./scripts/i18n/generate-localized-pages.mjs";
 import { validateTranslations } from "./scripts/i18n/validate-translations.mjs";
 
@@ -10,60 +11,16 @@ const generatedRoot = ".i18n-build";
 const generatedRootPath = resolve(__dirname, generatedRoot);
 
 const toInputName = (pageId, locale) => `${pageId}-${locale}`;
+const loadJson = async (filePath) => JSON.parse(await readFile(filePath, "utf8"));
 
-const normalizeRoutePath = (route) => {
-  const normalized = route === "/" ? "/" : `/${route.replace(/^\/|\/$/g, "")}/`;
-  return normalized;
-};
-
-const pageRoutes = i18nConfig.pages.map((page) => normalizeRoutePath(page.route));
-
-const localizeRoute = (route, locale, options = {}) => {
-  const normalizedRoute = route === "/" ? "" : route.replace(/^\/|\/$/g, "");
-  const explicit = options.explicit === true;
-
-  if (locale === i18nConfig.defaultLocale && !explicit) {
-    return `/${normalizedRoute}${normalizedRoute ? "/" : ""}`;
-  }
-
-  return `/${[locale, normalizedRoute].filter(Boolean).join("/")}/`;
-};
-
-const getCanonicalPathname = (pathname = "/") => {
-  const segments = pathname.split("/").filter(Boolean);
-  const firstSegment = segments.at(0);
-  const hasExplicitLocale = i18nConfig.locales.includes(firstSegment);
-  const locale = hasExplicitLocale ? firstSegment : i18nConfig.defaultLocale;
-  const pathSegments = hasExplicitLocale ? segments.slice(1) : segments;
-  const strippedPath = `/${pathSegments.join("/")}${pathSegments.length ? "/" : ""}`;
-  const normalizedPath = normalizeRoutePath(strippedPath);
-
-  if (pageRoutes.includes(normalizedPath)) {
-    return localizeRoute(normalizedPath, locale, { explicit: hasExplicitLocale });
-  }
-
-  const nearestRoute = pageRoutes
-    .filter((route) => route !== "/" && normalizedPath.startsWith(route))
-    .sort((left, right) => right.length - left.length)[0];
-
-  if (nearestRoute) {
-    return localizeRoute(nearestRoute, locale, { explicit: hasExplicitLocale });
-  }
-
-  return localizeRoute("/", i18nConfig.defaultLocale);
-};
-
-const toGeneratedRequestPath = (route, locale, options = {}) => {
-  const normalizedRoute = route === "/" ? "" : route.replace(/^\/|\/$/g, "");
-  const explicit = options.explicit === true;
-  const localizedRoute = locale === i18nConfig.defaultLocale && !explicit
-    ? normalizedRoute
-    : [locale, normalizedRoute].filter(Boolean).join("/");
+const toGeneratedRequestPath = (pageId, locale, routeTranslations, options = {}) => {
+  const localizedRoute = getLocalizedPagePath(pageId, locale, routeTranslations, i18nConfig, options)
+    .replace(/^\/|\/$/g, "");
 
   return `/${[generatedRoot, localizedRoute, "index.html"].filter(Boolean).join("/")}`;
 };
 
-const createDevRouteMap = () => {
+const createDevRouteMap = (routeTranslations) => {
   const routeMap = new Map();
 
   i18nConfig.pages.forEach((page) => {
@@ -72,8 +29,8 @@ const createDevRouteMap = () => {
 
       explicitVariants.forEach((explicit) => {
         routeMap.set(
-          normalizeRoutePath(localizeRoute(page.route, locale, { explicit })),
-          toGeneratedRequestPath(page.route, locale, { explicit })
+          normalizeRoutePath(getLocalizedPagePath(page.id, locale, routeTranslations, i18nConfig, { explicit })),
+          toGeneratedRequestPath(page.id, locale, routeTranslations, { explicit })
         );
       });
     });
@@ -82,17 +39,14 @@ const createDevRouteMap = () => {
   return routeMap;
 };
 
-const toInputPath = (route, locale, options = {}) => {
-  const normalizedRoute = route === "/" ? "" : route.replace(/^\/|\/$/g, "");
-  const explicit = options.explicit === true;
-  const localizedRoute = locale === i18nConfig.defaultLocale && !explicit
-    ? normalizedRoute
-    : [locale, normalizedRoute].filter(Boolean).join("/");
+const toInputPath = (pageId, locale, routeTranslations, options = {}) => {
+  const localizedRoute = getLocalizedPagePath(pageId, locale, routeTranslations, i18nConfig, options)
+    .replace(/^\/|\/$/g, "");
 
   return resolve(__dirname, generatedRoot, localizedRoute, "index.html");
 };
 
-const createI18nInputs = () =>
+const createI18nInputs = (routeTranslations) =>
   Object.fromEntries(
     i18nConfig.pages.flatMap((page) =>
       i18nConfig.locales.flatMap((locale) => {
@@ -100,7 +54,7 @@ const createI18nInputs = () =>
 
         return explicitVariants.map((explicit) => [
           `${toInputName(page.id, locale)}${explicit ? "-explicit" : "-default"}`,
-          toInputPath(page.route, locale, { explicit })
+          toInputPath(page.id, locale, routeTranslations, { explicit })
         ]);
       })
     )
@@ -115,11 +69,11 @@ const createI18nBuildPlugin = () => ({
   }
 });
 
-const createI18nServePlugin = () => ({
+const createI18nServePlugin = (routeTranslations) => ({
   name: "portfolio-i18n-dev-server",
   apply: "serve",
   configureServer(server) {
-    const devRouteMap = createDevRouteMap();
+    const devRouteMap = createDevRouteMap(routeTranslations);
     let regeneration = Promise.resolve();
 
     const regenerate = async () => {
@@ -139,7 +93,7 @@ const createI18nServePlugin = () => ({
       }
 
       const requestUrl = new URL(req.url, "http://localhost");
-      const canonicalPath = getCanonicalPathname(requestUrl.pathname);
+      const canonicalPath = getCanonicalPathname(requestUrl.pathname, i18nConfig.pages, routeTranslations, i18nConfig);
 
       if (canonicalPath !== requestUrl.pathname) {
         res.statusCode = 302;
@@ -199,9 +153,15 @@ const createI18nServePlugin = () => ({
 export default defineConfig(async () => {
   await validateTranslations(__dirname);
   await generateLocalizedPages(__dirname);
+  const routeTranslations = Object.fromEntries(await Promise.all(
+    i18nConfig.locales.map(async (locale) => [
+      locale,
+      await loadJson(resolve(__dirname, "translations", locale, "routes.json"))
+    ])
+  ));
 
   return {
-    plugins: [createI18nBuildPlugin(), createI18nServePlugin()],
+    plugins: [createI18nBuildPlugin(), createI18nServePlugin(routeTranslations)],
     server: {
       watch: {
         ignored: [`**/${generatedRoot}/**`]
@@ -209,7 +169,7 @@ export default defineConfig(async () => {
     },
     build: {
       rollupOptions: {
-        input: createI18nInputs()
+        input: createI18nInputs(routeTranslations)
       }
     }
   };

@@ -1,41 +1,46 @@
 import { i18nConfig, siteOrigin } from "./i18n.config.js";
+import {
+  getCanonicalPathname,
+  getLocaleFromPathnameForConfig,
+  getLocalizedHashPath,
+  getLocalizedPagePath,
+  getPageByPathname,
+  stripLocaleFromPathnameForConfig
+} from "./route-utils.js";
 import { caseStudyCatalog } from "./case-studies.js";
 
 import esCaseStudies from "./translations/es/case-studies.json";
 import enCaseStudies from "./translations/en/case-studies.json";
+import esRoutes from "./translations/es/routes.json";
+import enRoutes from "./translations/en/routes.json";
 import esRuntime from "./translations/es/runtime.json";
 import enRuntime from "./translations/en/runtime.json";
 
 const localeResources = {
   es: {
     caseStudies: esCaseStudies,
+    routes: esRoutes,
     runtime: esRuntime
   },
   en: {
     caseStudies: enCaseStudies,
+    routes: enRoutes,
     runtime: enRuntime
   }
 };
 
+const routeTranslations = {
+  es: esRoutes,
+  en: enRoutes
+};
+
 export { i18nConfig, siteOrigin };
 
-export const getLocaleFromPathname = (pathname = "/") => {
-  const segments = pathname.split("/").filter(Boolean);
-  const firstSegment = segments.at(0);
+export const getLocaleFromPathname = (pathname = "/") =>
+  getLocaleFromPathnameForConfig(pathname, i18nConfig);
 
-  return i18nConfig.locales.includes(firstSegment) ? firstSegment : i18nConfig.defaultLocale;
-};
-
-export const stripLocaleFromPathname = (pathname = "/") => {
-  const segments = pathname.split("/").filter(Boolean);
-  const firstSegment = segments.at(0);
-
-  if (i18nConfig.locales.includes(firstSegment)) {
-    segments.shift();
-  }
-
-  return `/${segments.join("/")}${segments.length ? "/" : ""}`;
-};
+export const stripLocaleFromPathname = (pathname = "/") =>
+  stripLocaleFromPathnameForConfig(pathname, i18nConfig);
 
 export const localizePath = (route, locale, options = {}) => {
   const currentLocale = i18nConfig.locales.includes(locale) ? locale : i18nConfig.defaultLocale;
@@ -53,6 +58,18 @@ export const localizePath = (route, locale, options = {}) => {
 export const normalizeContentPath = (pathname = "/") =>
   stripLocaleFromPathname(pathname).replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
 
+export const getLocalizedRoute = (routeId, locale, options = {}) =>
+  getLocalizedPagePath(routeId, locale, routeTranslations, i18nConfig, options);
+
+export const getLocalizedHomeHash = (hash, locale, options = {}) =>
+  getLocalizedHashPath(hash, locale, routeTranslations, i18nConfig, options);
+
+export const getPageIdFromPathname = (pathname = "/") =>
+  getPageByPathname(pathname, i18nConfig.pages, routeTranslations, i18nConfig)?.id ?? null;
+
+export const getCanonicalPagePath = (pathname = "/") =>
+  getCanonicalPathname(pathname, i18nConfig.pages, routeTranslations, i18nConfig);
+
 export const getRuntimeStrings = (locale) =>
   localeResources[locale]?.runtime ?? localeResources[i18nConfig.defaultLocale].runtime;
 
@@ -62,6 +79,6 @@ export const getCaseStudies = (locale) => {
   return caseStudyCatalog.map((caseStudy) => ({
     ...caseStudy,
     ...translations[caseStudy.id],
-    href: localizePath(caseStudy.route, locale)
+    href: getLocalizedRoute(caseStudy.routeId, locale)
   }));
 };

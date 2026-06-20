@@ -2,6 +2,7 @@ import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promi
 import path from "node:path";
 
 import { i18nConfig, siteOrigin } from "../../i18n.config.js";
+import { getLocalizedPagePath } from "../../route-utils.js";
 
 const generatedRoot = ".i18n-build";
 const tokenPattern = /\{\{\s*([a-zA-Z0-9._-]+)\s*\}\}/g;
@@ -83,32 +84,21 @@ const loadJsonTree = async (rootDir, relativePath) => {
   }
 };
 
-const localizeRoute = (route, locale, options = {}) => {
-  const [pathname, hash = ""] = route.split("#");
-  const normalized = pathname === "/" ? "" : pathname.replace(/^\/|\/$/g, "");
-  const explicit = options.explicit === true;
-  const localizedPath = locale === i18nConfig.defaultLocale
-    ? (explicit ? `/${[locale, normalized].filter(Boolean).join("/")}/` : `/${normalized}${normalized ? "/" : ""}`)
-    : `/${[locale, normalized].filter(Boolean).join("/")}/`;
+const buildAbsoluteUrl = (routeId, locale, routeTranslations, options = {}) =>
+  new URL(getLocalizedPagePath(routeId, locale, routeTranslations, i18nConfig, options), siteOrigin).toString();
 
-  return hash ? `${localizedPath}#${hash}` : localizedPath;
-};
-
-const buildAbsoluteUrl = (route, locale, options = {}) =>
-  new URL(localizeRoute(route, locale, options), siteOrigin).toString();
-
-const toGeneratedRelativePath = (route, locale, options = {}) => {
-  const localized = localizeRoute(route, locale, options);
+const toGeneratedRelativePath = (routeId, locale, routeTranslations, options = {}) => {
+  const localized = getLocalizedPagePath(routeId, locale, routeTranslations, i18nConfig, options);
   const trimmed = localized.replace(/^\/|\/$/g, "");
   return path.join(generatedRoot, trimmed, "index.html");
 };
 
-const buildAlternateLinks = (page) => {
+const buildAlternateLinks = (page, routeTranslations) => {
   const alternates = i18nConfig.locales
-    .map((locale) => `<link rel="alternate" hreflang="${locale}" href="${buildAbsoluteUrl(page.route, locale, { explicit: true })}" />`)
+    .map((locale) => `<link rel="alternate" hreflang="${locale}" href="${buildAbsoluteUrl(page.id, locale, routeTranslations, { explicit: true })}" />`)
     .join("\n    ");
 
-  return `${alternates}\n    <link rel="alternate" hreflang="x-default" href="${buildAbsoluteUrl(page.route, i18nConfig.defaultLocale)}" />`;
+  return `${alternates}\n    <link rel="alternate" hreflang="x-default" href="${buildAbsoluteUrl(page.id, i18nConfig.defaultLocale, routeTranslations)}" />`;
 };
 
 const toLegacyRoutePath = (page) => {
@@ -120,15 +110,15 @@ const toLegacyRoutePath = (page) => {
   return `/${page.source}`;
 };
 
-const buildHeaderMarkup = (dictionary, locale, page, options = {}) => {
+const buildHeaderMarkup = (dictionary, locale, page, routeTranslations, options = {}) => {
   const explicit = options.explicit === true;
   const header = dictionary.shared.header;
   const navItems = [
-    { href: localizeRoute("/#casos", locale, { explicit }), label: header.nav.cases },
-    { href: localizeRoute("/#experiencia", locale, { explicit }), label: header.nav.experience },
-    { href: localizeRoute("/#enfoque", locale, { explicit }), label: header.nav.approach, className: "desktop-only" },
-    { href: localizeRoute("/#contacto", locale, { explicit }), label: header.nav.contact },
-    { href: localizeRoute("/sobre-mi/", locale, { explicit }), label: header.nav.about, currentPage: "about" }
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#casos`, label: header.nav.cases },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#experiencia`, label: header.nav.experience },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#enfoque`, label: header.nav.approach, className: "desktop-only" },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#contacto`, label: header.nav.contact },
+    { href: getLocalizedPagePath("about", locale, routeTranslations, i18nConfig, { explicit }), label: header.nav.about, currentPage: "about" }
   ];
 
   const links = navItems.map((item) => {
@@ -138,19 +128,19 @@ const buildHeaderMarkup = (dictionary, locale, page, options = {}) => {
     return `<a href="${item.href}"${className}${ariaCurrent}>${item.label}</a>`;
   }).join("");
 
-  const localizedPageRoute = localizeRoute(page.route, locale, { explicit });
-  const explicitEsHref = localizeRoute(page.route, "es", { explicit: true });
-  const explicitEnHref = localizeRoute(page.route, "en", { explicit: true });
+  const localizedPageRoute = getLocalizedPagePath(page.id, locale, routeTranslations, i18nConfig, { explicit });
+  const explicitEsHref = getLocalizedPagePath(page.id, "es", routeTranslations, i18nConfig, { explicit: true });
+  const explicitEnHref = getLocalizedPagePath(page.id, "en", routeTranslations, i18nConfig, { explicit: true });
 
   return `<div class="header-inner">
-      <a class="brand" href="${localizeRoute("/#inicio", locale, { explicit })}" aria-label="${header.brandAriaLabel}">
+      <a class="brand" href="${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#inicio" aria-label="${header.brandAriaLabel}">
         <span>${header.brand}</span>
       </a>
       <div class="header-controls">
         <nav class="main-nav" aria-label="${header.navAriaLabel}">
           ${links}
         </nav>
-        <div class="locale-switcher" aria-label="${header.localeSwitcherLabel}" data-locale-switcher data-page-route="${page.route}" data-current-path="${localizedPageRoute}">
+        <div class="locale-switcher" aria-label="${header.localeSwitcherLabel}" data-locale-switcher data-page-id="${page.id}" data-current-path="${localizedPageRoute}">
           <a href="${explicitEsHref}" hreflang="es" lang="es" data-locale-link="es"${locale === "es" ? ' aria-current="true"' : ""}>${header.locales.es}</a>
           <a href="${explicitEnHref}" hreflang="en" lang="en" data-locale-link="en"${locale === "en" ? ' aria-current="true"' : ""}>${header.locales.en}</a>
         </div>
@@ -158,16 +148,16 @@ const buildHeaderMarkup = (dictionary, locale, page, options = {}) => {
     </div>`;
 };
 
-const replaceHeader = (html, dictionary, locale, page, options = {}) =>
+const replaceHeader = (html, dictionary, locale, page, routeTranslations, options = {}) =>
   html.replace(
     /<header([^>]*data-site-header[^>]*)>[\s\S]*?<\/header>/,
-    `<header$1>${buildHeaderMarkup(dictionary, locale, page, options)}</header>`
+    `<header$1>${buildHeaderMarkup(dictionary, locale, page, routeTranslations, options)}</header>`
   );
 
-const replaceSeoTags = (html, page, locale, options = {}) => {
+const replaceSeoTags = (html, page, locale, routeTranslations, options = {}) => {
   const localeMeta = i18nConfig.localeMeta[locale];
   const explicit = options.explicit === true;
-  const canonicalUrl = buildAbsoluteUrl(page.route, locale, { explicit });
+  const canonicalUrl = buildAbsoluteUrl(page.id, locale, routeTranslations, { explicit });
   let nextHtml = html.replace(/<html lang="[^"]+">/, `<html lang="${localeMeta.htmlLang}">`);
 
   nextHtml = nextHtml.replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonicalUrl}" />`);
@@ -180,23 +170,23 @@ const replaceSeoTags = (html, page, locale, options = {}) => {
   }
 
   if (!nextHtml.includes('hreflang="x-default"')) {
-    nextHtml = nextHtml.replace("</head>", `    ${buildAlternateLinks(page)}\n  </head>`);
+    nextHtml = nextHtml.replace("</head>", `    ${buildAlternateLinks(page, routeTranslations)}\n  </head>`);
   }
 
   return nextHtml;
 };
 
-const replaceLocalizedRoutes = (html, locale, options = {}) => {
+const replaceLocalizedRoutes = (html, locale, routeTranslations, options = {}) => {
   const explicit = options.explicit === true;
   let nextHtml = html
-    .replace(/href="\/#([^"]+)"/g, (_, hash) => `href="${localizeRoute(`/#${hash}`, locale, { explicit })}"`)
-    .replace(/href='\/#([^']+)'/g, (_, hash) => `href='${localizeRoute(`/#${hash}`, locale, { explicit })}'`);
+    .replace(/href="\/#([^"]+)"/g, (_, hash) => `href="${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#${hash}"`)
+    .replace(/href='\/#([^']+)'/g, (_, hash) => `href='${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#${hash}'`);
 
   for (const page of i18nConfig.pages) {
     const legacyPath = toLegacyRoutePath(page);
-    const localizedPath = localizeRoute(page.route, locale, { explicit });
+    const localizedPath = getLocalizedPagePath(page.id, locale, routeTranslations, i18nConfig, { explicit });
     const absoluteLegacyPath = new URL(legacyPath, siteOrigin).toString();
-    const absoluteLocalizedPath = buildAbsoluteUrl(page.route, locale, { explicit });
+    const absoluteLocalizedPath = buildAbsoluteUrl(page.id, locale, routeTranslations, { explicit });
 
     nextHtml = nextHtml.replaceAll(`href="${legacyPath}"`, `href="${localizedPath}"`);
     nextHtml = nextHtml.replaceAll(`href="${absoluteLegacyPath}"`, `href="${absoluteLocalizedPath}"`);
@@ -248,6 +238,9 @@ export const generateLocalizedPages = async (rootDir) => {
   await rm(absoluteGeneratedRoot, { force: true, recursive: true });
   await mkdir(path.join(rootDir, "public"), { recursive: true });
   await copyFile(path.join(rootDir, "styles.css"), path.join(rootDir, "public", "styles.css"));
+  const routeTranslations = Object.fromEntries(await Promise.all(
+    i18nConfig.locales.map(async (locale) => [locale, await loadJson(rootDir, `translations/${locale}/routes.json`)])
+  ));
 
   for (const locale of i18nConfig.locales) {
     const dictionary = await createDictionary(rootDir, locale);
@@ -256,12 +249,12 @@ export const generateLocalizedPages = async (rootDir) => {
     for (const explicit of explicitVariants) {
       for (const page of i18nConfig.pages) {
         const sourcePath = path.join(rootDir, page.source);
-        const outputPath = path.join(rootDir, toGeneratedRelativePath(page.route, locale, { explicit }));
+        const outputPath = path.join(rootDir, toGeneratedRelativePath(page.id, locale, routeTranslations, { explicit }));
         const sourceHtml = await readFile(sourcePath, "utf8");
         const withTokens = replaceTokens(sourceHtml, dictionary, page);
-        const withLocalizedRoutes = replaceLocalizedRoutes(withTokens, locale, { explicit });
-        const withHeader = replaceHeader(withLocalizedRoutes, dictionary, locale, page, { explicit });
-        const withSeo = replaceSeoTags(withHeader, page, locale, { explicit });
+        const withLocalizedRoutes = replaceLocalizedRoutes(withTokens, locale, routeTranslations, { explicit });
+        const withHeader = replaceHeader(withLocalizedRoutes, dictionary, locale, page, routeTranslations, { explicit });
+        const withSeo = replaceSeoTags(withHeader, page, locale, routeTranslations, { explicit });
         const withStaticStyles = withSeo.replace(/href="\.\.\/styles\.css"|href="styles\.css"/g, 'href="/styles.css"');
         const finalHtml = withStaticStyles.replace(
           /<script type="module" src="([^"]*script\.js)"><\/script>/,

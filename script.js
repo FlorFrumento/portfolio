@@ -3,11 +3,13 @@ import { addDoc, collection, getFirestore, serverTimestamp } from "firebase/fire
 
 import {
   getCaseStudies,
+  getCanonicalPagePath,
   getLocaleFromPathname,
+  getLocalizedHomeHash,
+  getLocalizedRoute,
+  getPageIdFromPathname,
   getRuntimeStrings,
-  localizePath,
-  normalizeContentPath,
-  stripLocaleFromPathname
+  normalizeContentPath
 } from "./i18n.js";
 
 const firebaseConfig = {
@@ -33,18 +35,18 @@ const renderSiteHeader = () => {
 
   const currentPage = header.dataset.currentPage;
   const headerNavItems = [
-    { href: localizePath("/#casos", currentLocale), label: runtimeStrings.header.nav.cases },
-    { href: localizePath("/#experiencia", currentLocale), label: runtimeStrings.header.nav.experience },
-    { className: "desktop-only", href: localizePath("/#enfoque", currentLocale), label: runtimeStrings.header.nav.approach },
-    { href: localizePath("/#contacto", currentLocale), label: runtimeStrings.header.nav.contact },
-    { href: localizePath("/sobre-mi/", currentLocale), label: runtimeStrings.header.nav.about, page: "about" }
+    { href: getLocalizedHomeHash("casos", currentLocale), label: runtimeStrings.header.nav.cases },
+    { href: getLocalizedHomeHash("experiencia", currentLocale), label: runtimeStrings.header.nav.experience },
+    { className: "desktop-only", href: getLocalizedHomeHash("enfoque", currentLocale), label: runtimeStrings.header.nav.approach },
+    { href: getLocalizedHomeHash("contacto", currentLocale), label: runtimeStrings.header.nav.contact },
+    { href: getLocalizedRoute("about", currentLocale), label: runtimeStrings.header.nav.about, page: "about" }
   ];
   const inner = document.createElement("div");
   inner.className = "header-inner";
 
   const brand = document.createElement("a");
   brand.className = "brand";
-  brand.href = localizePath("/#inicio", currentLocale);
+  brand.href = getLocalizedHomeHash("inicio", currentLocale);
   brand.setAttribute("aria-label", runtimeStrings.header.brandAriaLabel);
 
   const brandText = document.createElement("span");
@@ -78,13 +80,15 @@ const renderSiteHeader = () => {
   localeSwitcher.className = "locale-switcher";
   localeSwitcher.setAttribute("aria-label", runtimeStrings.header.localeSwitcherLabel);
   localeSwitcher.dataset.localeSwitcher = "";
-  localeSwitcher.dataset.pageRoute = stripLocaleFromPathname(window.location.pathname);
+  localeSwitcher.dataset.pageId = getPageIdFromPathname(window.location.pathname) ?? "home";
 
   ["es", "en"].forEach((locale) => {
     const link = document.createElement("a");
-    link.href = localizePath(`${stripLocaleFromPathname(window.location.pathname)}${window.location.hash}`, locale, {
-      explicit: true
-    });
+    const pageId = localeSwitcher.dataset.pageId;
+    const localizedPagePath = getLocalizedRoute(pageId, locale, { explicit: true });
+    link.href = pageId === "home" && window.location.hash
+      ? `${localizedPagePath}${window.location.hash}`
+      : localizedPagePath;
     link.hreflang = locale;
     link.lang = locale;
     link.dataset.localeLink = locale;
@@ -108,13 +112,18 @@ const syncLocaleSwitcher = () => {
   const switchers = document.querySelectorAll("[data-locale-switcher]");
   if (!switchers.length) return;
 
-  const baseRoute = stripLocaleFromPathname(window.location.pathname);
+  const canonicalPagePath = getCanonicalPagePath(window.location.pathname);
+  const pageId = getPageIdFromPathname(canonicalPagePath) ?? "home";
   const currentHash = window.location.hash;
 
   switchers.forEach((switcher) => {
+    switcher.dataset.pageId = pageId;
     switcher.querySelectorAll("[data-locale-link]").forEach((link) => {
       const locale = link.dataset.localeLink;
-      link.href = localizePath(`${baseRoute}${currentHash}`, locale, { explicit: true });
+      const localizedPagePath = getLocalizedRoute(pageId, locale, { explicit: true });
+      link.href = pageId === "home" && currentHash
+        ? `${localizedPagePath}${currentHash}`
+        : localizedPagePath;
       if (locale === currentLocale) {
         link.setAttribute("aria-current", "true");
       } else {

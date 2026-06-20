@@ -35,6 +35,7 @@ const describeType = (value) => {
 const htmlTagPattern = /<[^>]+>/;
 
 const allowsHtml = (currentPath) => currentPath.includes("Html");
+const allowsEmptyString = (currentPath) => /\.routes\.home$/.test(currentPath);
 
 const compareNodes = (reference, candidate, currentPath, errors) => {
   if (candidate === undefined) {
@@ -51,7 +52,7 @@ const compareNodes = (reference, candidate, currentPath, errors) => {
   }
 
   if (typeof reference === "string") {
-    if (!candidate.trim()) {
+    if (!candidate.trim() && !allowsEmptyString(currentPath)) {
       errors.push(`Empty string at ${currentPath}`);
     }
 

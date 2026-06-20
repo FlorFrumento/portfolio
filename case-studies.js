@@ -4,7 +4,7 @@ export const caseStudyCatalog = [
   {
     id: "amazon",
     href: "/casos/carrito-amazon.html",
-    route: "/casos/carrito-amazon/",
+    routeId: "carrito-amazon",
     imageSrc: "/case-assets/case-preview-carrito-amazon.png",
     imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/png",
@@ -21,7 +21,7 @@ export const caseStudyCatalog = [
   {
     id: "banner-nubecommerce",
     href: "/casos/banner-nubecommerce.html",
-    route: "/casos/banner-nubecommerce/",
+    routeId: "banner-nubecommerce",
     imageSrc: "/case-assets/case-preview-nubecommerce.jpg",
     imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/jpeg",
@@ -38,7 +38,7 @@ export const caseStudyCatalog = [
   {
     id: "cta-migrar-tienda",
     href: "/casos/cta-migrar-tienda.html",
-    route: "/casos/cta-migrar-tienda/",
+    routeId: "cta-migrar-tienda",
     imageSrc: "/case-assets/case-preview-cta-migrar-tienda.jpg",
     imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/jpeg",
@@ -55,7 +55,7 @@ export const caseStudyCatalog = [
   {
     id: "recursos-descargables",
     href: "/casos/recursos-descargables.html",
-    route: "/casos/recursos-descargables/",
+    routeId: "recursos-descargables",
     imageSrc: "/case-assets/case-preview-recursos.jpg",
     imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/jpeg",
@@ -72,7 +72,7 @@ export const caseStudyCatalog = [
   {
     id: "ristretto",
     href: "/casos/ristretto.html",
-    route: "/casos/ristretto/",
+    routeId: "ristretto",
     imageSrc: "/case-assets/case-preview-ristretto.jpg",
     imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/jpeg",

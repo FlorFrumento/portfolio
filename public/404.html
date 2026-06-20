@@ -10,21 +10,32 @@
     <script>
       const defaultLocale = "es";
       const locales = new Set(["es", "en"]);
-      const pageRoutes = [
-        "/",
-        "/sobre-mi/",
-        "/casos/banner-nubecommerce/",
-        "/casos/carrito-amazon/",
-        "/casos/cta-migrar-tienda/",
-        "/casos/recursos-descargables/",
-        "/casos/ristretto/"
-      ];
+      const localizedRoutes = {
+        es: {
+          home: "",
+          about: "sobre-mi",
+          "banner-nubecommerce": "casos/banner-nubecommerce",
+          "carrito-amazon": "casos/carrito-amazon",
+          "cta-migrar-tienda": "casos/cta-migrar-tienda",
+          "recursos-descargables": "casos/recursos-descargables",
+          ristretto: "casos/ristretto"
+        },
+        en: {
+          home: "",
+          about: "about",
+          "banner-nubecommerce": "case-studies/nubecommerce-banner",
+          "carrito-amazon": "case-studies/amazon-cart",
+          "cta-migrar-tienda": "case-studies/store-migration-cta",
+          "recursos-descargables": "case-studies/downloadable-resources",
+          ristretto: "case-studies/ristretto"
+        }
+      };
 
       const normalizeRoutePath = (route) =>
-        route === "/" ? "/" : `/${route.replace(/^\/|\/$/g, "")}/`;
+        !route || route === "/" ? "/" : `/${route.replace(/^\/|\/$/g, "")}/`;
 
-      const localizeRoute = (route, locale, options = {}) => {
-        const normalizedRoute = route === "/" ? "" : route.replace(/^\/|\/$/g, "");
+      const localizeRoute = (routeId, locale, options = {}) => {
+        const normalizedRoute = localizedRoutes[locale]?.[routeId] ?? localizedRoutes[defaultLocale]?.[routeId] ?? "";
         const explicit = options.explicit === true;
 
         if (locale === defaultLocale && !explicit) {
@@ -33,6 +44,8 @@
 
         return `/${[locale, normalizedRoute].filter(Boolean).join("/")}/`;
       };
+
+      const pages = Object.keys(localizedRoutes[defaultLocale]);
 
       const getCanonicalPathname = (pathname = "/") => {
         const segments = pathname.split("/").filter(Boolean);
@@ -43,19 +56,22 @@
         const strippedPath = `/${pathSegments.join("/")}${pathSegments.length ? "/" : ""}`;
         const normalizedPath = normalizeRoutePath(strippedPath);
 
-        if (pageRoutes.includes(normalizedPath)) {
-          return localizeRoute(normalizedPath, locale, { explicit: hasExplicitLocale });
+        const exactMatch = pages.find((pageId) => normalizeRoutePath(localizedRoutes[locale]?.[pageId] ?? "") === normalizedPath);
+
+        if (exactMatch) {
+          return localizeRoute(exactMatch, locale, { explicit: hasExplicitLocale });
         }
 
-        const nearestRoute = pageRoutes
-          .filter((route) => route !== "/" && normalizedPath.startsWith(route))
-          .sort((left, right) => right.length - left.length)[0];
+        const nearestRoute = pages
+          .map((pageId) => ({ pageId, route: normalizeRoutePath(localizedRoutes[locale]?.[pageId] ?? "") }))
+          .filter(({ route }) => route !== "/" && normalizedPath.startsWith(route))
+          .sort((left, right) => right.route.length - left.route.length)[0];
 
         if (nearestRoute) {
-          return localizeRoute(nearestRoute, locale, { explicit: hasExplicitLocale });
+          return localizeRoute(nearestRoute.pageId, locale, { explicit: hasExplicitLocale });
         }
 
-        return localizeRoute("/", defaultLocale);
+        return localizeRoute("home", locale, { explicit: hasExplicitLocale });
       };
 
       const target = getCanonicalPathname(window.location.pathname);
