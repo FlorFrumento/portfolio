@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "description": "Portfolio de Florencia Frumento: te cuento cómo diseño experiencias de usuario donde el contenido guía, simplifica y conecta. ¡Te invito a leer!",
+    "title": "Florencia Frumento | Content Designer y UX Writer | Mi portfolio"
+  },
+  "hero": {
+    "eyebrow": "Product-Oriented Content Designer & UX Writer",
+    "title": "Florencia Frumento",
+    "claim": "Diseño experiencias de usuario donde el contenido guía, simplifica y conecta.",
+    "actionsAriaLabel": "Acciones principales",
+    "primaryCta": "Ver casos",
+    "secondaryCta": "Escribirme"
+  },
+  "intro": {
+    "eyebrow": "Sobre mí",
+    "title": "Contenido con visión de producto",
+    "highlight": "Product-Oriented Content Designer & UX Writer",
+    "p1": "Mi formación en Letras y mi interés por la tecnología me llevaron a trabajar en la intersección entre lenguaje, experiencia y negocio.",
+    "p2": "Diseño experiencia de usuario a través de contenido con visión de producto, donde cada palabra ayuda a ordenar información, guiar decisiones y mejorar la usabilidad.",
+    "calloutPrefix": "Te invito a leer",
+    "calloutLinkLabel": "más sobre mí y #GiraFlor",
+    "calloutSuffix": ". 🌻"
+  },
+  "featured": {
+    "eyebrow": "Trabajo seleccionado",
+    "title": "Casos de estudio",
+    "description": "Una selección de trabajos donde el contenido fue parte activa de la experiencia de producto, la conversión y la claridad del recorrido.",
+    "caseCta": "Ver caso"
+  },
+  "experience": {
+    "eyebrow": "Experiencia",
+    "title": "Trayectoria profesional",
+    "description": "Un recorrido entre contenido, producto, proyectos digitales y comunidades, con foco en claridad, estrategia y crecimiento.",
+    "itemsHtml": [
+      "<article class='experience-item'><div class='experience-meta'><p>2021 — 2026</p><span>Tiendanube</span></div><div class='experience-content'><h3>Content Strategist</h3><p>Diseñé estrategias de contenido y experiencias digitales para Tiendanube y Tiendanube Evolución. Trabajé sobre <strong>journeys de adquisición, landings, experiencias in-app, SEO y CRO con foco en claridad, negocio y UX</strong>.</p><p>Me especialicé en SEO, combinando estrategia, producción y optimización de contenidos orientados a tráfico y conversión. También me dediqué a <strong>la construcción de landings, copywriting, A/B testing y proyectos audiovisuales</strong>, incluyendo la reactivación del canal de YouTube.</p><p class='experience-takeaway'>Lo que me llevé: una visión sistémica del contenido y cómo negocio, producto, UX y comunicación trabajan juntos para generar crecimiento.</p></div></article>",
+      "<article class='experience-item'><div class='experience-meta'><p>2017 — 2021</p><span>Organización de Estados Iberoamericanos</span></div><div class='experience-content'><h3>Gestora técnica de proyectos</h3><p>Coordiné proyectos del área de Cooperación e innovación vinculados a educación y cultura. Organicé eventos presenciales y virtuales, gestioné presupuestos y desarrollé reportes de resultados para distintos stakeholders.</p><p class='experience-takeaway'>Lo que me llevé: aprendí a gestionar proyectos complejos, coordinar entre equipos y comunicar con claridad en entornos institucionales.</p></div></article>",
+      "<article class='experience-item'><div class='experience-meta'><p>2017 — 2021</p><span>Corear Orquesta de Música de Videojuegos</span></div><div class='experience-content'><h3>Community Manager</h3><p>Lideré la estrategia de contenido y redes sociales de la orquesta, a través de la redacción de copy, el diseño piezas gráficas y la programación y publicación de contenido.</p><p>Mis objetivos eran construir comunidad, amplificar el alcance y fortalecer el posicionamiento del proyecto en múltiples plataformas.</p><p class='experience-takeaway'>Lo que me llevé: entendí cómo conectar narrativa, audiencia y marca para generar comunidades activas y comprometidas.</p></div></article>"
+    ]
+  },
+  "approach": {
+    "eyebrow": "Cómo trabajo",
+    "title": "Contenido que guía decisiones",
+    "description": "Diseño contenido entendiendo el contexto completo: la necesidad de la persona, el objetivo del negocio y la lógica del producto.",
+    "trackAriaLabel": "Principios de trabajo",
+    "prevAriaLabel": "Ver criterio anterior",
+    "nextAriaLabel": "Ver criterio siguiente",
+    "itemsHtml": [
+      "<article class='stack-item carousel-slide'><div><h3>Claridad</h3><p>Ordenar información para que cada mensaje sea fácil de entender y accionar.</p></div></article>",
+      "<article class='stack-item carousel-slide'><div><h3>Contexto</h3><p>Escribir según el momento del flujo, la necesidad de la persona y el objetivo del producto.</p></div></article>",
+      "<article class='stack-item carousel-slide'><div><h3>Criterio de producto</h3><p>Pensar el contenido como parte de una experiencia, no como una capa final de texto.</p></div></article>",
+      "<article class='stack-item carousel-slide'><div><h3>Datos</h3><p>Usar señales cualitativas y cuantitativas para decidir, ajustar y aprender.</p></div></article>",
+      "<article class='stack-item carousel-slide'><div><h3>IA</h3><p>Explorar herramientas de inteligencia artificial para investigar, prototipar e iterar productos digitales.</p></div></article>"
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Diseñemos mejores experiencias",
+    "description": "Busco sumarme a equipos donde contenido, producto y experiencia trabajen en conjunto.",
+    "formEyebrow": "Escribime",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "emailLabel": "Correo",
+    "emailPlaceholder": "nombre@correo.com",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "Contame un poco sobre vos, el rol o la oportunidad.",
+    "submitCta": "Enviar mensaje"
+  },
+  "footer": {
+    "backTop": "Volver arriba"
+  }
+}

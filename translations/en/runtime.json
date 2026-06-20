@@ -1,0 +1,40 @@
+{
+  "header": {
+    "brand": "Florencia Frumento",
+    "brandAriaLabel": "Go to homepage",
+    "navAriaLabel": "Main navigation",
+    "localeSwitcherLabel": "Language",
+    "nav": {
+      "cases": "Case Studies",
+      "experience": "Experience",
+      "approach": "Approach",
+      "contact": "Contact",
+      "about": "About GiraFlor"
+    },
+    "locales": {
+      "es": "ES",
+      "en": "EN"
+    }
+  },
+  "relatedCases": {
+    "cta": "View case"
+  },
+  "lightbox": {
+    "dialogAriaLabel": "Expanded report gallery",
+    "close": "Close expanded view",
+    "previous": "View previous image",
+    "next": "View next image",
+    "zoomControls": "Zoom controls",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "zoomReset": "Reset zoom",
+    "zoomResetCurrent": "Reset zoom. Current zoom: {percent}%"
+  },
+  "contactForm": {
+    "submitBlocked": "The message could not be sent.",
+    "validationError": "Complete name, email, and message before sending.",
+    "sending": "Sending message...",
+    "success": "Message sent. Thanks for reaching out.",
+    "firebaseError": "I couldn't send the message. We can review the Firebase setup together in the next step."
+  }
+}

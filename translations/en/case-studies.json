@@ -1,0 +1,37 @@
+{
+  "amazon": {
+    "title": "Designing the purchase decision",
+    "kicker": "Professional practice · Workshop",
+    "description": "Research, heuristic analysis, and a mobile Amazon flow redesign to better support purchase decisions.",
+    "imageAlt": "Visual preview of the Amazon cart case study",
+    "cardAriaLabel": "View the Amazon cart case study"
+  },
+  "banner-nubecommerce": {
+    "title": "More responses, less friction",
+    "kicker": "Tiendanube admin · Research",
+    "description": "Microcopy and behavior iteration for an in-app banner to increase survey participation.",
+    "imageAlt": "Visual preview of the NubeCommerce case study",
+    "cardAriaLabel": "View the NubeCommerce banner case study"
+  },
+  "cta-migrar-tienda": {
+    "title": "CTA for store migration",
+    "kicker": "Tiendanube blog · Growth",
+    "description": "A/B testing content and hierarchy to open a new conversion point toward a strategic landing page.",
+    "imageAlt": "Visual preview of the store-migration CTA case study",
+    "cardAriaLabel": "View the store migration CTA case study"
+  },
+  "recursos-descargables": {
+    "title": "Downloadable resources",
+    "kicker": "Lead generation · SEO/GEO",
+    "description": "Reports, ebooks, playbooks, and landing pages conceived as complete lead-generation experiences.",
+    "imageAlt": "Visual preview of the downloadable resources case study",
+    "cardAriaLabel": "View the downloadable resources case study"
+  },
+  "ristretto": {
+    "title": "Ristretto, my microfiction app",
+    "kicker": "Digital product · UX/UI + AI",
+    "description": "From an everyday reading problem to a digital experience designed, prototyped, and built with AI.",
+    "imageAlt": "Screens from the Ristretto prototype",
+    "cardAriaLabel": "View the Ristretto case study"
+  }
+}

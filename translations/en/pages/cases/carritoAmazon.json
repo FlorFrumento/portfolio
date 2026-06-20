@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "description": "Case study on redesigning the Amazon cart flow in a hands-on UX workshop: research, heuristics, content, and a tested prototype.",
+    "title": "UX case study: Amazon cart | Florencia Frumento",
+    "ogImageAlt": "Visual preview of the Amazon cart case study"
+  },
+  "hero": {
+    "eyebrow": "Case study · CASA UX hands-on workshop",
+    "title": "Designing the purchase decision",
+    "claim": "How we redesigned the Amazon cart flow to prioritize critical information and support purchase decisions with more confidence.",
+    "actionsAriaLabel": "Case actions",
+    "primaryCta": "View prototype",
+    "secondaryCta": "See other cases"
+  },
+  "metaSummary": {
+    "ariaLabel": "Case summary",
+    "roleLabel": "Role",
+    "roleValue": "UX Content Designer",
+    "teamLabel": "Team",
+    "teamValue": "Worked alongside a UX/UI Designer and a UX Researcher in a three-person team",
+    "scopeLabel": "Scope",
+    "scopeValue": "Mobile · Product page and cart"
+  },
+  "results": {
+    "ariaLabel": "Case highlights",
+    "abandonmentValue": "62%",
+    "abandonmentText": "cart abandonment in the fictional PRD that originated the challenge.",
+    "regressionsValue": "41%",
+    "regressionsText": "regressions from the cart back to the product page.",
+    "durationValue": "5 weeks",
+    "durationText": "of workshop work to research, redesign, prototype, and test the proposal."
+  },
+  "situation": {
+    "label": "Situation",
+    "title": "The cart showed signs of distrust",
+    "contentHtml": [
+      "<p>This project originated in the <strong>professional practice workshop at <a class='inline-link' href='https://www.linkedin.com/company/casa-ux/' target='_blank' rel='noopener noreferrer'>CASA UX</a></strong>, a training and mentoring space led by Ludmila Disa and Lucre Gandolfo. I worked with <a class='inline-link' href='https://www.linkedin.com/in/b%C3%A1rbara-montes/' target='_blank' rel='noopener noreferrer'>Bárbara Montes</a>, UX/UI Designer, and <a class='inline-link' href='https://www.linkedin.com/in/melany-moglia/' target='_blank' rel='noopener noreferrer'>Melany Moglia</a>, UX Researcher, on a fictional Amazon case study.</p>",
+      "<p>The starting point was a <strong>PRD describing a business and experience problem</strong>: cart abandonment was rising and more people were returning from the cart to the product page before completing the purchase. That regression suggested the flow was not solving a critical need at the most sensitive moment in the decision.</p>",
+      "<ul><li><strong>62%</strong> of people built a cart and did not buy.</li><li><strong>41%</strong> returned from the cart to the product page.</li><li><strong>9%</strong> was the increase in abandonment rate at the final stage of the journey.</li></ul>",
+      "<p>As a team, we decided to focus on the <strong>mobile experience</strong> and review three screens end to end: product page, add-to-cart screen, and cart. The goal was to <strong>understand what users need in order to decide whether to buy and propose improvements that reduce friction</strong>.</p>"
+    ]
+  },
+  "task": {
+    "label": "Task",
+    "title": "Translate the problem into actionable research questions",
+    "contentHtml": [
+      "<p>Before thinking about solutions, we worked on <strong>problem framing</strong>: breaking down assumptions, identifying biases, and turning the problem into concrete design and research questions. The task was to identify <strong>which signals users needed to validate their purchase confidently</strong> and how to reorganize the flow to reduce cognitive load without distracting from the main objective.</p>",
+      "<p>From the initial review, we formulated a central hypothesis: <strong>the current flow was not providing critical information at the right moment, which created insecurity, doubts, and a lack of confidence to move forward to checkout.</strong></p>",
+      "<p>That hypothesis became a very concrete research goal: to understand what information, validations, and signals people need during cart building and review in order to decide whether to complete or abandon the purchase.</p>",
+      "<ul><li>Why were people returning to the product page after adding an item?</li><li>What information did they consider essential to make the final decision?</li><li>Was the friction caused by missing information, by hierarchy, or by the moment in which it appeared?</li></ul>",
+      "<div class='case-note'><p>The problem was framed this way: <strong>the cart does not prioritize the critical information people need to validate their purchase with confidence</strong>.</p></div>"
+    ]
+  },
+  "action": {
+    "label": "Action",
+    "title": "Heuristic analysis, research, and full-flow redesign",
+    "contentHtml": [
+      "<p>The work progressed in layers: first, we analyzed the current flow through Nielsen's heuristics, UX laws, information hierarchy, and language; then we conducted desk research and benchmarking and added evidence through a survey with real users; finally, we redesigned the screens and validated the proposal in a functional prototype.</p>",
+      "<h3>1. Diagnosing the current flow</h3>",
+      "<p>The heuristic review showed that the problem was a combination of <strong>visual density, ambiguous signals, poorly prioritized decisions, and lack of context</strong> at critical moments in the journey.</p>",
+      "<ul><li><strong>On the product page</strong>, the title had weak hierarchy, there was too much text about discounts, payments, and shipping, and the “Add to cart” and “Buy now” CTAs competed with very similar visual weight.</li><li><strong>On the add-to-cart screen</strong>, basic information such as title, quantity, or product price was missing; in addition, the warranty cross-sell introduced new concepts at a critical moment and distracted from the main action, which was moving forward with the purchase.</li><li><strong>In the cart</strong>, the content did not prioritize final validation: there was too much text to communicate simple benefits, and the CTA “Proceed to order” could be interpreted as immediate payment rather than as a step toward checkout.</li></ul>",
+      "<figure class='case-carousel case-carousel-mobile carousel' aria-label='Current Amazon flow before the redesign' data-carousel><button class='carousel-button carousel-button-prev' type='button' aria-label='View previous screen in the current flow' data-carousel-prev><span aria-hidden='true'>←</span></button><div class='case-carousel-track carousel-track' tabindex='0' data-carousel-track><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-actual-producto.png' alt='Current Amazon flow: mobile product screen before the redesign' loading='lazy' /></button></div><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-actual-agregado.png' alt='Current Amazon flow: add-to-cart screen before the redesign' loading='lazy' /></button></div><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-actual-carrito.png' alt='Current Amazon flow: mobile cart screen before the redesign' loading='lazy' /></button></div></div><button class='carousel-button carousel-button-next' type='button' aria-label='View next screen in the current flow' data-carousel-next><span aria-hidden='true'>→</span></button><figcaption>Screens from the current flow analyzed: product page, add-to-cart screen, and cart.</figcaption></figure>",
+      "<p>We found issues with <strong>heuristic 4 (Consistency and standards)</strong> when the flow changed terminology between screens to talk about warranty or protection; with <strong>heuristic 8 (Aesthetic and minimalist design)</strong> because of text overload and the difficulty of isolating what mattered; and with <strong>heuristic 1 (Visibility of system status)</strong> when people could not clearly see what had been added, how much it cost, or what the next step was.</p>",
+      "<p>We also leaned on <strong>Miller's law</strong> to reduce mental load by grouping related information into blocks; <strong>the affordance principle</strong> to review which elements actually read as actions; and the relationship between <strong>visual hierarchy, proximity, and recognition over recall</strong> to make more obvious what people needed to confirm before buying.</p>",
+      "<h3>2. Desk research and market benchmark</h3>",
+      "<p>Before proposing improvements, we conducted <strong>desk research and benchmarking</strong> to understand how other marketplaces handled this same moment in the journey. We focused especially on the mobile flows of <strong>Mercado Libre, eBay, SHEIN, Walmart, and TikTok Shop</strong>.</p>",
+      "<p>That analysis helped us compare add-to-cart patterns, purchase review, price and discount hierarchy, shipping treatment, presence of reviews, cross-sell, and CTA clarity. The goal was to <strong>understand which conventions were already established in the market and where there were opportunities to reduce friction</strong>.</p>",
+      "<h3>3. User research to validate the problem</h3>",
+      "<p>To gain insights from the live product, we ran a survey with real Amazon users. The data reinforced something key: <strong>the doubts were not so much about purchase intent as about the need to validate information before moving forward</strong>.</p>",
+      "<ul><li>100% of respondents had abandoned a cart at least once.</li><li>70% identified delivery times as key information for deciding.</li><li>50% highlighted shipping cost as critical information to complete the purchase.</li></ul>",
+      "<figure class='case-media case-media-intrinsic' data-lightbox-gallery><button class='case-carousel-image-button' type='button' aria-label='Expand image with survey results' data-lightbox-trigger><img src='/case-assets/encuesta-informacion-carrito-amazon.png' alt='One of the key survey questions, about the information most relevant to people when reviewing the cart' loading='lazy' /></button><figcaption>One of the key survey questions, about the information people considered most relevant when reviewing the cart.</figcaption></figure>",
+      "<p>The survey revealed very clear findings: people needed to validate costs and delivery times, they returned to the product page to recheck variants and details, visual density made it harder to identify what mattered, cross-sell competed with the main task, and reviews worked as a trust signal even within the cart context.</p>",
+      "<h3>4. Narrative structure of the flow</h3>",
+      "<p>Beyond information architecture, we worked on the <strong>narrative structure of the experience</strong>: what the user needs to see, when, in what order, and with what priority in order to move forward confidently.</p>",
+      "<p>We identified that the current cart was functioning mostly as a transactional instance, when in reality people were still deciding. So we redefined the approach: <strong>the cart should support validation, comparison, and trust-building before checkout</strong>.</p>",
+      "<ul><li><strong>Is this the right product?</strong> Variant, photos, details, and rating.</li><li><strong>How much will I really pay?</strong> Final price, shipping, taxes, and discounts.</li><li><strong>When will it arrive?</strong> Delivery date, speed, and availability.</li><li><strong>Can I trust it?</strong> Reputation, returns, clarity, and consistency.</li><li><strong>Am I ready to complete the purchase?</strong> Clear CTA, summary, and an obvious next step.</li></ul>",
+      "<div class='case-note'><p>This conceptual logic organized the entire proposal: <strong>turning a dense, transactional experience into a clear, trustworthy validation experience oriented toward decision-making</strong>.</p></div>",
+      "<h3>5. Redesigning the three screens</h3>",
+      "<p>With that evidence, we redesigned <strong>the architecture and information hierarchy of the full flow</strong>. Each screen needed to answer the question the user was asking at that moment, without forcing them to go back.</p>",
+      "<ul><li><strong>Product page:</strong> we reordered information to prioritize photo, price, title, rating, discounts, free shipping, variants, and delivery date. Reviews became more prominent because they emerged as a trust input in the survey.</li><li><strong>Add-to-cart screen:</strong> we made it visible which product had been added, how many units, and what the next CTA was; we also moved promotions and discounts to a more appropriate point in the flow.</li><li><strong>Cart:</strong> we reorganized content to highlight the screen title, key information for each product, related offers, and a more legible order summary with clearer subtotals.</li></ul>",
+      "<p>We also worked on <strong>better use of white space</strong> to highlight what mattered most according to the information hierarchy analysis, along with <strong>clearer color semantics and typographic size and weight</strong> to guide reading. For example, free shipping was highlighted in a light but noticeable green, while the discount percentage used a red accent to convey urgency and support conversion without competing with the product's core information.</p>",
+      "<p>Several heuristics were resolved more clearly in our proposal: <strong>visibility of system status</strong> by showing what was added and how to proceed; <strong>consistency</strong> by unifying copy and criteria across screens; the <strong>match between system and real world</strong> by making signals like discounts and benefits more recognizable; and <strong>flexibility and efficiency of use</strong> by allowing product details to be reviewed without leaving the cart.</p>",
+      "<figure class='case-carousel case-carousel-mobile carousel' aria-label='Proposed Amazon flow after the redesign' data-carousel><button class='carousel-button carousel-button-prev' type='button' aria-label='View previous screen in the new flow' data-carousel-prev><span aria-hidden='true'>←</span></button><div class='case-carousel-track carousel-track' tabindex='0' data-carousel-track><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-nuevo-producto.png' alt='Proposed new flow: redesigned mobile product screen' loading='lazy' /></button></div><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-nuevo-agregado.png' alt='Proposed new flow: redesigned add-to-cart screen' loading='lazy' /></button></div><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-nuevo-carrito.png' alt='Proposed new flow: redesigned mobile cart screen' loading='lazy' /></button></div></div><button class='carousel-button carousel-button-next' type='button' aria-label='View next screen in the new flow' data-carousel-next><span aria-hidden='true'>→</span></button><figcaption>Redesigned mobile flow proposal: product, add-to-cart, and cart.</figcaption></figure>",
+      "<h3>6. Two new features to reduce regressions and add value</h3>",
+      "<p>In addition to the base redesign, we proposed two specific features to address behaviors observed in the flow and mentioned in the PRD.</p>",
+      "<ul><li><strong>Product detail modal inside the cart:</strong> allows people to review characteristics without going back to the full product page, which can reduce regressions to that screen.</li><li><strong>Delete-product dialog:</strong> written so title, body, and CTA worked together, offering control and an option to save the product for later.</li></ul>",
+      "<p>In both features, we also applied heuristic criteria and UX principles: user control and freedom, visibility of system status, and stronger affordance so the interface expressed more clearly what would happen after each action.</p>",
+      "<h3>7. Functional prototype and usability test</h3>",
+      "<p>We took the proposal into a <strong>functional Figma prototype and tested it</strong> to understand whether it really made purchase validation easier and increased confidence to continue to checkout.</p>",
+      "<p>The hypotheses we wanted to validate were:</p>",
+      "<ul><li>The new cart makes it possible to validate the purchase with greater clarity and lower cognitive load.</li><li>Users better understand costs, discounts, and shipping conditions.</li><li>Quick access to relevant information reduces the need to return to the product page.</li><li>The suggestion to save products before deleting them adds value without creating friction.</li></ul>"
+    ]
+  },
+  "result": {
+    "label": "Result",
+    "title": "A more consistent experience and concrete learnings",
+    "linksAriaLabel": "Amazon case deliverables",
+    "prototypeCta": "Figma prototype",
+    "workFileCta": "Working Figma file",
+    "contentHtml": [
+      "<p>Because this was a workshop, <strong>the outcome was not a production implementation but a tested prototype</strong> that allowed us to validate part of the proposal while also identifying new opportunities for improvement.</p>",
+      "<p>The main advance was having <strong>turned the challenge proposed by Product in the PRD into a system of design decisions backed by evidence</strong>: going back to the product page was not a user whim, but a symptom of insufficient or poorly prioritized information in the cart.</p>",
+      "<div class='case-comparison'><article class='case-panel'><h3>What worked</h3><p>People understood better what they were buying, identified signals like free shipping more easily, and valued being able to review product details without leaving the cart.</p></article><article class='case-panel'><h3>What still needed iteration</h3><p>Doubts remained around the price summary, some components had weak affordance such as “save for later,” and some microinteractions could still be simplified.</p></article></div>",
+      "<p>The test surfaced very useful learnings for the next iteration:</p>",
+      "<ul><li>The image change when switching colors needed better visual feedback.</li><li>The price summary still created confusion around discounts and shipping.</li><li>Access to product details from the cart was well received.</li><li>The “save” action was not always interpreted as clickable.</li><li>The delete modal could likely be resolved better with a lighter inline alternative.</li></ul>",
+      "<div class='case-note'><p>The most transformative learning was that <strong>when a person goes back in a purchase flow, they are often not doubting the purchase itself, but trying to recover information the system failed to provide at the right time</strong>.</p></div>"
+    ]
+  },
+  "related": {
+    "eyebrow": "Other cases",
+    "title": "More content decisions applied to research, UX, and conversion"
+  }
+}

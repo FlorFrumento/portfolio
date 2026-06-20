@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Caso de estudio sobre Ristretto, una web app de microficción diseñada con metodología UX/UI, desarrollo de prototipo funcional y construida con IA."
+      content="{{ meta.description }}"
     />
     <!-- Social metadata -->
     <link rel="canonical" href="https://florencia-frumento.web.app/casos/ristretto.html" />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Florencia Frumento" />
-    <meta property="og:title" content="Ristretto, mi app de microficción | Por Florencia Frumento" />
-    <meta property="og:description" content="Caso de estudio sobre Ristretto, una web app de microficción diseñada con metodología UX/UI, desarrollo de prototipo funcional y construida con IA." />
+    <meta property="og:title" content="{{ meta.title }}" />
+    <meta property="og:description" content="{{ meta.description }}" />
     <meta property="og:url" content="https://florencia-frumento.web.app/casos/ristretto.html" />
     <meta property="og:image" content="https://florencia-frumento.web.app/case-assets/social/ristretto-social.jpg" />
     <meta property="og:image:url" content="https://florencia-frumento.web.app/case-assets/social/ristretto-social.jpg" />
@@ -21,15 +21,15 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Pantallas del prototipo de Ristretto" />
+    <meta property="og:image:alt" content="{{ meta.ogImageAlt }}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://florencia-frumento.web.app/casos/ristretto.html" />
-    <meta name="twitter:title" content="Ristretto, mi app de microficción | Por Florencia Frumento" />
-    <meta name="twitter:description" content="Caso de estudio sobre Ristretto, una web app de microficción diseñada con metodología UX/UI, desarrollo de prototipo funcional y construida con IA." />
+    <meta name="twitter:title" content="{{ meta.title }}" />
+    <meta name="twitter:description" content="{{ meta.description }}" />
     <meta name="twitter:image" content="https://florencia-frumento.web.app/case-assets/social/ristretto-social.jpg" />
-    <meta name="twitter:image:alt" content="Pantallas del prototipo de Ristretto" />
+    <meta name="twitter:image:alt" content="{{ meta.ogImageAlt }}" />
     <!-- /Social metadata -->
-    <title>Ristretto, mi app de microficción | Por Florencia Frumento</title>
+    <title>{{ meta.title }}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,68 +45,55 @@
     <main class="case-main">
       <section class="hero section case-hero">
         <div class="hero-copy">
-          <p class="eyebrow">Caso de estudio · Proyecto personal</p>
-          <h1>Ristretto, mi app de microficción</h1>
-          <p class="hero-claim">
-            Del prototipo funcional para disfrutar literatura concentrada a una web
-            app productiva construida con IA y vibe coding.
-          </p>
-          <div class="hero-actions" aria-label="Acciones del caso">
-            <a class="button primary" href="https://ristretto.lovable.app/" target="_blank" rel="noreferrer">Abrir web app</a>
-            <a class="button secondary" href="/#casos">Ver otros casos</a>
+          <p class="eyebrow">{{ hero.eyebrow }}</p>
+          <h1>{{ hero.title }}</h1>
+          <p class="hero-claim">{{ hero.claim }}</p>
+          <div class="hero-actions" aria-label="{{ hero.actionsAriaLabel }}">
+            <a class="button primary" href="https://ristretto.lovable.app/" target="_blank" rel="noreferrer">{{ hero.primaryCta }}</a>
+            <a class="button secondary" href="/#casos">{{ hero.secondaryCta }}</a>
           </div>
         </div>
 
-        <aside class="case-meta" aria-label="Resumen del caso">
+        <aside class="case-meta" aria-label="{{ metaSummary.ariaLabel }}">
           <div class="case-meta-item">
-            <span>Rol</span>
-            <strong>Diseño UX/UI y desarrollo asistido por IA</strong>
+            <span>{{ metaSummary.roleLabel }}</span>
+            <strong>{{ metaSummary.roleValue }}</strong>
           </div>
           <div class="case-meta-item">
-            <span>Proceso</span>
-            <strong>Research, arquitectura, flujos, prototipo, usabilidad y heurísticas.</strong>
+            <span>{{ metaSummary.processLabel }}</span>
+            <strong>{{ metaSummary.processValue }}</strong>
           </div>
           <div class="case-meta-item">
-            <span>Implementación</span>
-            <strong>Figma, FigJam, Optimal Workshop, Lovable, GitHub y terminal</strong>
+            <span>{{ metaSummary.implementationLabel }}</span>
+            <strong>{{ metaSummary.implementationValue }}</strong>
           </div>
         </aside>
       </section>
 
-      <section class="section case-summary" aria-label="Alcance del proyecto">
+      <section class="section case-summary" aria-label="{{ results.ariaLabel }}">
         <div class="case-summary-item">
-          <strong>Product thinking</strong>
-          <p>Validación de idea inicial, research, MVP, prototipo funcional y web app en producción construida con IA.</p>
+          <strong>{{ results.productValue }}</strong>
+          <p>{{ results.productText }}</p>
         </div>
         <div class="case-summary-item">
-          <strong>Arquitectura y flows</strong>
-          <p>Flujos de búsqueda, navegación y descubrimiento diseñados para una experiencia intuitiva.</p>
+          <strong>{{ results.architectureValue }}</strong>
+          <p>{{ results.architectureText }}</p>
         </div>
         <div class="case-summary-item">
-          <strong>Iteración y validación</strong>
-          <p>Card sorting, evaluación de heurísticas y pruebas de usabilidad con usuarios reales para ajustar decisiones clave.</p>
+          <strong>{{ results.iterationValue }}</strong>
+          <p>{{ results.iterationText }}</p>
         </div>
       </section>
 
       <section class="section case-section" aria-labelledby="situacion-title">
         <div>
-          <p class="case-section-label">Situación</p>
-          <h2 id="situacion-title">Recuperar el hábito lector en la era del scroll</h2>
+          <p class="case-section-label">{{ situation.label }}</p>
+          <h2 id="situacion-title">{{ situation.title }}</h2>
         </div>
         <div>
-          <p>
-            En el marco del curso de UX/UI Design en Coderhouse, desarrollé una idea de producto propia a partir de problema cada vez más común: muchas personas querían volver a leer, pero encontraban difícil sostener obras extensas en rutinas atravesadas por la velocidad, las redes sociales y la fragmentación de la atención.
-          </p>
-          <p>
-            Así nació <strong>Ristretto: una aplicación de microficción pensada para leer en momentos breves, descubrir autores y recuperar el hábito lector</strong> desde una lógica más compatible con los tiempos reales de uso.
-          </p>
-          <p>
-            El concepto nace del ristretto, aquella variante de café corto que se prepara con la misma intensidad de un espresso,
-            extraída con la mitad del agua. <strong>La propuesta es disfrutar la literatura del
-            mismo modo: en una lectura breve y con sabor concentrado.</strong>
-          </p>
-          <figure class="case-carousel case-carousel-landscape carousel" aria-label="Páginas de la presentación de research de Ristretto" data-carousel>
-            <button class="carousel-button carousel-button-prev" type="button" aria-label="Ver página anterior de la presentación" data-carousel-prev>
+          {{ situation.contentHtml }}
+          <figure class="case-carousel case-carousel-landscape carousel" aria-label="{{ situation.carouselAriaLabel }}" data-carousel>
+            <button class="carousel-button carousel-button-prev" type="button" aria-label="{{ situation.carouselPrevAriaLabel }}" data-carousel-prev>
               <span aria-hidden="true">←</span>
             </button>
             <div class="case-carousel-track carousel-track" tabindex="0" data-carousel-track>
@@ -114,7 +101,7 @@
                 <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
                   <img
                     src="/case-assets/ristretto-research-1.jpg"
-                    alt="Página de la presentación de Ristretto sobre desk research y benchmarking"
+                    alt="{{ situation.researchSlide1Alt }}"
                     loading="lazy"
                   />
                 </button>
@@ -123,7 +110,7 @@
                 <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
                   <img
                     src="/case-assets/ristretto-research-2.jpg"
-                    alt="Página de la presentación de Ristretto sobre metodología ágil y design thinking"
+                    alt="{{ situation.researchSlide2Alt }}"
                     loading="lazy"
                   />
                 </button>
@@ -132,7 +119,7 @@
                 <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
                   <img
                     src="/case-assets/ristretto-research-3.jpg"
-                    alt="Página de benchmark de Ristretto con apps de lectura y oportunidades detectadas"
+                    alt="{{ situation.researchSlide3Alt }}"
                     loading="lazy"
                   />
                 </button>
@@ -141,7 +128,7 @@
                 <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
                   <img
                     src="/case-assets/ristretto-research-4.jpg"
-                    alt="Página de benchmark de Ristretto con competidores de microficción y hallazgos"
+                    alt="{{ situation.researchSlide4Alt }}"
                     loading="lazy"
                   />
                 </button>
@@ -150,17 +137,17 @@
                 <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
                   <img
                     src="/case-assets/ristretto-research-5.jpg"
-                    alt="Página de validación del problema de Ristretto con búsquedas sobre microcuento"
+                    alt="{{ situation.researchSlide5Alt }}"
                     loading="lazy"
                   />
                 </button>
               </div>
             </div>
-            <button class="carousel-button carousel-button-next" type="button" aria-label="Ver página siguiente de la presentación" data-carousel-next>
+            <button class="carousel-button carousel-button-next" type="button" aria-label="{{ situation.carouselNextAriaLabel }}" data-carousel-next>
               <span aria-hidden="true">→</span>
             </button>
             <figcaption>
-              Fragmentos de la presentación de research y benchmark del proyecto.
+              {{ situation.carouselCaption }}
             </figcaption>
           </figure>
         </div>
@@ -168,46 +155,22 @@
 
       <section class="section case-section" aria-labelledby="tarea-title">
         <div>
-          <p class="case-section-label">Tarea</p>
-          <h2 id="tarea-title">Diseñar una experiencia de descubrimiento literario</h2>
+          <p class="case-section-label">{{ task.label }}</p>
+          <h2 id="tarea-title">{{ task.title }}</h2>
         </div>
-        <div>
-          <p>
-            El desafío era diseñar un MVP que ayudara a descubrir, explorar y guardar microficciones de forma rápida e intuitiva, priorizando momentos breves de lectura y baja fricción en la navegación.
-          </p>
-          <p>
-            La propuesta reunía <strong>obras curadas de distintos géneros literarios</strong> y permitía encontrarlas mediante búsqueda por título, palabra clave o autor, además de filtros, recomendaciones relacionadas y favoritos para releer.
-          </p>
-          <p>
-            <strong>El objetivo era transformar el deseo de leer más en una experiencia simple, accesible y compatible con tiempos reales de uso.</strong>
-          </p>
-        </div>
+        <div>{{ task.contentHtml }}</div>
       </section>
 
       <section class="section case-section" aria-labelledby="accion-title">
-  <div>
-    <p class="case-section-label">Acción</p>
-    <h2 id="accion-title">Del research al prototipo funcional</h2>
-  </div>
+        <div>
+          <p class="case-section-label">{{ action.label }}</p>
+          <h2 id="accion-title">{{ action.title }}</h2>
+        </div>
 
-  <div>
-    <p>
-      El proyecto combinó research, arquitectura de información y diseño iterativo para construir una experiencia de descubrimiento centrada en la lectura y adaptada a tiempos breves de uso.
-    </p>
-
-    <p>
-      El benchmark inicial mostró una oportunidad para <strong>una app de microficción en español, con contenido curado y una navegación más ágil que las alternativas existentes</strong>. A partir de eso, definí el MVP, los flujos principales y la arquitectura de navegación.
-    </p>
-
-    <ul>
-      <li>Benchmark de apps de lectura y validación de la idea de producto.</li>
-      <li>Definición de proto-persona, POV y funcionalidades prioritarias del MVP.</li>
-      <li>Arquitectura de la información, card sorting y diseño de flujos de navegación.</li>
-      <li>Evolución de wireframes, UI kit y prototipo funcional en Figma.</li>
-      <li>Evaluación heurística y pruebas de usabilidad moderadas con 10 usuarios reales para detectar puntos de fricción e iterar la experiencia.</li>
-    </ul>
-    <figure class="case-carousel case-carousel-landscape carousel" aria-label="Materiales del proceso de diseño de Ristretto" data-carousel>
-      <button class="carousel-button carousel-button-prev" type="button" aria-label="Ver material anterior del proceso" data-carousel-prev>
+        <div>
+          {{ action.contentHtml }}
+    <figure class="case-carousel case-carousel-landscape carousel" aria-label="{{ action.carouselAriaLabel }}" data-carousel>
+      <button class="carousel-button carousel-button-prev" type="button" aria-label="{{ action.carouselPrevAriaLabel }}" data-carousel-prev>
         <span aria-hidden="true">←</span>
       </button>
       <div class="case-carousel-track carousel-track" tabindex="0" data-carousel-track>
@@ -215,7 +178,7 @@
           <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
             <img
               src="/case-assets/ristretto-action-1.jpg"
-              alt="Portada de la sección de flujos de Ristretto con una pantalla del modo Descubrir"
+              alt="{{ action.slide1Alt }}"
               loading="lazy"
             />
           </button>
@@ -224,7 +187,7 @@
           <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
             <img
               src="/case-assets/ristretto-action-2.jpg"
-              alt="Taskflow de Ristretto para buscar y filtrar microrrelatos por título, autor o género"
+              alt="{{ action.slide2Alt }}"
               loading="lazy"
             />
           </button>
@@ -233,7 +196,7 @@
           <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
             <img
               src="/case-assets/ristretto-action-3.jpg"
-              alt="Flowchart del flujo principal de descubrimiento y lectura en Ristretto"
+              alt="{{ action.slide3Alt }}"
               loading="lazy"
             />
           </button>
@@ -242,7 +205,7 @@
           <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
             <img
               src="/case-assets/ristretto-action-4.jpg"
-              alt="Portada de la evolución de wireframes de Ristretto"
+              alt="{{ action.slide4Alt }}"
               loading="lazy"
             />
           </button>
@@ -251,7 +214,7 @@
           <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
             <img
               src="/case-assets/ristretto-action-5.jpg"
-              alt="Wireframes digitales de las pantallas principales de Ristretto"
+              alt="{{ action.slide5Alt }}"
               loading="lazy"
             />
           </button>
@@ -260,7 +223,7 @@
           <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
             <img
               src="/case-assets/ristretto-action-6.jpg"
-              alt="Patrones de diseño y guidelines aplicados a los wireframes de Ristretto"
+              alt="{{ action.slide6Alt }}"
               loading="lazy"
             />
           </button>
@@ -269,36 +232,30 @@
           <button class="case-carousel-image-button" type="button" data-lightbox-trigger>
             <img
               src="/case-assets/ristretto-action-7.jpg"
-              alt="Evolución del wireframe de búsqueda en Ristretto desde boceto hasta interfaz final"
+              alt="{{ action.slide7Alt }}"
               loading="lazy"
             />
           </button>
         </div>
       </div>
-      <button class="carousel-button carousel-button-next" type="button" aria-label="Ver siguiente material del proceso" data-carousel-next>
+      <button class="carousel-button carousel-button-next" type="button" aria-label="{{ action.carouselNextAriaLabel }}" data-carousel-next>
         <span aria-hidden="true">→</span>
       </button>
       <figcaption>
-        Proceso de diseño: pantallas clave, flujos, wireframes y evolución de la interfaz.
+        {{ action.carouselCaption }}
       </figcaption>
     </figure>
 
-    <p>
-      Las pruebas con usuarios ayudaron a identificar oportunidades concretas de mejora, especialmente en onboarding, labels y comprensión de los modos “Descubrir” y “Biblioteca”.
-    </p>
-
-    <p>
-      <strong>Tiempo después, retomé el proyecto para convertir el prototipo en una web app funcional utilizando Lovable, GitHub, Visual Studio Code y la terminal.</strong>
-    </p>
+    {{ action.afterCarouselHtml }}
 
     <figure class="case-media case-media-intrinsic">
       <img
         src="/case-assets/ristretto-recorrido.gif"
-        alt="Recorrido animado por la web app funcional de Ristretto"
+        alt="{{ action.gifAlt }}"
         loading="lazy"
       />
       <figcaption>
-        Recorrido por la web app funcional de Ristretto.
+        {{ action.gifCaption }}
       </figcaption>
     </figure>
 
@@ -307,45 +264,35 @@
 
       <section class="section case-section" aria-labelledby="resultado-title">
         <div>
-          <p class="case-section-label">Resultado</p>
-          <h2 id="resultado-title">Un MVP validado y llevado a producción</h2>
+          <p class="case-section-label">{{ result.label }}</p>
+          <h2 id="resultado-title">{{ result.title }}</h2>
         </div>
         <div>
-          <p>
-            Las pruebas de usabilidad mostraron que el flujo principal de descubrimiento funcionaba correctamente: las personas podían buscar microficciones, explorar resultados y acceder a las obras sin fricción significativa.
-          </p>
-          <p>
-            Al mismo tiempo, el testing permitió detectar oportunidades concretas de mejora en onboarding, microcopy y comprensión de los modos “Descubrir” y “Biblioteca”, lo que ayudó a iterar la experiencia con mayor claridad.
-          </p>
-          <div class="case-note">
-            <p>
-              El aprendizaje más importante llegó después: <strong>proyecto que había comenzado como investigación, MVP y prototipo UX/UI terminó convirtiéndose en una web app funcional</strong> construida con Lovable, GitHub y herramientas de IA.
-            </p>
-          </div>
-          <div class="case-links" aria-label="Entregables y producto Ristretto">
-            <a class="button primary" href="https://ristretto.lovable.app/" target="_blank" rel="noreferrer">Visitar Ristretto</a>
-            <a class="button secondary" href="https://drive.google.com/file/d/1ok8cHZpX2wGNvRp2aMQnw__PofCcKuQb/view?usp=sharing" target="_blank" rel="noreferrer">Presentación del proyecto</a>
-            <a class="button secondary" href="https://www.figma.com/proto/s6Y0wNAscvXD3pIL2RTIno/Moodboard%2C-UI-kit-y-Prototipo-%5BRistretto%5D?type=design&amp;node-id=6-373&amp;t=yEzeLlrewIixDuZg-1&amp;scaling=contain&amp;page-id=0%3A1&amp;starting-point-node-id=6%3A373&amp;mode=design" target="_blank" rel="noreferrer">Prototipo Figma</a>
-            <a class="button secondary" href="https://www.figma.com/file/K2UjtLYHyMgkJyAEcv8SF0/Flujos-%5BRistretto%5D?type=whiteboard&amp;node-id=0%3A1&amp;t=cKaeOy4AMl2ldnKA-1" target="_blank" rel="noreferrer">Flujos</a>
-            <a class="button secondary" href="https://www.figma.com/file/GVAZ2mY6GO4UnEYxiReqoN/Wireframes-%5BRistretto%5D?type=design&amp;node-id=0%3A1&amp;mode=design&amp;t=xaeEw0UPutyEQfnD-1" target="_blank" rel="noreferrer">Wireframes</a>
-            <a class="button secondary" href="https://www.figma.com/file/l3b7iF5Hhllr87YEHSYdo9/Arquitectura-de-la-informaci%C3%B3n-%5BRistretto%5D?type=whiteboard&amp;t=2PuXxJiDi5qzgRmB-1" target="_blank" rel="noreferrer">Arquitectura</a>
-            <a class="button secondary" href="https://www.figma.com/file/jIT92SWk3HwibfSohfUGoA/Heur%C3%ADsticas-%5BRistretto%5D?type=design&amp;node-id=0%3A1&amp;mode=design&amp;t=2wT6f0t0FnqvZ33j-1" target="_blank" rel="noreferrer">Heurísticas</a>
+          {{ result.contentHtml }}
+          <div class="case-links" aria-label="{{ result.linksAriaLabel }}">
+            <a class="button primary" href="https://ristretto.lovable.app/" target="_blank" rel="noreferrer">{{ result.visitCta }}</a>
+            <a class="button secondary" href="https://drive.google.com/file/d/1ok8cHZpX2wGNvRp2aMQnw__PofCcKuQb/view?usp=sharing" target="_blank" rel="noreferrer">{{ result.deckCta }}</a>
+            <a class="button secondary" href="https://www.figma.com/proto/s6Y0wNAscvXD3pIL2RTIno/Moodboard%2C-UI-kit-y-Prototipo-%5BRistretto%5D?type=design&amp;node-id=6-373&amp;t=yEzeLlrewIixDuZg-1&amp;scaling=contain&amp;page-id=0%3A1&amp;starting-point-node-id=6%3A373&amp;mode=design" target="_blank" rel="noreferrer">{{ result.prototypeCta }}</a>
+            <a class="button secondary" href="https://www.figma.com/file/K2UjtLYHyMgkJyAEcv8SF0/Flujos-%5BRistretto%5D?type=whiteboard&amp;node-id=0%3A1&amp;t=cKaeOy4AMl2ldnKA-1" target="_blank" rel="noreferrer">{{ result.flowsCta }}</a>
+            <a class="button secondary" href="https://www.figma.com/file/GVAZ2mY6GO4UnEYxiReqoN/Wireframes-%5BRistretto%5D?type=design&amp;node-id=0%3A1&amp;mode=design&amp;t=xaeEw0UPutyEQfnD-1" target="_blank" rel="noreferrer">{{ result.wireframesCta }}</a>
+            <a class="button secondary" href="https://www.figma.com/file/l3b7iF5Hhllr87YEHSYdo9/Arquitectura-de-la-informaci%C3%B3n-%5BRistretto%5D?type=whiteboard&amp;t=2PuXxJiDi5qzgRmB-1" target="_blank" rel="noreferrer">{{ result.architectureCta }}</a>
+            <a class="button secondary" href="https://www.figma.com/file/jIT92SWk3HwibfSohfUGoA/Heur%C3%ADsticas-%5BRistretto%5D?type=design&amp;node-id=0%3A1&amp;mode=design&amp;t=2wT6f0t0FnqvZ33j-1" target="_blank" rel="noreferrer">{{ result.heuristicsCta }}</a>
           </div>
         </div>
       </section>
 
       <section class="section related-cases" aria-labelledby="otros-casos-title">
         <div class="related-cases-heading">
-          <p class="eyebrow">Otros casos</p>
-          <h2 id="otros-casos-title">Contenido aplicado a investigación, conversión y growth</h2>
+          <p class="eyebrow">{{ related.eyebrow }}</p>
+          <h2 id="otros-casos-title">{{ related.title }}</h2>
         </div>
         <div class="related-cases-grid"></div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Me interesan las preguntas, el lenguaje y las decisiones que dan forma a una experiencia.</p>
-      <a href="/#inicio">Volver al inicio</a>
+      <p>{{ shared.footer.tagline }}</p>
+      <a href="/#inicio">{{ shared.footer.backHome }}</a>
     </footer>
 
     <script type="module" src="../script.js"></script>

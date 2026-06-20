@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "description": "Case study on iterating an in-app banner in the Tiendanube admin to increase participation in the NubeCommerce survey.",
+    "title": "UX case study: in-app banner for NubeCommerce | Florencia Frumento",
+    "ogTitle": "UX case study: in-app banner for NubeCommerce | Florencia Frumento",
+    "ogDescription": "Case study on iterating an in-app banner in the Tiendanube admin to increase participation in the NubeCommerce survey.",
+    "ogImageAlt": "Visual preview of the NubeCommerce case study"
+  },
+  "hero": {
+    "eyebrow": "Case study · Tiendanube admin",
+    "title": "More responses, less friction",
+    "claim": "How a microcopy and behavior iteration on an in-app banner increased participation in the annual survey for the NubeCommerce report.",
+    "actionsAriaLabel": "Case actions",
+    "primaryCta": "Let's talk",
+    "secondaryCta": "See other cases"
+  },
+  "metaSummary": {
+    "ariaLabel": "Case summary",
+    "roleLabel": "Role",
+    "roleValue": "Content Strategist and Content Squad Lead",
+    "channelLabel": "Channel",
+    "channelValue": "In-app banner in the admin panel",
+    "impactLabel": "Impact",
+    "impactValue": "+60% CTR on the survey CTA"
+  },
+  "results": {
+    "ariaLabel": "Key results",
+    "ctrValue": "+60%",
+    "ctrText": "increase in CTR on the CTA to complete the survey.",
+    "responsesValue": "+3,770",
+    "responsesText": "total consolidated responses in the report survey.",
+    "windowValue": "15 days",
+    "windowText": "critical window before the survey closed."
+  },
+  "related": {
+    "eyebrow": "Other cases",
+    "title": "More content decisions applied to product and conversion"
+  },
+  "situation": {
+    "label": "Situation",
+    "title": "The report needed more high-quality responses",
+    "contentHtml": [
+      "<p>Every year, Tiendanube publishes NubeCommerce, its annual ecommerce report. To build the 2025 edition, we combined:</p>",
+      "<ul><li>anonymized internal data from more than 65,000 stores in Argentina,</li><li>the annual merchant survey, and</li><li>global and regional market sources.</li></ul>",
+      "<p>With 15 days left before the deadline, the survey already had a usable base, but the team wanted <strong>to expand the sample to strengthen the reading of trends and improve the report's representativeness</strong>, both for small businesses and larger mid-market brands.</p>"
+    ]
+  },
+  "task": {
+    "label": "Task",
+    "title": "Detect friction without adding interruption",
+    "contentHtml": [
+      "<p>The invitation to respond was being sent by email and through a banner in the store admin panel. The problem was that if someone closed the banner because the moment was inconvenient, they would not see it again.</p>",
+      "<p>The hypothesis was that many people might be willing to respond, just not at the exact moment the communication appeared. The task was to <strong>reframe the touchpoint so the invitation stayed available without becoming invasive</strong>.</p>"
+    ]
+  },
+  "action": {
+    "label": "Action",
+    "title": "Iterate the banner behavior and copy",
+    "intro": "Instead of relying on a dismissible appearance, we proposed leaving the invitation fixed as a header inside the admin during the final survey window. The content needed to be clear, direct, and contextual enough to explain why it was worth participating.",
+    "imageAlt": "Recreated in-app banner in the Tiendanube admin with a CTA to answer the NubeCommerce survey",
+    "imageCaption": "Illustrative image recreated from the original banner. Some sensitive data was hidden.",
+    "listHtml": [
+      "<ul>",
+      "<li>I reviewed the moment in the flow when the invitation appeared.</li>",
+      "<li>I refined the microcopy to guide the action without overexplaining.</li>",
+      "<li>We prioritized a persistent, visible, and less disruptive presence.</li>",
+      "<li>We connected the content decision with real admin usage behavior.</li>",
+      "</ul>"
+    ],
+    "beforeTitle": "Before",
+    "beforeText": "The banner disappeared permanently, even if the person was interested but needed to postpone their response.",
+    "afterTitle": "After",
+    "afterText": "The invitation remained available during the critical period, with a visible CTA and a hierarchy designed to support day-to-day work."
+  },
+  "result": {
+    "label": "Result",
+    "title": "More participation from a focused improvement",
+    "bodyBefore": "The iteration achieved a +60% increase in CTA CTR to complete the survey. After three weeks with around 1,900 responses,",
+    "bodyEmphasis": "we reached 3,773 total consolidated responses in the report within 15 days.",
+    "carouselAriaLabel": "Pages from the 2026 NubeCommerce report",
+    "carouselPrevAriaLabel": "View previous report page",
+    "carouselNextAriaLabel": "View next report page",
+    "coverImageAlt": "Cover of the 2026 NubeCommerce report",
+    "takeawaysGrowthAlt": "NubeCommerce report takeaways page about real growth and marketplaces",
+    "takeawaysOperationsAlt": "NubeCommerce report takeaways page about payments, shipping, and automation",
+    "takeawaysSupportAlt": "NubeCommerce report takeaways page about hybrid support with AI and humans",
+    "carouselCaption": "Pages from the 2026 NubeCommerce report.",
+    "noteBefore": "This case shows a small decision with real impact: it wasn't just about changing words or sending more emails, but about",
+    "noteEmphasis": "adjusting content, timing, and interface behavior to match users' real availability"
+  }
+}

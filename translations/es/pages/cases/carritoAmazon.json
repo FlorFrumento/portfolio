@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "description": "Caso de estudio sobre el rediseño del flujo de carrito de Amazon en un workshop práctico de UX: research, heurísticas, contenido y prototipo testeado.",
+    "title": "Caso de estudio UX: carrito en Amazon | Florencia Frumento",
+    "ogImageAlt": "Preview visual del caso de carrito de Amazon"
+  },
+  "hero": {
+    "eyebrow": "Caso de estudio · Workshop práctico CASA UX",
+    "title": "Diseñar la decisión de compra",
+    "claim": "Cómo rediseñamos el flujo armado de carrito de Amazon para priorizar la información crítica y acompañar la decisión de compra con confianza.",
+    "actionsAriaLabel": "Acciones del caso",
+    "primaryCta": "Ver prototipo",
+    "secondaryCta": "Ver otros casos"
+  },
+  "metaSummary": {
+    "ariaLabel": "Resumen del caso",
+    "roleLabel": "Rol",
+    "roleValue": "UX Content Designer",
+    "teamLabel": "Equipo",
+    "teamValue": "Trabajo con UX/UI Designer y UX Researcher en un team de 3 personas",
+    "scopeLabel": "Alcance",
+    "scopeValue": "Mobile · Página de producto y carrito"
+  },
+  "results": {
+    "ariaLabel": "Claves del caso",
+    "abandonmentValue": "62 %",
+    "abandonmentText": "de abandono de carrito en el PRD ficcional que dio origen al desafío.",
+    "regressionsValue": "41 %",
+    "regressionsText": "de regresiones desde el carrito a la ficha de producto.",
+    "durationValue": "5 semanas",
+    "durationText": "de workshop para investigar, rediseñar, prototipar y testear la propuesta."
+  },
+  "situation": {
+    "label": "Situación",
+    "title": "El carrito mostraba síntomas de desconfianza",
+    "contentHtml": [
+      "<p>Este proyecto surgió en el <strong>Workshop de práctica profesional de <a class='inline-link' href='https://www.linkedin.com/company/casa-ux/' target='_blank' rel='noopener noreferrer'>CASA UX</a></strong>, un espacio de formación y mentorías que llevan adelante Ludmila Disa y Lucre Gandolfo. Trabajé junto a <a class='inline-link' href='https://www.linkedin.com/in/b%C3%A1rbara-montes/' target='_blank' rel='noopener noreferrer'>Bárbara Montes</a>, UX/UI Designer, y <a class='inline-link' href='https://www.linkedin.com/in/melany-moglia/' target='_blank' rel='noopener noreferrer'>Melany Moglia</a>, UX Researcher, sobre un caso de estudio ficcional de Amazon.</p>",
+      "<p>El punto de partida fue un <strong>PRD que describía un problema de negocio y de experiencia</strong>: crecían los abandonos de carrito y cada vez más personas volvían desde el carrito a la ficha de producto antes de finalizar la compra. Esa regresión sugería que el flujo no estaba resolviendo una necesidad crítica en el momento más sensible de la decisión.</p>",
+      "<ul><li><strong>62 %</strong> de las personas armaban un carrito y no compraban.</li><li><strong>41 %</strong> regresaban desde el carrito a la página de producto.</li><li><strong>9 %</strong> había aumentado la tasa de abandono en la etapa final del recorrido.</li></ul>",
+      "<p>Como equipo, decidimos trabajar sobre <strong>la experiencia mobile</strong> y revisar de punta a punta tres pantallas: ficha de producto, pantalla de agregado al carrito y carrito. El objetivo era <strong>entender qué necesita el usuario para decidir si compra y proponer mejoras que reduzcan la fricción</strong>.</p>"
+    ]
+  },
+  "task": {
+    "label": "Tarea",
+    "title": "Traducir el problema en preguntas de investigación accionables",
+    "contentHtml": [
+      "<p>Antes de pensar soluciones, trabajamos el <strong>problem framing</strong>: desarmar supuestos, detectar sesgos y convertir el problema en preguntas concretas de diseño e investigación. La tarea consistía en identificar <strong>qué señales necesitaban los usuarios para validar su compra con seguridad</strong> y cómo reorganizar el flujo para bajar la carga cognitiva sin distraer del objetivo principal.</p>",
+      "<p>A partir de la revisión inicial formulamos una hipótesis central: <strong>el flujo actual no brindaba la información crítica en el momento oportuno y eso generaba inseguridad, dudas y falta de confianza para avanzar al checkout.</strong></p>",
+      "<p>Esa hipótesis se tradujo en un objetivo de investigación muy concreto: entender qué información, validaciones y señales necesitan las personas durante el armado y la revisión del carrito para decidir completar o abandonar la compra.</p>",
+      "<ul><li>¿Por qué las personas volvían a la ficha de producto después de agregar un ítem?</li><li>¿Qué información consideraban indispensable para tomar la decisión final?</li><li>¿La fricción provenía de la falta de información, de su jerarquía o del momento en que aparecía?</li></ul>",
+      "<div class='case-note'><p>El problema quedó formulado así: <strong>el carrito no prioriza la información crítica que las personas necesitan para validar su compra con confianza</strong>.</p></div>"
+    ]
+  },
+  "action": {
+    "label": "Acción",
+    "title": "Análisis heurístico, research y rediseño del flujo completo",
+    "contentHtml": [
+      "<p>El trabajo avanzó en capas: primero analizamos el flujo actual con foco en las heurísticas de Nielsen, leyes de UX, jerarquía de la información y lenguaje; después hicimos desk research, benchmark y sumamos evidencia con una encuesta a usuarios reales; por último, rediseñamos las pantallas y validamos la propuesta en un prototipo funcional.</p>",
+      "<h3>1. Diagnóstico del flujo actual</h3>",
+      "<p>La revisión heurística mostró que el problema era una combinación de <strong>densidad visual, señales ambiguas, decisiones mal jerarquizadas y falta de contexto</strong> en momentos críticos del recorrido.</p>",
+      "<ul><li><strong>En la ficha de producto</strong>, el título tenía poca jerarquía, había exceso de texto sobre descuentos, pagos y envíos, y los CTA “Agregar al carrito” y “Comprar ahora” competían con un peso visual muy similar.</li><li><strong>En la pantalla de agregado al carrito</strong>, no aparecían datos básicos como título, cantidad o precio del producto; además, el cross-sell de garantía introducía conceptos nuevos en un momento crítico y hacía perder de vista la acción principal, que era avanzar hacia la compra.</li><li><strong>En el carrito</strong>, el contenido no priorizaba la validación final: había demasiado texto para comunicar beneficios simples y el CTA “Fechar pedido” podía interpretarse como pago inmediato en lugar de avance hacia el checkout.</li></ul>",
+      "<figure class='case-carousel case-carousel-mobile carousel' aria-label='Flujo actual de Amazon antes del rediseño' data-carousel><button class='carousel-button carousel-button-prev' type='button' aria-label='Ver pantalla anterior del flujo actual' data-carousel-prev><span aria-hidden='true'>←</span></button><div class='case-carousel-track carousel-track' tabindex='0' data-carousel-track><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-actual-producto.png' alt='Flujo actual de Amazon: pantalla de producto mobile antes del rediseño' loading='lazy' /></button></div><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-actual-agregado.png' alt='Flujo actual de Amazon: pantalla de agregado al carrito antes del rediseño' loading='lazy' /></button></div><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-actual-carrito.png' alt='Flujo actual de Amazon: pantalla de carrito mobile antes del rediseño' loading='lazy' /></button></div></div><button class='carousel-button carousel-button-next' type='button' aria-label='Ver siguiente pantalla del flujo actual' data-carousel-next><span aria-hidden='true'>→</span></button><figcaption>Pantallas del flujo actual analizado: ficha de producto, agregado al carrito y carrito.</figcaption></figure>",
+      "<p>Vimos problemas con la <strong>heurística 4 (Consistencia y estándares)</strong>, cuando el flujo cambiaba la terminología entre pantallas para hablar de garantía o protección; con la <strong>heurística 8 (Diseño estético y minimalista)</strong>, por la sobrecarga de texto y la dificultad para aislar la información importante; y con la <strong>heurística 1 (Visibilidad del estado del sistema)</strong>, cuando la persona no veía con claridad qué había agregado, cuánto costaba o cuál era el siguiente paso.</p>",
+      "<p>También nos apoyamos <strong>la ley de Miller</strong>, para reducir la carga mental agrupando información relacionada por bloques; <strong>el principio de affordance</strong>, para revisar qué elementos realmente se percibían como acciones; y la relación entre <strong>jerarquía visual, proximidad y reconocimiento antes que recuerdo</strong> para hacer más evidente lo que la persona necesitaba confirmar antes de comprar.</p>",
+      "<h3>2. Desk research y benchmark del mercado</h3>",
+      "<p>Antes de proponer mejoras, hicimos <strong>desk research y benchmark</strong> para entender cómo resolvían este mismo momento del journey otros marketplaces. Analizamos especialmente los flujos mobile de <strong> Mercado Libre, eBay, SHEIN, Walmart y TikTok Shop</strong>.</p>",
+      "<p>Ese relevamiento nos ayudó a comparar patrones de agregado al carrito, revisión de compra, jerarquización de precios y descuentos, tratamiento de envíos, presencia de reviews, cross-sell y claridad de los CTA. El objetivo era <strong>entender qué convenciones ya estaban instaladas en el mercado y dónde había oportunidades para reducir fricción</strong>.</p>",
+      "<h3>3. Investigación con usuarios para validar el problema</h3>",
+      "<p>Para ganar insights del producto vivo, hicimos una encuesta con usuarios reales de Amazon. Los datos reforzaron algo clave: <strong>las dudas no estaban tanto en el deseo de compra como en la necesidad de validar información antes de avanzar</strong>.</p>",
+      "<ul><li>El 100 % de las personas encuestadas había abandonado alguna vez un carrito.</li><li>El 70 % señaló los plazos de entrega como información clave para decidir.</li><li>El 50 % destacó el valor del envío como dato crítico para completar la compra.</li></ul>",
+      "<figure class='case-media case-media-intrinsic' data-lightbox-gallery><button class='case-carousel-image-button' type='button' aria-label='Ampliar imagen con resultados de la encuesta' data-lightbox-trigger><img src='/case-assets/encuesta-informacion-carrito-amazon.png' alt='Una de las preguntas clave de la encuesta, sobre la información más relevante para las personas al revisar el carrito' loading='lazy' /></button><figcaption>Una de las preguntas clave de la encuesta, sobre la información más relevante para las personas al revisar el carrito.</figcaption></figure>",
+      "<p>Con la encuesta, aparecieron hallazgos muy claros: las personas necesitaban validar costos y tiempos de entrega, volvían a la ficha de producto para reconfirmar variantes y detalles, la densidad visual dificultaba identificar lo importante, el cross-sell competía con la tarea principal y las reviews funcionaban como una señal de confianza incluso dentro del contexto del carrito.</p>",
+      "<h3>4. Estructura narrativa del flujo</h3>",
+      "<p>Además de la arquitectura de información, trabajamos la <strong>estructura narrativa de la experiencia</strong>: qué necesita ver el usuario, cuándo, en qué orden y con qué prioridad para avanzar con confianza.</p>",
+      "<p>Detectamos que el carrito actual funcionaba sobre todo como una instancia transaccional, cuando en realidad las personas todavía estaban decidiendo. Por eso redefinimos el enfoque: <strong>el carrito debía acompañar la validación, la comparación y la construcción de confianza antes del checkout</strong>.</p>",
+      "<ul><li><strong>¿Es el producto correcto?</strong> Variante, fotos, detalles y calificación.</li><li><strong>¿Cuánto voy a pagar realmente?</strong> Precio final, envío, impuestos y descuentos.</li><li><strong>¿Cuándo llega?</strong> Fecha, velocidad y disponibilidad.</li><li><strong>¿Puedo confiar?</strong> Reputación, devolución, claridad y consistencia.</li><li><strong>¿Estoy listo para cerrar la compra?</strong> CTA claro, resumen y siguiente paso evidente.</li></ul>",
+      "<div class='case-note'><p>Esta lógica conceptual ordenó toda la propuesta: <strong>transformar una experiencia cargada y transaccional en una experiencia de validación clara, confiable y orientada a la toma de decisión</strong>.</p></div>",
+      "<h3>5. Rediseño de las tres pantallas</h3>",
+      "<p>Con esa evidencia, rediseñamos <strong>la arquitectura y jerarquía de la información del flujo completo</strong>. Cada pantalla debía responder la pregunta que la persona usuaria se estaba haciendo en ese momento, sin forzarla a volver atrás.</p>",
+      "<ul><li><strong>Ficha de producto:</strong> reordenamos la información para priorizar foto, precio, título, calificación, descuentos, envío gratis, variantes y fecha de entrega. Las reviews pasaron a ocupar un lugar más visible porque aparecieron como insumo de confianza en la encuesta.</li><li><strong>Pantalla de agregado:</strong> hicimos visible qué producto se había sumado, cuántas unidades y el CTA para seguir; además, trasladamos promociones y descuentos a un momento más pertinente del flujo.</li><li><strong>Carrito:</strong> reorganizamos el contenido para destacar el título de la pantalla, la información clave de cada producto, las ofertas relacionadas y un resumen del pedido con subtotales más legibles.</li></ul>",
+      "<p>También trabajamos un <strong>mejor uso del white space</strong> para destacar lo más importante según el análisis de jerarquía de la información, una <strong>semántica del color más clara y el tamaño y peso tipográficos</strong> para guiar la lectura. Por ejemplo, el envío gratis pasó a señalarse con un verde claro pero destacado, mientras que el porcentaje de descuento tomó un destaque rojo para transmitir urgencia y apoyar la conversión sin competir con la información central del producto.</p>",
+      "<p>En nuestra propuesta quedaron mejor resueltas varias heurísticas: la <strong>visibilidad del sistema</strong> al mostrar qué se agregó y cómo seguir; la <strong>consistencia</strong> al unificar copy y criterios entre pantallas; la <strong>relación entre el sistema y el mundo real</strong> al hacer más reconocibles señales como descuentos y beneficios; y la <strong>flexibilidad y eficiencia de uso</strong> al permitir revisar detalles sin salir del carrito.</p>",
+      "<figure class='case-carousel case-carousel-mobile carousel' aria-label='Nuevo flujo de Amazon propuesto en el rediseño' data-carousel><button class='carousel-button carousel-button-prev' type='button' aria-label='Ver pantalla anterior del nuevo flujo' data-carousel-prev><span aria-hidden='true'>←</span></button><div class='case-carousel-track carousel-track' tabindex='0' data-carousel-track><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-nuevo-producto.png' alt='Nuevo flujo propuesto: pantalla de producto mobile rediseñada' loading='lazy' /></button></div><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-nuevo-agregado.png' alt='Nuevo flujo propuesto: pantalla de agregado al carrito rediseñada' loading='lazy' /></button></div><div class='case-carousel-slide carousel-slide'><button class='case-carousel-image-button' type='button' data-lightbox-trigger><img src='/case-assets/amazon-flujo-nuevo-carrito.png' alt='Nuevo flujo propuesto: pantalla de carrito mobile rediseñada' loading='lazy' /></button></div></div><button class='carousel-button carousel-button-next' type='button' aria-label='Ver siguiente pantalla del nuevo flujo' data-carousel-next><span aria-hidden='true'>→</span></button><figcaption>Propuesta de rediseño del flujo mobile: producto, agregado al carrito y carrito.</figcaption></figure>",
+      "<h3>6. Dos features nuevas para bajar regresiones y sumar valor</h3>",
+      "<p>Además del rediseño de base, propusimos dos funcionalidades específicas para resolver comportamientos observados en el flujo y mencionados en el PRD.</p>",
+      "<ul><li><strong>Modal con detalle de producto dentro del carrito:</strong> permite revisar características sin volver a la ficha completa, lo cual reduce potencialmente las regresiones a esa página.</li><li><strong>Diálogo al eliminar un producto:</strong> redactado para que título, cuerpo y CTA trabajaran juntos, ofreciendo control y una opción de guardar el producto para más tarde.</li></ul>",
+      "<p>En ambas features también aplicamos criterios heurísticos y principios de UX: control y libertad del usuario, visibilidad del estado del sistema y mejor affordance para que la interfaz expresara con más claridad qué iba a ocurrir después de cada acción.</p>",
+      "<h3>7. Prototipo funcional y test de usabilidad</h3>",
+      "<p>Llevamos la propuesta a un <strong>prototipo funcional en Figma y la testeamos</strong> para entender si realmente facilitaba la validación de compra y aumentaba la confianza para seguir al checkout.</p>",
+      "<p>Las hipótesis a validar fueron:</p>",
+      "<ul><li>El nuevo carrito permite validar la compra con mayor claridad y menor carga cognitiva.</li><li>Los usuarios comprenden mejor costos, descuentos y condiciones de envío.</li><li>El acceso rápido a información relevante reduce la necesidad de volver a la ficha de producto.</li><li>La sugerencia de guardar productos antes de eliminarlos aporta valor sin generar fricción.</li></ul>"
+    ]
+  },
+  "result": {
+    "label": "Resultado",
+    "title": "Una experiencia más consistente y aprendizajes concretos",
+    "linksAriaLabel": "Entregables del caso Amazon",
+    "prototypeCta": "Prototipo en Figma",
+    "workFileCta": "Figma de trabajo",
+    "contentHtml": [
+      "<p>Como se trató de un workshop, <strong>el resultado no fue una implementación en producción sino un prototipo testeado</strong> que permitió validar parte de la propuesta y, al mismo tiempo, detectar nuevas oportunidades de mejora.</p>",
+      "<p>El principal avance fue haber <strong>convertido el desafío propuesto por Producto en el PRD en un sistema de decisiones de diseño respaldado por evidencia</strong>: la regresión a la ficha no era un capricho del usuario, sino un síntoma de información insuficiente o mal jerarquizada en el carrito.</p>",
+      "<div class='case-comparison'><article class='case-panel'><h3>Lo que funcionó</h3><p>Las personas entendieron mejor qué estaban comprando, identificaron con más facilidad señales como envío gratis y valoraron poder revisar detalles del producto sin salir del carrito.</p></article><article class='case-panel'><h3>Lo que quedó para iterar</h3><p>Persistieron dudas sobre el resumen de precios, hubo componentes con affordance débil como “guardar para más tarde” y aparecieron microinteracciones que todavía podían simplificarse.</p></article></div>",
+      "<p>En el test aparecieron aprendizajes muy útiles para la siguiente iteración:</p>",
+      "<ul><li>El cambio de imagen al modificar el color necesitaba mejor feedback visual.</li><li>El resumen de precios seguía generando confusión sobre descuentos y envío.</li><li>El acceso a detalles del producto desde el carrito fue bien recibido.</li><li>La acción “guardar” no siempre se interpretó como clicable.</li><li>El modal de eliminación podría resolverse mejor con una alternativa inline menos pesada.</li></ul>",
+      "<div class='case-note'><p>El aprendizaje más transformador fue que <strong>cuando una persona vuelve atrás en un flujo de compra, muchas veces no está dudando de comprar, sino tratando de recuperar información que el sistema no le dio a tiempo</strong>.</p></div>"
+    ]
+  },
+  "related": {
+    "eyebrow": "Otros casos",
+    "title": "Más decisiones de contenido aplicadas a investigación, UX y conversión"
+  }
+}

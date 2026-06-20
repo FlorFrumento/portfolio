@@ -1,0 +1,26 @@
+{
+  "shared": {
+    "header": {
+      "brand": "Florencia Frumento",
+      "brandAriaLabel": "Go to homepage",
+      "navAriaLabel": "Main navigation",
+      "localeSwitcherLabel": "Language",
+      "nav": {
+        "cases": "Case Studies",
+        "experience": "Experience",
+        "approach": "Approach",
+        "contact": "Contact",
+        "about": "About GiraFlor"
+      },
+      "locales": {
+        "es": "ES",
+        "en": "EN"
+      }
+    },
+    "footer": {
+      "tagline": "I care about the questions, the language, and the decisions that shape an experience.",
+      "backHome": "Back to home",
+      "backTop": "Back to top"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "description": "Caso de estudio como CRO Analyst donde implementé un A/B test sobre un nuevo punto de conversión para derivar tráfico calificado y migrar tiendas.",
+    "title": "A/B Test y CRO: nuevo CTA de migrar tiendas | Florencia Frumento",
+    "ogImageAlt": "Preview visual del caso CTA para migrar tiendas"
+  },
+  "hero": {
+    "eyebrow": "Caso de estudio · Tiendanube blog",
+    "title": "CTA para migrar tiendas",
+    "claim": "Cómo validamos con un A/B test un nuevo punto de conversión en el blog para llevar tráfico calificado a la landing de Tiendanube Evolución.",
+    "actionsAriaLabel": "Acciones del caso",
+    "primaryCta": "Conversemos",
+    "secondaryCta": "Ver otros casos"
+  },
+  "metaSummary": {
+    "ariaLabel": "Resumen del caso",
+    "roleLabel": "Rol",
+    "roleValue": "Content Strategist y CRO Analyst",
+    "channelLabel": "Canal",
+    "channelValue": "Header del blog de Tiendanube",
+    "impactLabel": "Impacto",
+    "impactValue": "+12 % en el tráfico hacia la landing de conversión"
+  },
+  "results": {
+    "ariaLabel": "Resultados principales",
+    "trafficValue": "+12 %",
+    "trafficText": "de aumento en el tráfico derivado a la landing de Tiendanube Evolución.",
+    "testValue": "A/B",
+    "testText": "test para validar la hipótesis antes del deploy definitivo.",
+    "headerValue": "Header",
+    "headerText": "como ubicación prioritaria por su volumen de clics en el blog."
+  },
+  "situation": {
+    "label": "Situación",
+    "title": "La landing necesitaba más tráfico calificado",
+    "contentHtml": [
+      "<p>Tiendanube Evolución tenía una landing principal orientada a conversión, pero la generación de leads no alcanzaba el objetivo del equipo. Una de las causas posibles era la baja llegada de tráfico hacia esa página.</p>",
+      "<p>En paralelo, el blog de Tiendanube era uno de los canales orgánicos con mayor volumen. La oportunidad estaba en <strong>conectar el tráfico existente con una salida clara hacia una solución pensada para marcas grandes</strong>.</p>"
+    ]
+  },
+  "task": {
+    "label": "Tarea",
+    "title": "Crear un punto de entrada sin diluir la intención",
+    "contentHtml": [
+      "<p>El desafío era sumar un CTA en un espacio sensible: el header del blog, donde ya existía un botón de alta performance, \"Crear tienda gratis\". <strong>El nuevo mensaje tenía que hablarle a otra audiencia sin competir de forma confusa con el flujo principal.</strong></p>",
+      "<p>El copy elegido fue \"Migrar tienda\" porque Tiendanube Evolución es la solución orientada a grandes marcas que, en general, ya tienen un e-commerce y necesitan pasar desde otra plataforma o desde un desarrollo a medida.</p>"
+    ]
+  },
+  "action": {
+    "label": "Acción",
+    "title": "Probar la hipótesis con datos antes de escalar",
+    "introLead": "Implementamos un A/B test para comparar la experiencia existente con una variante que sumaba el nuevo CTA al lado del botón principal del blog.",
+    "introBody": "La prueba permitió evaluar si el punto de conversión aportaba tráfico relevante sin depender de una opinión aislada.",
+    "videoCaption": "Registro del flujo desde el header del blog hacia el punto de conversión.",
+    "listHtml": [
+      "<ul>",
+      "<li>Identificamos el header como el elemento con más clics del blog.</li>",
+      "<li>Definimos un copy orientado a una necesidad concreta: migrar una tienda existente.</li>",
+      "<li>Validamos la variante con un A/B test antes de llevarla a producción.</li>",
+      "<li>Usamos el resultado para sostener una decisión permanente de navegación.</li>",
+      "</ul>"
+    ],
+    "beforeTitle": "Antes",
+    "beforeText": "El header priorizaba la creación de una tienda nueva, una acción dirigida a emprendimientos, y no a marcas más grandes que ya venden online.",
+    "afterTitle": "Después",
+    "afterText": "El header ofreció una segunda puerta de entrada con intención clara para marcas más robustas que estén interesadas en migrar su operación.",
+    "imageAlt": "Header desktop del blog de Tiendanube con los botones Crear tienda gratis y Migrar tienda",
+    "imageCaption": "Captura de la vista desktop del blog con su header y el CTA \"Migrar tienda\" conviviendo con el principal del blog."
+  },
+  "result": {
+    "label": "Resultado",
+    "title": "La variante ganó y pasó a producción",
+    "bodyBefore": "La versión con el CTA adicional fue la ganadora del A/B test y",
+    "bodyEmphasis": "generó un aumento de +12 % en el tráfico derivado a la landing de Tiendanube Evolución",
+    "bodyAfter": ", principal driver de conversión a lead.",
+    "note": "El botón quedó fijo en el header del blog. La decisión combinó lectura de datos, precisión de audiencia y una elección de copy alineada con los dos momentos posibles de las marcas: empezar o migrar."
+  },
+  "related": {
+    "eyebrow": "Otros casos",
+    "title": "Más decisiones de contenido aplicadas a investigación y conversión"
+  }
+}

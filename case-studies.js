@@ -1,14 +1,12 @@
 export const siteOrigin = "https://florencia-frumento.web.app";
 
-export const caseStudies = [
+export const caseStudyCatalog = [
   {
     id: "amazon",
     href: "/casos/carrito-amazon.html",
-    title: "Diseñar la decisión de compra",
-    kicker: "Práctica profesional · Workshop",
-    description: "Research, heurísticas y rediseño del flujo mobile de Amazon para acompañar mejor la decisión de compra.",
+    route: "/casos/carrito-amazon/",
     imageSrc: "/case-assets/case-preview-carrito-amazon.png",
-    imageAlt: "Preview visual del caso de carrito de Amazon",
+    imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/png",
     imageWidth: 888,
     imageHeight: 579,
@@ -23,11 +21,9 @@ export const caseStudies = [
   {
     id: "banner-nubecommerce",
     href: "/casos/banner-nubecommerce.html",
-    title: "Más respuestas, menos fricción",
-    kicker: "Tiendanube admin · Investigación",
-    description: "Iteración de microcopy y comportamiento de un banner in-app para aumentar la participación en una encuesta.",
+    route: "/casos/banner-nubecommerce/",
     imageSrc: "/case-assets/case-preview-nubecommerce.jpg",
-    imageAlt: "Preview visual del caso NubeCommerce",
+    imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/jpeg",
     imageWidth: 1600,
     imageHeight: 1000,
@@ -42,11 +38,9 @@ export const caseStudies = [
   {
     id: "cta-migrar-tienda",
     href: "/casos/cta-migrar-tienda.html",
-    title: "CTA para migrar tiendas",
-    kicker: "Tiendanube blog · Growth",
-    description: "A/B test de contenido y jerarquía para abrir un nuevo punto de conversión hacia una landing estratégica.",
+    route: "/casos/cta-migrar-tienda/",
     imageSrc: "/case-assets/case-preview-cta-migrar-tienda.jpg",
-    imageAlt: "Preview visual del caso CTA para migrar tiendas",
+    imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/jpeg",
     imageWidth: 1600,
     imageHeight: 1000,
@@ -61,11 +55,9 @@ export const caseStudies = [
   {
     id: "recursos-descargables",
     href: "/casos/recursos-descargables.html",
-    title: "Recursos descargables",
-    kicker: "Lead generation · SEO/GEO",
-    description: "Informes, e-books, playbooks y landings como experiencias completas de generación de leads.",
+    route: "/casos/recursos-descargables/",
     imageSrc: "/case-assets/case-preview-recursos.jpg",
-    imageAlt: "Preview visual del caso de recursos descargables",
+    imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/jpeg",
     imageWidth: 1600,
     imageHeight: 1000,
@@ -80,11 +72,9 @@ export const caseStudies = [
   {
     id: "ristretto",
     href: "/casos/ristretto.html",
-    title: "Ristretto, mi app de microficción",
-    kicker: "Producto digital · UX/UI + IA",
-    description: "De un problema de lectura cotidiana a una experiencia digital pensada, prototipada y construida con IA.",
+    route: "/casos/ristretto/",
     imageSrc: "/case-assets/case-preview-ristretto.jpg",
-    imageAlt: "Pantallas del prototipo de Ristretto",
+    imageAlt: "{{ meta.ogImageAlt }}",
     imageType: "image/jpeg",
     imageWidth: 1500,
     imageHeight: 844,
@@ -97,3 +87,5 @@ export const caseStudies = [
     tags: ["ristretto", "featured", "product", "ux"]
   }
 ];
+
+export const caseStudies = caseStudyCatalog;

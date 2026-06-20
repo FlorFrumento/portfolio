@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "description": "Case study on content design for downloadable resources, topic research, landing page creation, and lead generation.",
+    "title": "Downloadable resources as lead magnets | Florencia Frumento",
+    "ogImageAlt": "Visual preview of the downloadable resources case study"
+  },
+  "hero": {
+    "eyebrow": "Case study · Lead generation",
+    "title": "Downloadable resources",
+    "claim": "How I designed content for reports, ebooks, playbooks, and download landing pages that connect research, SEO/GEO, and lead generation.",
+    "actionsAriaLabel": "Case actions",
+    "primaryCta": "Let's talk",
+    "secondaryCta": "See other cases"
+  },
+  "metaSummary": {
+    "ariaLabel": "Case summary",
+    "roleLabel": "Role",
+    "roleValue": "Content Strategist and Demand Generation Analyst",
+    "deliverablesLabel": "Deliverables",
+    "deliverablesValue": "Downloadable asset, landing page, thank you page, and related blog post",
+    "focusLabel": "Focus",
+    "focusValue": "Lead magnet for qualified audiences"
+  },
+  "results": {
+    "ariaLabel": "Core pieces",
+    "downloadablesValue": "20+ assets",
+    "downloadablesText": "here we highlight NubeCommerce, Home and Decor, and High-Impact Strategies.",
+    "seoValue": "SEO/GEO",
+    "seoText": "structure oriented around search, intent, and topical positioning.",
+    "gtmValue": "GTM",
+    "gtmText": "traffic driven from blog posts, performance channels, and nurturing forms."
+  },
+  "situation": {
+    "label": "Situation",
+    "title": "Content needed to attract and convert",
+    "contentHtml": [
+      "<p>At Tiendanube, <strong>downloadable resources work as lead magnets: valuable materials for ecommerce brands and teams</strong> that also helped capture qualified contacts to nurture later.</p>",
+      "<p>Within that system, NubeCommerce played a central role because it is the annual ecommerce report and is supported by a strong launch and amplification strategy across all company channels, as well as events with press, agencies, specialists, and brands.</p>",
+      "<p>Each resource had to solve for two levels: <strong>being useful and actionable as expert content, and being presented through a download experience that was clear, convincing, and easy to complete</strong>.</p>"
+    ]
+  },
+  "task": {
+    "label": "Task",
+    "title": "Build the full resource experience",
+    "contentHtml": [
+      "<p>My work ranged from the initial research to publishing the landing page. That included understanding the topic, writing the downloadable asset or report, writing and shaping the content of the download page, and preparing the flow closure in a thank you page.</p>",
+      "<p>I also supported the GTM strategy with related blog posts, traffic routing, and copy guidance for performance assets.</p>"
+    ]
+  },
+  "action": {
+    "label": "Action",
+    "title": "Deep research, narrative, and conversion",
+    "introLead": "The work combined research, writing, and product judgment.",
+    "introBody": "I used AI tools to speed up benchmarks, organize information, and explore directions, but the narrative, hierarchy, and tone were defined by the audience and our business goal.",
+    "listHtml": [
+      "<ul>",
+      "<li>I researched ecommerce topics to build expertise before writing.</li>",
+      "<li>I structured reports, ebooks, playbooks, checklists, and spreadsheets with a focus on real usefulness.</li>",
+      "<li>I wrote landing pages with a value proposition, benefits, form, and clear closing.</li>",
+      "<li>I configured pages in HubSpot to register leads and enable later nurturing.</li>",
+      "<li>I applied SEO and GEO best practices to improve indexing and visibility.</li>",
+      "</ul>"
+    ],
+    "examplesAriaLabel": "Examples of downloadable resources",
+    "nubecommerceTitle": "NubeCommerce",
+    "nubecommerceText": "Annual ecommerce report built from internal data, brand survey results, and market sources.",
+    "nubecommerceImageAlt": "Cover of the 2026 NubeCommerce report",
+    "hogarTitle": "Home and decor",
+    "hogarText": "An ebook on sector tactics and brands, connected to a download landing page and a high-traffic blog post.",
+    "hogarImageAlt": "Mockup of the Tiendanube Evolucion Home and Decor ebook",
+    "estrategiasTitle": "Ecommerce strategies",
+    "estrategiasText": "A playbook focused on high-impact decisions for brands looking to optimize operations and growth.",
+    "estrategiasImageAlt": "Mockup of the High-Impact Ecommerce Strategies playbook",
+    "viewLandingCta": "View landing page",
+    "relatedPostCta": "Related blog post"
+  },
+  "result": {
+    "label": "Result",
+    "title": "A reusable system for lead generation",
+    "bodyBefore": "The result was a complete acquisition experience:",
+    "bodyEmphasis": "downloadable content, landing page, thank you page, form, and distribution touchpoints",
+    "bodyAfter": "Each piece helped turn interested traffic into actionable contacts for the team.",
+    "imageAlt": "Page from the strategies playbook with a chapter on advanced email marketing",
+    "imageCaption": "Example of an inside page from the ecommerce strategies playbook."
+  },
+  "related": {
+    "eyebrow": "Other cases",
+    "title": "More content decisions applied to product and growth"
+  }
+}

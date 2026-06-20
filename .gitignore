@@ -5,3 +5,4 @@ dist/
 .DS_Store
 .stitch/
 docs/codex-handoff.md
+.i18n-build/

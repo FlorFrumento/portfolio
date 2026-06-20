@@ -9,6 +9,7 @@
     "sync:social-metadata": "node scripts/sync-social-metadata.mjs",
     "prebuild": "npm run generate:social-images && npm run sync:social-metadata",
     "build": "vite build",
+    "postbuild": "node scripts/i18n/finalize-dist.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "echo \"No tests configured yet.\"",
     "deploy": "npm run build && firebase deploy"

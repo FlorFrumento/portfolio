@@ -1,0 +1,37 @@
+{
+  "amazon": {
+    "title": "Diseñar la decisión de compra",
+    "kicker": "Práctica profesional · Workshop",
+    "description": "Research, heurísticas y rediseño del flujo mobile de Amazon para acompañar mejor la decisión de compra.",
+    "imageAlt": "Preview visual del caso de carrito de Amazon",
+    "cardAriaLabel": "Ver caso de estudio sobre el carrito de Amazon"
+  },
+  "banner-nubecommerce": {
+    "title": "Más respuestas, menos fricción",
+    "kicker": "Tiendanube admin · Investigación",
+    "description": "Iteración de microcopy y comportamiento de un banner in-app para aumentar la participación en una encuesta.",
+    "imageAlt": "Preview visual del caso NubeCommerce",
+    "cardAriaLabel": "Ver caso de estudio sobre el banner de NubeCommerce"
+  },
+  "cta-migrar-tienda": {
+    "title": "CTA para migrar tiendas",
+    "kicker": "Tiendanube blog · Growth",
+    "description": "A/B test de contenido y jerarquía para abrir un nuevo punto de conversión hacia una landing estratégica.",
+    "imageAlt": "Preview visual del caso CTA para migrar tiendas",
+    "cardAriaLabel": "Ver caso de estudio del CTA Migrar tienda"
+  },
+  "recursos-descargables": {
+    "title": "Recursos descargables",
+    "kicker": "Lead generation · SEO/GEO",
+    "description": "Informes, e-books, playbooks y landings como experiencias completas de generación de leads.",
+    "imageAlt": "Preview visual del caso de recursos descargables",
+    "cardAriaLabel": "Ver caso de estudio sobre recursos descargables"
+  },
+  "ristretto": {
+    "title": "Ristretto, mi app de microficción",
+    "kicker": "Producto digital · UX/UI + IA",
+    "description": "De un problema de lectura cotidiana a una experiencia digital pensada, prototipada y construida con IA.",
+    "imageAlt": "Pantallas del prototipo de Ristretto",
+    "cardAriaLabel": "Ver caso de estudio de Ristretto"
+  }
+}

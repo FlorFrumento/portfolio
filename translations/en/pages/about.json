@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "description": "Notes on words, details, and how I found my way into UX. How do Cortázar, content design, and jigsaw puzzles connect? Meet #GiraFlor.",
+    "title": "About me | Florencia Frumento, Content Designer and UX Writer"
+  },
+  "hero": {
+    "title": "More about me and GiraFlor",
+    "claim": "A few notes on words, details, and how I found my way into UX."
+  },
+  "quote": {
+    "body": "\"Let's say the world is a figure; it must be read. By reading it, let's understand generating it.\"",
+    "author": "Julio Cortázar,",
+    "source": "Hopscotch"
+  },
+  "leerMundo": {
+    "title": "Reading the world",
+    "p1Before": "When I first read Cortázar, I discovered that a tiny decision could completely transform a story. A change in voice, a period, or an unexpected sentence could make you reinterpret everything you had just read.",
+    "p1Emphasis": "That curiosity about how texts are built led me to study Literature.",
+    "p2": "Over time, I realized that same fascination also had a place in technology and digital products. People read screens, forms, error messages, and entire flows: that is where I found UX.",
+    "p3Lead": "I care about understanding what a user needs in a specific moment:",
+    "p3Body": "the excitement of launching an online store, the nerves of making a transfer, or the wish to solve something in just a few clicks and move on with the day. I also pay attention to mismatches such as an unmet expectation, unnecessary friction, or a message that does not fit what someone is going through. Then I try to improve it."
+  },
+  "disenarElegir": {
+    "title": "Designing is also choosing",
+    "p1Lead": "Sunflowers inspired several visual decisions in this portfolio:",
+    "p1Body": "the color palette, the gradients, some stylistic elements, and even its name, GiraFlor.",
+    "p2Before": "And why sunflowers? I have always been drawn to the way they orient themselves toward the light. Today I am also choosing a direction:",
+    "p2Emphasis": "moving closer to the challenges that excite me, the products I want to work on, and the spaces where I can create the most value.",
+    "p3": "Today I want to keep growing as a Content Designer and UX Writer, putting into practice the mix of language, observation, and product thinking that makes UX so exciting to me."
+  },
+  "imagenCompleta": {
+    "title": "The full picture",
+    "p1Before": "Outside work, there is a hobby that represents me quite well:",
+    "p1Emphasis": "doing jigsaw puzzles",
+    "p2Before": "They share a curious common ground with UX. You start with a set of disconnected pieces.",
+    "p2Emphasis": "You observe, group patterns, form hypotheses, and little by little the full picture appears.",
+    "p2After": "They also force you to look closely and discover details that would go unnoticed from afar.",
+    "p3Before": "That is why I find the same thread running through many of the things I enjoy: how we interpret what we see, what patterns appear when we look closely, and the small decisions that change an experience.",
+    "p3Emphasis": "At the core, it is about how we read the world.",
+    "p4": "I invite you to explore my projects and, if you think we could work together, I would love to talk.",
+    "signature": "Florencia Frumento, #GiraFlor"
+  },
+  "contact": {
+    "email": "florencia.frumento@gmail.com",
+    "linkedin": "LinkedIn"
+  }
+}

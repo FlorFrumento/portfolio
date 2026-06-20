@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "description": "Caso de estudio sobre Ristretto, una web app de microficción diseñada con metodología UX/UI, desarrollo de prototipo funcional y construida con IA.",
+    "title": "Ristretto, mi app de microficción | Por Florencia Frumento",
+    "ogImageAlt": "Pantallas del prototipo de Ristretto"
+  },
+  "hero": {
+    "eyebrow": "Caso de estudio · Proyecto personal",
+    "title": "Ristretto, mi app de microficción",
+    "claim": "Del prototipo funcional para disfrutar literatura concentrada a una web app productiva construida con IA y vibe coding.",
+    "actionsAriaLabel": "Acciones del caso",
+    "primaryCta": "Abrir web app",
+    "secondaryCta": "Ver otros casos"
+  },
+  "metaSummary": {
+    "ariaLabel": "Resumen del caso",
+    "roleLabel": "Rol",
+    "roleValue": "Diseño UX/UI y desarrollo asistido por IA",
+    "processLabel": "Proceso",
+    "processValue": "Research, arquitectura, flujos, prototipo, usabilidad y heurísticas.",
+    "implementationLabel": "Implementación",
+    "implementationValue": "Figma, FigJam, Optimal Workshop, Lovable, GitHub y terminal"
+  },
+  "results": {
+    "ariaLabel": "Alcance del proyecto",
+    "productValue": "Product thinking",
+    "productText": "Validación de idea inicial, research, MVP, prototipo funcional y web app en producción construida con IA.",
+    "architectureValue": "Arquitectura y flows",
+    "architectureText": "Flujos de búsqueda, navegación y descubrimiento diseñados para una experiencia intuitiva.",
+    "iterationValue": "Iteración y validación",
+    "iterationText": "Card sorting, evaluación de heurísticas y pruebas de usabilidad con usuarios reales para ajustar decisiones clave."
+  },
+  "situation": {
+    "label": "Situación",
+    "title": "Recuperar el hábito lector en la era del scroll",
+    "contentHtml": [
+      "<p>En el marco del curso de UX/UI Design en Coderhouse, desarrollé una idea de producto propia a partir de problema cada vez más común: muchas personas querían volver a leer, pero encontraban difícil sostener obras extensas en rutinas atravesadas por la velocidad, las redes sociales y la fragmentación de la atención.</p>",
+      "<p>Así nació <strong>Ristretto: una aplicación de microficción pensada para leer en momentos breves, descubrir autores y recuperar el hábito lector</strong> desde una lógica más compatible con los tiempos reales de uso.</p>",
+      "<p>El concepto nace del ristretto, aquella variante de café corto que se prepara con la misma intensidad de un espresso, extraída con la mitad del agua. <strong>La propuesta es disfrutar la literatura del mismo modo: en una lectura breve y con sabor concentrado.</strong></p>"
+    ],
+    "carouselAriaLabel": "Páginas de la presentación de research de Ristretto",
+    "carouselPrevAriaLabel": "Ver página anterior de la presentación",
+    "carouselNextAriaLabel": "Ver página siguiente de la presentación",
+    "researchSlide1Alt": "Página de la presentación de Ristretto sobre desk research y benchmarking",
+    "researchSlide2Alt": "Página de la presentación de Ristretto sobre metodología ágil y design thinking",
+    "researchSlide3Alt": "Página de benchmark de Ristretto con apps de lectura y oportunidades detectadas",
+    "researchSlide4Alt": "Página de benchmark de Ristretto con competidores de microficción y hallazgos",
+    "researchSlide5Alt": "Página de validación del problema de Ristretto con búsquedas sobre microcuento",
+    "carouselCaption": "Fragmentos de la presentación de research y benchmark del proyecto."
+  },
+  "task": {
+    "label": "Tarea",
+    "title": "Diseñar una experiencia de descubrimiento literario",
+    "contentHtml": [
+      "<p>El desafío era diseñar un MVP que ayudara a descubrir, explorar y guardar microficciones de forma rápida e intuitiva, priorizando momentos breves de lectura y baja fricción en la navegación.</p>",
+      "<p>La propuesta reunía <strong>obras curadas de distintos géneros literarios</strong> y permitía encontrarlas mediante búsqueda por título, palabra clave o autor, además de filtros, recomendaciones relacionadas y favoritos para releer.</p>",
+      "<p><strong>El objetivo era transformar el deseo de leer más en una experiencia simple, accesible y compatible con tiempos reales de uso.</strong></p>"
+    ]
+  },
+  "action": {
+    "label": "Acción",
+    "title": "Del research al prototipo funcional",
+    "contentHtml": [
+      "<p>El proyecto combinó research, arquitectura de información y diseño iterativo para construir una experiencia de descubrimiento centrada en la lectura y adaptada a tiempos breves de uso.</p>",
+      "<p>El benchmark inicial mostró una oportunidad para <strong>una app de microficción en español, con contenido curado y una navegación más ágil que las alternativas existentes</strong>. A partir de eso, definí el MVP, los flujos principales y la arquitectura de navegación.</p>",
+      "<ul><li>Benchmark de apps de lectura y validación de la idea de producto.</li><li>Definición de proto-persona, POV y funcionalidades prioritarias del MVP.</li><li>Arquitectura de la información, card sorting y diseño de flujos de navegación.</li><li>Evolución de wireframes, UI kit y prototipo funcional en Figma.</li><li>Evaluación heurística y pruebas de usabilidad moderadas con 10 usuarios reales para detectar puntos de fricción e iterar la experiencia.</li></ul>"
+    ],
+    "carouselAriaLabel": "Materiales del proceso de diseño de Ristretto",
+    "carouselPrevAriaLabel": "Ver material anterior del proceso",
+    "carouselNextAriaLabel": "Ver siguiente material del proceso",
+    "slide1Alt": "Portada de la sección de flujos de Ristretto con una pantalla del modo Descubrir",
+    "slide2Alt": "Taskflow de Ristretto para buscar y filtrar microrrelatos por título, autor o género",
+    "slide3Alt": "Flowchart del flujo principal de descubrimiento y lectura en Ristretto",
+    "slide4Alt": "Portada de la evolución de wireframes de Ristretto",
+    "slide5Alt": "Wireframes digitales de las pantallas principales de Ristretto",
+    "slide6Alt": "Patrones de diseño y guidelines aplicados a los wireframes de Ristretto",
+    "slide7Alt": "Evolución del wireframe de búsqueda en Ristretto desde boceto hasta interfaz final",
+    "carouselCaption": "Proceso de diseño: pantallas clave, flujos, wireframes y evolución de la interfaz.",
+    "afterCarouselHtml": [
+      "<p>Las pruebas con usuarios ayudaron a identificar oportunidades concretas de mejora, especialmente en onboarding, labels y comprensión de los modos “Descubrir” y “Biblioteca”.</p>",
+      "<p><strong>Tiempo después, retomé el proyecto para convertir el prototipo en una web app funcional utilizando Lovable, GitHub, Visual Studio Code y la terminal.</strong></p>"
+    ],
+    "gifAlt": "Recorrido animado por la web app funcional de Ristretto",
+    "gifCaption": "Recorrido por la web app funcional de Ristretto."
+  },
+  "result": {
+    "label": "Resultado",
+    "title": "Un MVP validado y llevado a producción",
+    "linksAriaLabel": "Entregables y producto Ristretto",
+    "visitCta": "Visitar Ristretto",
+    "deckCta": "Presentación del proyecto",
+    "prototypeCta": "Prototipo Figma",
+    "flowsCta": "Flujos",
+    "wireframesCta": "Wireframes",
+    "architectureCta": "Arquitectura",
+    "heuristicsCta": "Heurísticas",
+    "contentHtml": [
+      "<p>Las pruebas de usabilidad mostraron que el flujo principal de descubrimiento funcionaba correctamente: las personas podían buscar microficciones, explorar resultados y acceder a las obras sin fricción significativa.</p>",
+      "<p>Al mismo tiempo, el testing permitió detectar oportunidades concretas de mejora en onboarding, microcopy y comprensión de los modos “Descubrir” y “Biblioteca”, lo que ayudó a iterar la experiencia con mayor claridad.</p>",
+      "<div class='case-note'><p>El aprendizaje más importante llegó después: <strong>proyecto que había comenzado como investigación, MVP y prototipo UX/UI terminó convirtiéndose en una web app funcional</strong> construida con Lovable, GitHub y herramientas de IA.</p></div>"
+    ]
+  },
+  "related": {
+    "eyebrow": "Otros casos",
+    "title": "Contenido aplicado a investigación, conversión y growth"
+  }
+}

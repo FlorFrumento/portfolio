@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Notas sobre las palabras, los detalles y cómo llegué a UX. ¿Cómo se conectan Cortázar, el content design y los rompecabezas? ¡Conocé #GiraFlor!"
+      content="{{ meta.description }}"
     />
-    <title>Sobre mí | Florencia Frumento, Content Designer y UX Writer</title>
+    <title>{{ meta.title }}</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,64 +23,41 @@
     <main class="about-main">
       <article class="section about-article">
         <header class="about-hero">
-          <h1>Más sobre mí y GiraFlor</h1>
-          <p class="hero-claim">
-            Algunas notas sobre las palabras, los detalles y cómo llegué a UX.
-          </p>
+          <h1>{{ hero.title }}</h1>
+          <p class="hero-claim">{{ hero.claim }}</p>
         </header>
 
         <section class="about-section" aria-labelledby="leer-mundo-title">
           <blockquote class="about-quote">
-            <p>
-              “Digamos que el mundo es una figura, hay que leerla. Por leerla
-              entendamos generarla.”
-            </p>
-            <cite>Julio Cortázar, <span>Rayuela</span></cite>
+            <p>{{ quote.body }}</p>
+            <cite>{{ quote.author }} <span>{{ quote.source }}</span></cite>
           </blockquote>
-          <h2 id="leer-mundo-title">Leer el mundo</h2>
-          <p>
-          Cuando leí a Cortázar por primera vez descubrí que una decisión mínima podía transformar por completo una historia. Un cambio de voz, un punto o una frase inesperada hacían que reinterpretaras todo lo que venías leyendo. <strong>Esa curiosidad por entender cómo se construyen los textos me llevó a estudiar Letras.</strong>
-          </p>
-          <p>
-            Con el tiempo vi que esa fascinación también tenía lugar en la tecnología y los productos digitales. Las personas leen pantallas, formularios, mensajes de error y flujos completos: ahí encontré UX.
-          </p>
-          <p>
-            <strong>Me interesa entender qué necesita un usuario en un momento determinado:</strong> la emoción de lanzar su tienda online, los nervios de hacer una transferencia o las ganas de resolver algo en pocos clics y seguir con su día. También detectar desajustes como una expectativa que no se cumple, una fricción innecesaria o un mensaje que no encaja con lo que alguien está viviendo. Y después intentar mejorarlo.
-          </p>
+          <h2 id="leer-mundo-title">{{ leerMundo.title }}</h2>
+          <p>{{ leerMundo.p1Before }} <strong>{{ leerMundo.p1Emphasis }}</strong></p>
+          <p>{{ leerMundo.p2 }}</p>
+          <p><strong>{{ leerMundo.p3Lead }}</strong> {{ leerMundo.p3Body }}</p>
         </section>
 
         <section class="about-section" aria-labelledby="disenar-elegir-title">
-          <h2 id="disenar-elegir-title">Diseñar también es elegir</h2>
-          <p>
-            <strong>Los girasoles inspiraron varias decisiones visuales de este portfolio:</strong> la paleta de colores, los gradientes, algunos elementos de estilo y su nombre, GiraFlor.
-          </p>
-          <p>
-            ¿Y por qué girasoles? Siempre me llamó la atención que se orienten hacia la luz. Hoy yo también estoy eligiendo una dirección: <strong>acercarme a los desafíos que me entusiasman, a los productos en los que quiero trabajar y a los espacios donde puedo aportar más valor.</strong>
-          </p>
-          <p>
-            Hoy busco seguir desarrollándome como Content Designer y UX Writer, poniendo en práctica esa combinación de lenguaje, observación y pensamiento de producto que me entusiasma de UX.
-          </p>
+          <h2 id="disenar-elegir-title">{{ disenarElegir.title }}</h2>
+          <p><strong>{{ disenarElegir.p1Lead }}</strong> {{ disenarElegir.p1Body }}</p>
+          <p>{{ disenarElegir.p2Before }} <strong>{{ disenarElegir.p2Emphasis }}</strong></p>
+          <p>{{ disenarElegir.p3 }}</p>
         </section>
 
         <section class="about-section" aria-labelledby="imagen-completa-title">
-          <h2 id="imagen-completa-title">La imagen completa</h2>
-          <p>
-            Fuera del trabajo hay un hobby que me representa bastante bien: <b>armar
-            rompecabezas</b>.
-          </p>
-          <p>
-            Tienen un curioso punto en común con UX. Empezás con una serie de piezas inconexas. <strong>Observás, agrupás patrones, hacés hipótesis y, poco a poco, aparece la imagen completa.</strong> Además, obligan a mirar de cerca y descubrir detalles que pasarían desapercibidos de lejos.
-          </p>
-          <p>Por eso encuentro el mismo hilo en muchas de las cosas que me gustan: cómo interpretamos lo que vemos, qué patrones aparecen cuando observamos de cerca y las pequeñas decisiones que cambian una experiencia. <strong>En el fondo, cómo leemos el mundo.</strong>
-          </p>
-          <p>Te invito a recorrer mis proyectos y, si creés que podríamos trabajar juntos, me encantará conversar.</p>
-          <p class="about-signature">Florencia Frumento, #GiraFlor <span aria-hidden="true">🌻</span></p>
+          <h2 id="imagen-completa-title">{{ imagenCompleta.title }}</h2>
+          <p>{{ imagenCompleta.p1Before }} <strong>{{ imagenCompleta.p1Emphasis }}</strong>.</p>
+          <p>{{ imagenCompleta.p2Before }} <strong>{{ imagenCompleta.p2Emphasis }}</strong> {{ imagenCompleta.p2After }}</p>
+          <p>{{ imagenCompleta.p3Before }} <strong>{{ imagenCompleta.p3Emphasis }}</strong></p>
+          <p>{{ imagenCompleta.p4 }}</p>
+          <p class="about-signature">{{ imagenCompleta.signature }} <span aria-hidden="true">🌻</span></p>
         </section>
         <section class="contact-section about-contact" id="contacto">
           <div class="contact-copy">
             <div class="contact-actions">
-              <a class="button primary" href="mailto:florencia.frumento@gmail.com">florencia.frumento@gmail.com</a>
-              <a class="button secondary" href="https://www.linkedin.com/in/florenciafrumento/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="button primary" href="mailto:florencia.frumento@gmail.com">{{ contact.email }}</a>
+              <a class="button secondary" href="https://www.linkedin.com/in/florenciafrumento/" target="_blank" rel="noreferrer">{{ contact.linkedin }}</a>
             </div>
           </div>
         </section>
@@ -88,8 +65,8 @@
     </main>
 
     <footer class="site-footer">
-      <p>Me interesan las preguntas, el lenguaje y las decisiones que dan forma a una experiencia.</p>
-      <a href="/#inicio">Volver al inicio</a>
+      <p>{{ shared.footer.tagline }}</p>
+      <a href="/#inicio">{{ shared.footer.backHome }}</a>
     </footer>
 
     <script type="module" src="../script.js"></script>

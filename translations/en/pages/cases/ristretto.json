@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "description": "Case study on Ristretto, a microfiction web app designed through UX/UI methodology, functional prototyping, and then built with AI.",
+    "title": "Ristretto, my microfiction app | By Florencia Frumento",
+    "ogImageAlt": "Screens from the Ristretto prototype"
+  },
+  "hero": {
+    "eyebrow": "Case study · Personal project",
+    "title": "Ristretto, my microfiction app",
+    "claim": "From a functional prototype for concentrated reading to a production web app built with AI and vibe coding.",
+    "actionsAriaLabel": "Case actions",
+    "primaryCta": "Open web app",
+    "secondaryCta": "See other cases"
+  },
+  "metaSummary": {
+    "ariaLabel": "Case summary",
+    "roleLabel": "Role",
+    "roleValue": "UX/UI design and AI-assisted development",
+    "processLabel": "Process",
+    "processValue": "Research, architecture, flows, prototype, usability, and heuristics.",
+    "implementationLabel": "Implementation",
+    "implementationValue": "Figma, FigJam, Optimal Workshop, Lovable, GitHub, and the terminal"
+  },
+  "results": {
+    "ariaLabel": "Project scope",
+    "productValue": "Product thinking",
+    "productText": "Initial idea validation, research, MVP, functional prototype, and a production web app built with AI.",
+    "architectureValue": "Architecture and flows",
+    "architectureText": "Search, navigation, and discovery flows designed for an intuitive experience.",
+    "iterationValue": "Iteration and validation",
+    "iterationText": "Card sorting, heuristic evaluation, and usability testing with real users to refine key decisions."
+  },
+  "situation": {
+    "label": "Situation",
+    "title": "Recovering the reading habit in the scroll era",
+    "contentHtml": [
+      "<p>As part of the UX/UI Design course at Coderhouse, I developed my own product idea from an increasingly common problem: many people wanted to get back to reading, but found it hard to sustain long works within routines shaped by speed, social media, and fragmented attention.</p>",
+      "<p>That is how <strong>Ristretto was born: a microfiction app designed for brief reading moments, discovering authors, and recovering the reading habit</strong> through a logic more compatible with real patterns of use.</p>",
+      "<p>The concept comes from ristretto, the short coffee variant made with the same intensity as an espresso but extracted with half the water. <strong>The proposal is to enjoy literature the same way: through brief reading with concentrated flavor.</strong></p>"
+    ],
+    "carouselAriaLabel": "Slides from Ristretto's research presentation",
+    "carouselPrevAriaLabel": "View previous presentation slide",
+    "carouselNextAriaLabel": "View next presentation slide",
+    "researchSlide1Alt": "Ristretto presentation slide about desk research and benchmarking",
+    "researchSlide2Alt": "Ristretto presentation slide about agile methodology and design thinking",
+    "researchSlide3Alt": "Ristretto benchmark slide with reading apps and detected opportunities",
+    "researchSlide4Alt": "Ristretto benchmark slide with microfiction competitors and findings",
+    "researchSlide5Alt": "Ristretto problem-validation slide with searches about microfiction",
+    "carouselCaption": "Fragments from the project's research and benchmark presentation."
+  },
+  "task": {
+    "label": "Task",
+    "title": "Design a literary discovery experience",
+    "contentHtml": [
+      "<p>The challenge was to design an MVP that helped people discover, explore, and save microfiction quickly and intuitively, prioritizing brief reading moments and low-friction navigation.</p>",
+      "<p>The proposal brought together <strong>curated works from different literary genres</strong> and made them searchable by title, keyword, or author, in addition to filters, related recommendations, and favorites for rereading.</p>",
+      "<p><strong>The goal was to turn the desire to read more into an experience that felt simple, accessible, and compatible with real usage patterns.</strong></p>"
+    ]
+  },
+  "action": {
+    "label": "Action",
+    "title": "From research to a functional prototype",
+    "contentHtml": [
+      "<p>The project combined research, information architecture, and iterative design to build a discovery experience centered on reading and adapted to brief moments of use.</p>",
+      "<p>The initial benchmark revealed an opportunity for <strong>a Spanish-language microfiction app with curated content and more agile navigation than existing alternatives</strong>. From there, I defined the MVP, the main flows, and the navigation architecture.</p>",
+      "<ul><li>Reading-app benchmark and validation of the product idea.</li><li>Definition of proto-persona, POV, and the MVP's priority features.</li><li>Information architecture, card sorting, and navigation flow design.</li><li>Evolution of wireframes, UI kit, and functional prototype in Figma.</li><li>Heuristic evaluation and moderated usability tests with 10 real users to detect friction points and iterate the experience.</li></ul>"
+    ],
+    "carouselAriaLabel": "Materials from the Ristretto design process",
+    "carouselPrevAriaLabel": "View previous process item",
+    "carouselNextAriaLabel": "View next process item",
+    "slide1Alt": "Cover slide for Ristretto's flows section with a Discover-mode screen",
+    "slide2Alt": "Ristretto task flow for searching and filtering microfiction by title, author, or genre",
+    "slide3Alt": "Flowchart of Ristretto's main discovery and reading flow",
+    "slide4Alt": "Cover slide for the evolution of Ristretto's wireframes",
+    "slide5Alt": "Digital wireframes of Ristretto's main screens",
+    "slide6Alt": "Design patterns and guidelines applied to Ristretto's wireframes",
+    "slide7Alt": "Evolution of Ristretto's search wireframe from sketch to final interface",
+    "carouselCaption": "Design process: key screens, flows, wireframes, and interface evolution.",
+    "afterCarouselHtml": [
+      "<p>User testing helped identify concrete improvement opportunities, especially around onboarding, labels, and understanding the “Discover” and “Library” modes.</p>",
+      "<p><strong>Later on, I picked the project back up to turn the prototype into a functional web app using Lovable, GitHub, Visual Studio Code, and the terminal.</strong></p>"
+    ],
+    "gifAlt": "Animated walkthrough of the functional Ristretto web app",
+    "gifCaption": "Walkthrough of the functional Ristretto web app."
+  },
+  "result": {
+    "label": "Result",
+    "title": "A validated MVP brought to production",
+    "linksAriaLabel": "Ristretto deliverables and product",
+    "visitCta": "Visit Ristretto",
+    "deckCta": "Project presentation",
+    "prototypeCta": "Figma prototype",
+    "flowsCta": "Flows",
+    "wireframesCta": "Wireframes",
+    "architectureCta": "Architecture",
+    "heuristicsCta": "Heuristics",
+    "contentHtml": [
+      "<p>Usability tests showed that the main discovery flow worked correctly: people could search for microfiction, explore results, and access works without significant friction.</p>",
+      "<p>At the same time, testing revealed concrete opportunities for improvement in onboarding, microcopy, and understanding the “Discover” and “Library” modes, which helped refine the experience with greater clarity.</p>",
+      "<div class='case-note'><p>The most important learning came later: <strong>a project that began as research, MVP, and UX/UI prototype ended up becoming a functional web app</strong> built with Lovable, GitHub, and AI tools.</p></div>"
+    ]
+  },
+  "related": {
+    "eyebrow": "Other cases",
+    "title": "Content applied to research, conversion, and growth"
+  }
+}

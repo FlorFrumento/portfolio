@@ -1,7 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, getFirestore, serverTimestamp } from "firebase/firestore";
 
-import { caseStudies } from "./case-studies.js";
+import {
+  getCaseStudies,
+  getLocaleFromPathname,
+  getRuntimeStrings,
+  localizePath,
+  normalizeContentPath,
+  stripLocaleFromPathname
+} from "./i18n.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBjOPddXrcn-py4PRrQvXOoz3HhN4_toFk",
@@ -15,35 +22,38 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const firestore = getFirestore(firebaseApp);
-
-const headerNavItems = [
-  { href: "/#casos", label: "Casos" },
-  { href: "/#experiencia", label: "Experiencia" },
-  { className: "desktop-only", href: "/#enfoque", label: "Enfoque" },
-  { href: "/#contacto", label: "Contacto" },
-  { href: "/sobre-mi/", label: "Sobre GiraFlor", page: "about" }
-];
+const currentLocale = getLocaleFromPathname(window.location.pathname);
+const runtimeStrings = getRuntimeStrings(currentLocale);
+const caseStudies = getCaseStudies(currentLocale);
 
 const renderSiteHeader = () => {
   const header = document.querySelector("[data-site-header]");
   if (!header) return;
+  if (header.children.length > 0) return;
 
   const currentPage = header.dataset.currentPage;
+  const headerNavItems = [
+    { href: localizePath("/#casos", currentLocale), label: runtimeStrings.header.nav.cases },
+    { href: localizePath("/#experiencia", currentLocale), label: runtimeStrings.header.nav.experience },
+    { className: "desktop-only", href: localizePath("/#enfoque", currentLocale), label: runtimeStrings.header.nav.approach },
+    { href: localizePath("/#contacto", currentLocale), label: runtimeStrings.header.nav.contact },
+    { href: localizePath("/sobre-mi/", currentLocale), label: runtimeStrings.header.nav.about, page: "about" }
+  ];
   const inner = document.createElement("div");
   inner.className = "header-inner";
 
   const brand = document.createElement("a");
   brand.className = "brand";
-  brand.href = "/#inicio";
-  brand.setAttribute("aria-label", "Ir al inicio");
+  brand.href = localizePath("/#inicio", currentLocale);
+  brand.setAttribute("aria-label", runtimeStrings.header.brandAriaLabel);
 
   const brandText = document.createElement("span");
-  brandText.textContent = "Florencia Frumento";
+  brandText.textContent = runtimeStrings.header.brand;
   brand.append(brandText);
 
   const nav = document.createElement("nav");
   nav.className = "main-nav";
-  nav.setAttribute("aria-label", "Navegacion principal");
+  nav.setAttribute("aria-label", runtimeStrings.header.navAriaLabel);
 
   headerNavItems.forEach((item) => {
     const link = document.createElement("a");
@@ -61,13 +71,60 @@ const renderSiteHeader = () => {
     nav.append(link);
   });
 
-  inner.append(brand, nav);
+  const controls = document.createElement("div");
+  controls.className = "header-controls";
+
+  const localeSwitcher = document.createElement("div");
+  localeSwitcher.className = "locale-switcher";
+  localeSwitcher.setAttribute("aria-label", runtimeStrings.header.localeSwitcherLabel);
+  localeSwitcher.dataset.localeSwitcher = "";
+  localeSwitcher.dataset.pageRoute = stripLocaleFromPathname(window.location.pathname);
+
+  ["es", "en"].forEach((locale) => {
+    const link = document.createElement("a");
+    link.href = localizePath(`${stripLocaleFromPathname(window.location.pathname)}${window.location.hash}`, locale, {
+      explicit: true
+    });
+    link.hreflang = locale;
+    link.lang = locale;
+    link.dataset.localeLink = locale;
+    link.textContent = runtimeStrings.header.locales[locale];
+
+    if (locale === currentLocale) {
+      link.setAttribute("aria-current", "true");
+    }
+
+    localeSwitcher.append(link);
+  });
+
+  controls.append(nav, localeSwitcher);
+  inner.append(brand, controls);
   header.replaceChildren(inner);
 };
 
 renderSiteHeader();
 
-const normalizePath = (value) => value.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
+const syncLocaleSwitcher = () => {
+  const switchers = document.querySelectorAll("[data-locale-switcher]");
+  if (!switchers.length) return;
+
+  const baseRoute = stripLocaleFromPathname(window.location.pathname);
+  const currentHash = window.location.hash;
+
+  switchers.forEach((switcher) => {
+    switcher.querySelectorAll("[data-locale-link]").forEach((link) => {
+      const locale = link.dataset.localeLink;
+      link.href = localizePath(`${baseRoute}${currentHash}`, locale, { explicit: true });
+      if (locale === currentLocale) {
+        link.setAttribute("aria-current", "true");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  });
+};
+
+syncLocaleSwitcher();
 
 const hashString = (value) => {
   let hash = 1779033703 ^ value.length;
@@ -156,7 +213,7 @@ const buildRelatedCaseCard = (caseStudy) => {
   description.textContent = caseStudy.description;
 
   const cta = document.createElement("strong");
-  cta.textContent = "Ver caso";
+  cta.textContent = runtimeStrings.relatedCases.cta;
 
   content.append(kicker, title, description, cta);
   link.append(media, content);
@@ -227,8 +284,8 @@ const renderRelatedCases = () => {
   const grid = document.querySelector(".related-cases-grid");
   if (!grid) return;
 
-  const currentPath = normalizePath(window.location.pathname);
-  const currentCase = caseStudies.find((caseStudy) => normalizePath(caseStudy.href) === currentPath);
+  const currentPath = normalizeContentPath(window.location.pathname);
+  const currentCase = caseStudies.find((caseStudy) => normalizeContentPath(caseStudy.href) === currentPath);
   if (!currentCase) return;
 
   const relatedCaseStudies = selectRelatedCaseStudies(currentCase.id);
@@ -384,7 +441,7 @@ const applyLightboxZoom = () => {
   activeLightbox.zoomResetButton.textContent = `${Math.round(zoom * 100)}%`;
   activeLightbox.zoomResetButton.setAttribute(
     "aria-label",
-    `Restablecer zoom. Zoom actual: ${Math.round(zoom * 100)} %`
+    runtimeStrings.lightbox.zoomResetCurrent.replace("{percent}", String(Math.round(zoom * 100)))
   );
 };
 
@@ -397,7 +454,10 @@ const resetLightboxZoom = (applySize = true) => {
   activeLightbox.viewport.dataset.zoomed = "false";
   activeLightbox.zoomOutButton.disabled = true;
   activeLightbox.zoomResetButton.textContent = "100%";
-  activeLightbox.zoomResetButton.setAttribute("aria-label", "Restablecer zoom. Zoom actual: 100 %");
+  activeLightbox.zoomResetButton.setAttribute(
+    "aria-label",
+    runtimeStrings.lightbox.zoomResetCurrent.replace("{percent}", "100")
+  );
 
   if (!applySize) {
     activeLightbox.image.style.width = "";
@@ -482,22 +542,22 @@ function openLightbox(items, startIndex) {
   lightbox.classList.toggle("is-single", items.length === 1);
   lightbox.setAttribute("role", "dialog");
   lightbox.setAttribute("aria-modal", "true");
-  lightbox.setAttribute("aria-label", "Vista ampliada de páginas del informe");
+  lightbox.setAttribute("aria-label", runtimeStrings.lightbox.dialogAriaLabel);
   lightbox.innerHTML = `
-    <button class="lightbox-button lightbox-close" type="button" aria-label="Cerrar vista ampliada">×</button>
-    <button class="lightbox-button lightbox-prev" type="button" aria-label="Ver imagen anterior">←</button>
+    <button class="lightbox-button lightbox-close" type="button" aria-label="${runtimeStrings.lightbox.close}">×</button>
+    <button class="lightbox-button lightbox-prev" type="button" aria-label="${runtimeStrings.lightbox.previous}">←</button>
     <figure class="lightbox-figure">
-      <div class="lightbox-toolbar" aria-label="Controles de zoom">
-        <button class="lightbox-button lightbox-zoom" type="button" aria-label="Alejar imagen" data-lightbox-zoom-out>−</button>
-        <button class="lightbox-button lightbox-zoom" type="button" aria-label="Restablecer zoom" data-lightbox-zoom-reset>100%</button>
-        <button class="lightbox-button lightbox-zoom" type="button" aria-label="Acercar imagen" data-lightbox-zoom-in>+</button>
+      <div class="lightbox-toolbar" aria-label="${runtimeStrings.lightbox.zoomControls}">
+        <button class="lightbox-button lightbox-zoom" type="button" aria-label="${runtimeStrings.lightbox.zoomOut}" data-lightbox-zoom-out>−</button>
+        <button class="lightbox-button lightbox-zoom" type="button" aria-label="${runtimeStrings.lightbox.zoomReset}" data-lightbox-zoom-reset>100%</button>
+        <button class="lightbox-button lightbox-zoom" type="button" aria-label="${runtimeStrings.lightbox.zoomIn}" data-lightbox-zoom-in>+</button>
       </div>
       <div class="lightbox-viewport">
         <img class="lightbox-image" alt="" draggable="false" />
       </div>
       <figcaption class="lightbox-caption"></figcaption>
     </figure>
-    <button class="lightbox-button lightbox-next" type="button" aria-label="Ver imagen siguiente">→</button>
+    <button class="lightbox-button lightbox-next" type="button" aria-label="${runtimeStrings.lightbox.next}">→</button>
   `;
 
   document.body.append(lightbox);
@@ -581,17 +641,17 @@ contactForm?.addEventListener("submit", async (event) => {
   const message = String(formData.get("message") || "").trim();
 
   if (honeypot) {
-    setFormStatus("No se pudo enviar el mensaje.", "is-error");
+    setFormStatus(runtimeStrings.contactForm.submitBlocked, "is-error");
     return;
   }
 
   if (!name || !email || !message) {
-    setFormStatus("Completá nombre, correo y mensaje para enviar.", "is-error");
+    setFormStatus(runtimeStrings.contactForm.validationError, "is-error");
     return;
   }
 
   submitButton?.setAttribute("disabled", "true");
-  setFormStatus("Enviando mensaje...");
+  setFormStatus(runtimeStrings.contactForm.sending);
 
   try {
     await addDoc(collection(firestore, "contactMessages"), {
@@ -603,11 +663,11 @@ contactForm?.addEventListener("submit", async (event) => {
     });
 
     form.reset();
-    setFormStatus("Mensaje enviado. Gracias por escribirme.", "is-success");
+    setFormStatus(runtimeStrings.contactForm.success, "is-success");
   } catch (error) {
     console.error("Error saving contact form:", error);
     setFormStatus(
-      "No pude enviar el mensaje. Revisamos juntos la configuración de Firebase en el siguiente paso.",
+      runtimeStrings.contactForm.firebaseError,
       "is-error"
     );
   } finally {

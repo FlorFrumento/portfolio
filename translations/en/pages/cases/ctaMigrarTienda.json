@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "description": "Case study on how, as a CRO Analyst, I implemented an A/B test on a new conversion point to drive qualified traffic and support store migrations.",
+    "title": "A/B testing and CRO: new store migration CTA | Florencia Frumento",
+    "ogImageAlt": "Visual preview of the store-migration CTA case study"
+  },
+  "hero": {
+    "eyebrow": "Case study · Tiendanube blog",
+    "title": "CTA for store migration",
+    "claim": "How we validated a new conversion point in the blog header with an A/B test to bring qualified traffic to the Tiendanube Evolución landing page.",
+    "actionsAriaLabel": "Case actions",
+    "primaryCta": "Let's talk",
+    "secondaryCta": "See other cases"
+  },
+  "metaSummary": {
+    "ariaLabel": "Case summary",
+    "roleLabel": "Role",
+    "roleValue": "Content Strategist and CRO Analyst",
+    "channelLabel": "Channel",
+    "channelValue": "Tiendanube blog header",
+    "impactLabel": "Impact",
+    "impactValue": "+12% traffic to the conversion landing page"
+  },
+  "results": {
+    "ariaLabel": "Key results",
+    "trafficValue": "+12%",
+    "trafficText": "increase in traffic routed to the Tiendanube Evolución landing page.",
+    "testValue": "A/B",
+    "testText": "test used to validate the hypothesis before the final rollout.",
+    "headerValue": "Header",
+    "headerText": "chosen as the priority placement because of its high click volume on the blog."
+  },
+  "situation": {
+    "label": "Situation",
+    "title": "The landing page needed more qualified traffic",
+    "contentHtml": [
+      "<p>Tiendanube Evolución had a main landing page focused on conversion, but lead generation was not meeting the team's goal. One possible cause was the low amount of traffic reaching that page.</p>",
+      "<p>At the same time, the Tiendanube blog was one of the highest-volume organic channels. The opportunity was to <strong>connect that existing traffic to a clear path toward a solution designed for larger brands</strong>.</p>"
+    ]
+  },
+  "task": {
+    "label": "Task",
+    "title": "Create an entry point without diluting intent",
+    "contentHtml": [
+      "<p>The challenge was to add a CTA in a sensitive space: the blog header, where there was already a high-performing button, \"Create your store for free.\" <strong>The new message had to speak to a different audience without competing confusingly with the main flow.</strong></p>",
+      "<p>The chosen copy was \"Migrate your store\" because Tiendanube Evolución is the solution aimed at larger brands that generally already have an ecommerce operation and need to move from another platform or a custom-built solution.</p>"
+    ]
+  },
+  "action": {
+    "label": "Action",
+    "title": "Test the hypothesis with data before scaling",
+    "introLead": "We ran an A/B test to compare the existing experience with a variant that added the new CTA next to the blog's main button.",
+    "introBody": "The test made it possible to assess whether the conversion point brought relevant traffic without relying on isolated opinion.",
+    "videoCaption": "Flow recording from the blog header to the conversion point.",
+    "listHtml": [
+      "<ul>",
+      "<li>We identified the header as the most-clicked element on the blog.</li>",
+      "<li>We defined copy oriented to a specific need: migrating an existing store.</li>",
+      "<li>We validated the variant with an A/B test before taking it to production.</li>",
+      "<li>We used the result to support a permanent navigation decision.</li>",
+      "</ul>"
+    ],
+    "beforeTitle": "Before",
+    "beforeText": "The header prioritized creating a new store, an action aimed at entrepreneurs rather than larger brands that were already selling online.",
+    "afterTitle": "After",
+    "afterText": "The header offered a second clear entry point for more mature brands interested in migrating their operation.",
+    "imageAlt": "Desktop blog header with the &quot;Migrate your store&quot; CTA alongside the &quot;Create your store for free&quot; button",
+    "imageCaption": "Desktop view of the blog header, with the \"Migrate your store\" CTA alongside the main blog CTA."
+  },
+  "result": {
+    "label": "Result",
+    "title": "The variant won and shipped to production",
+    "bodyBefore": "The version with the additional CTA won the A/B test and",
+    "bodyEmphasis": "generated a +12% increase in traffic routed to the Tiendanube Evolución landing page",
+    "bodyAfter": ", the main lead conversion driver.",
+    "note": "The button remained fixed in the blog header. The decision combined data reading, audience precision, and a copy choice aligned with the two possible moments for brands: starting or migrating."
+  },
+  "related": {
+    "eyebrow": "Other cases",
+    "title": "More content decisions applied to research and conversion"
+  }
+}

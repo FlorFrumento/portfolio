@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "description": "Notas sobre las palabras, los detalles y cómo llegué a UX. ¿Cómo se conectan Cortázar, el content design y los rompecabezas? ¡Conocé #GiraFlor!",
+    "title": "Sobre mí | Florencia Frumento, Content Designer y UX Writer"
+  },
+  "hero": {
+    "title": "Más sobre mí y GiraFlor",
+    "claim": "Algunas notas sobre las palabras, los detalles y cómo llegué a UX."
+  },
+  "quote": {
+    "body": "“Digamos que el mundo es una figura, hay que leerla. Por leerla entendamos generarla.”",
+    "author": "Julio Cortázar,",
+    "source": "Rayuela"
+  },
+  "leerMundo": {
+    "title": "Leer el mundo",
+    "p1Before": "Cuando leí a Cortázar por primera vez descubrí que una decisión mínima podía transformar por completo una historia. Un cambio de voz, un punto o una frase inesperada hacían que reinterpretaras todo lo que venías leyendo.",
+    "p1Emphasis": "Esa curiosidad por entender cómo se construyen los textos me llevó a estudiar Letras.",
+    "p2": "Con el tiempo vi que esa fascinación también tenía lugar en la tecnología y los productos digitales. Las personas leen pantallas, formularios, mensajes de error y flujos completos: ahí encontré UX.",
+    "p3Lead": "Me interesa entender qué necesita un usuario en un momento determinado:",
+    "p3Body": "la emoción de lanzar su tienda online, los nervios de hacer una transferencia o las ganas de resolver algo en pocos clics y seguir con su día. También detectar desajustes como una expectativa que no se cumple, una fricción innecesaria o un mensaje que no encaja con lo que alguien está viviendo. Y después intentar mejorarlo."
+  },
+  "disenarElegir": {
+    "title": "Diseñar también es elegir",
+    "p1Lead": "Los girasoles inspiraron varias decisiones visuales de este portfolio:",
+    "p1Body": "la paleta de colores, los gradientes, algunos elementos de estilo y su nombre, GiraFlor.",
+    "p2Before": "¿Y por qué girasoles? Siempre me llamó la atención que se orienten hacia la luz. Hoy yo también estoy eligiendo una dirección:",
+    "p2Emphasis": "acercarme a los desafíos que me entusiasman, a los productos en los que quiero trabajar y a los espacios donde puedo aportar más valor.",
+    "p3": "Hoy busco seguir desarrollándome como Content Designer y UX Writer, poniendo en práctica esa combinación de lenguaje, observación y pensamiento de producto que me entusiasma de UX."
+  },
+  "imagenCompleta": {
+    "title": "La imagen completa",
+    "p1Before": "Fuera del trabajo hay un hobby que me representa bastante bien:",
+    "p1Emphasis": "armar rompecabezas",
+    "p2Before": "Tienen un curioso punto en común con UX. Empezás con una serie de piezas inconexas.",
+    "p2Emphasis": "Observás, agrupás patrones, hacés hipótesis y, poco a poco, aparece la imagen completa.",
+    "p2After": "Además, obligan a mirar de cerca y descubrir detalles que pasarían desapercibidos de lejos.",
+    "p3Before": "Por eso encuentro el mismo hilo en muchas de las cosas que me gustan: cómo interpretamos lo que vemos, qué patrones aparecen cuando observamos de cerca y las pequeñas decisiones que cambian una experiencia.",
+    "p3Emphasis": "En el fondo, cómo leemos el mundo.",
+    "p4": "Te invito a recorrer mis proyectos y, si creés que podríamos trabajar juntos, me encantará conversar.",
+    "signature": "Florencia Frumento, #GiraFlor"
+  },
+  "contact": {
+    "email": "florencia.frumento@gmail.com",
+    "linkedin": "LinkedIn"
+  }
+}
