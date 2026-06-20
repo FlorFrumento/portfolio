@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <script>
+      const defaultLocale = "es";
+      const locales = new Set(["es", "en"]);
+      const pageRoutes = [
+        "/",
+        "/sobre-mi/",
+        "/casos/banner-nubecommerce/",
+        "/casos/carrito-amazon/",
+        "/casos/cta-migrar-tienda/",
+        "/casos/recursos-descargables/",
+        "/casos/ristretto/"
+      ];
+
+      const normalizeRoutePath = (route) =>
+        route === "/" ? "/" : `/${route.replace(/^\/|\/$/g, "")}/`;
+
+      const localizeRoute = (route, locale, options = {}) => {
+        const normalizedRoute = route === "/" ? "" : route.replace(/^\/|\/$/g, "");
+        const explicit = options.explicit === true;
+
+        if (locale === defaultLocale && !explicit) {
+          return `/${normalizedRoute}${normalizedRoute ? "/" : ""}`;
+        }
+
+        return `/${[locale, normalizedRoute].filter(Boolean).join("/")}/`;
+      };
+
+      const getCanonicalPathname = (pathname = "/") => {
+        const segments = pathname.split("/").filter(Boolean);
+        const firstSegment = segments[0];
+        const hasExplicitLocale = locales.has(firstSegment);
+        const locale = hasExplicitLocale ? firstSegment : defaultLocale;
+        const pathSegments = hasExplicitLocale ? segments.slice(1) : segments;
+        const strippedPath = `/${pathSegments.join("/")}${pathSegments.length ? "/" : ""}`;
+        const normalizedPath = normalizeRoutePath(strippedPath);
+
+        if (pageRoutes.includes(normalizedPath)) {
+          return localizeRoute(normalizedPath, locale, { explicit: hasExplicitLocale });
+        }
+
+        const nearestRoute = pageRoutes
+          .filter((route) => route !== "/" && normalizedPath.startsWith(route))
+          .sort((left, right) => right.length - left.length)[0];
+
+        if (nearestRoute) {
+          return localizeRoute(nearestRoute, locale, { explicit: hasExplicitLocale });
+        }
+
+        return localizeRoute("/", defaultLocale);
+      };
+
+      const target = getCanonicalPathname(window.location.pathname);
+      window.location.replace(`${target}${window.location.search}${window.location.hash}`);
+    </script>
+  </body>
+</html>

@@ -21,17 +21,17 @@ export { i18nConfig, siteOrigin };
 
 export const getLocaleFromPathname = (pathname = "/") => {
   const segments = pathname.split("/").filter(Boolean);
-  const lastSegment = segments.at(-1);
+  const firstSegment = segments.at(0);
 
-  return i18nConfig.locales.includes(lastSegment) ? lastSegment : i18nConfig.defaultLocale;
+  return i18nConfig.locales.includes(firstSegment) ? firstSegment : i18nConfig.defaultLocale;
 };
 
 export const stripLocaleFromPathname = (pathname = "/") => {
   const segments = pathname.split("/").filter(Boolean);
-  const lastSegment = segments.at(-1);
+  const firstSegment = segments.at(0);
 
-  if (i18nConfig.locales.includes(lastSegment)) {
-    segments.pop();
+  if (i18nConfig.locales.includes(firstSegment)) {
+    segments.shift();
   }
 
   return `/${segments.join("/")}${segments.length ? "/" : ""}`;
@@ -45,7 +45,7 @@ export const localizePath = (route, locale, options = {}) => {
 
   const localizedPath = currentLocale === i18nConfig.defaultLocale && !explicit
     ? `/${normalizedPath}${normalizedPath ? "/" : ""}`
-    : `/${[normalizedPath, currentLocale].filter(Boolean).join("/")}/`;
+    : `/${[currentLocale, normalizedPath].filter(Boolean).join("/")}/`;
 
   return hash ? `${localizedPath}#${hash}` : localizedPath;
 };

@@ -16,11 +16,49 @@ const normalizeRoutePath = (route) => {
   return normalized;
 };
 
-const toGeneratedRequestPath = (route, locale) => {
+const pageRoutes = i18nConfig.pages.map((page) => normalizeRoutePath(page.route));
+
+const localizeRoute = (route, locale, options = {}) => {
   const normalizedRoute = route === "/" ? "" : route.replace(/^\/|\/$/g, "");
-  const localizedRoute = locale === i18nConfig.defaultLocale
+  const explicit = options.explicit === true;
+
+  if (locale === i18nConfig.defaultLocale && !explicit) {
+    return `/${normalizedRoute}${normalizedRoute ? "/" : ""}`;
+  }
+
+  return `/${[locale, normalizedRoute].filter(Boolean).join("/")}/`;
+};
+
+const getCanonicalPathname = (pathname = "/") => {
+  const segments = pathname.split("/").filter(Boolean);
+  const firstSegment = segments.at(0);
+  const hasExplicitLocale = i18nConfig.locales.includes(firstSegment);
+  const locale = hasExplicitLocale ? firstSegment : i18nConfig.defaultLocale;
+  const pathSegments = hasExplicitLocale ? segments.slice(1) : segments;
+  const strippedPath = `/${pathSegments.join("/")}${pathSegments.length ? "/" : ""}`;
+  const normalizedPath = normalizeRoutePath(strippedPath);
+
+  if (pageRoutes.includes(normalizedPath)) {
+    return localizeRoute(normalizedPath, locale, { explicit: hasExplicitLocale });
+  }
+
+  const nearestRoute = pageRoutes
+    .filter((route) => route !== "/" && normalizedPath.startsWith(route))
+    .sort((left, right) => right.length - left.length)[0];
+
+  if (nearestRoute) {
+    return localizeRoute(nearestRoute, locale, { explicit: hasExplicitLocale });
+  }
+
+  return localizeRoute("/", i18nConfig.defaultLocale);
+};
+
+const toGeneratedRequestPath = (route, locale, options = {}) => {
+  const normalizedRoute = route === "/" ? "" : route.replace(/^\/|\/$/g, "");
+  const explicit = options.explicit === true;
+  const localizedRoute = locale === i18nConfig.defaultLocale && !explicit
     ? normalizedRoute
-    : [normalizedRoute, locale].filter(Boolean).join("/");
+    : [locale, normalizedRoute].filter(Boolean).join("/");
 
   return `/${[generatedRoot, localizedRoute, "index.html"].filter(Boolean).join("/")}`;
 };
@@ -29,30 +67,27 @@ const createDevRouteMap = () => {
   const routeMap = new Map();
 
   i18nConfig.pages.forEach((page) => {
-    const baseRoute = normalizeRoutePath(page.route);
-
     i18nConfig.locales.forEach((locale) => {
-      const generatedPath = toGeneratedRequestPath(page.route, locale);
-      const localizedRoute = locale === i18nConfig.defaultLocale
-        ? baseRoute
-        : normalizeRoutePath(`${baseRoute}${locale}/`);
+      const explicitVariants = locale === i18nConfig.defaultLocale ? [false, true] : [true];
 
-      routeMap.set(localizedRoute, generatedPath);
-
-      if (locale === i18nConfig.defaultLocale) {
-        routeMap.set(normalizeRoutePath(`${baseRoute}${locale}/`), generatedPath);
-      }
+      explicitVariants.forEach((explicit) => {
+        routeMap.set(
+          normalizeRoutePath(localizeRoute(page.route, locale, { explicit })),
+          toGeneratedRequestPath(page.route, locale, { explicit })
+        );
+      });
     });
   });
 
   return routeMap;
 };
 
-const toInputPath = (route, locale) => {
+const toInputPath = (route, locale, options = {}) => {
   const normalizedRoute = route === "/" ? "" : route.replace(/^\/|\/$/g, "");
-  const localizedRoute = locale === i18nConfig.defaultLocale
+  const explicit = options.explicit === true;
+  const localizedRoute = locale === i18nConfig.defaultLocale && !explicit
     ? normalizedRoute
-    : [normalizedRoute, locale].filter(Boolean).join("/");
+    : [locale, normalizedRoute].filter(Boolean).join("/");
 
   return resolve(__dirname, generatedRoot, localizedRoute, "index.html");
 };
@@ -60,7 +95,14 @@ const toInputPath = (route, locale) => {
 const createI18nInputs = () =>
   Object.fromEntries(
     i18nConfig.pages.flatMap((page) =>
-      i18nConfig.locales.map((locale) => [toInputName(page.id, locale), toInputPath(page.route, locale)])
+      i18nConfig.locales.flatMap((locale) => {
+        const explicitVariants = locale === i18nConfig.defaultLocale ? [false, true] : [true];
+
+        return explicitVariants.map((explicit) => [
+          `${toInputName(page.id, locale)}${explicit ? "-explicit" : "-default"}`,
+          toInputPath(page.route, locale, { explicit })
+        ]);
+      })
     )
   );
 
@@ -97,7 +139,16 @@ const createI18nServePlugin = () => ({
       }
 
       const requestUrl = new URL(req.url, "http://localhost");
-      const mappedPath = devRouteMap.get(normalizeRoutePath(requestUrl.pathname));
+      const canonicalPath = getCanonicalPathname(requestUrl.pathname);
+
+      if (canonicalPath !== requestUrl.pathname) {
+        res.statusCode = 302;
+        res.setHeader("Location", `${canonicalPath}${requestUrl.search}${requestUrl.hash}`);
+        res.end();
+        return;
+      }
+
+      const mappedPath = devRouteMap.get(normalizeRoutePath(canonicalPath));
 
       if (!mappedPath) {
         next();
