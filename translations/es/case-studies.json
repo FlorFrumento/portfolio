@@ -9,14 +9,14 @@
   "banner-nubecommerce": {
     "title": "Más respuestas, menos fricción",
     "kicker": "Tiendanube admin · Investigación",
-    "description": "Iteración de microcopy y comportamiento de un banner in-app para aumentar la participación en una encuesta.",
+    "description": "Iteración de microcopy y comportamiento de un banner in-app para aumentar la participación en la encuesta del NubeCommerce.",
     "imageAlt": "Preview visual del caso NubeCommerce",
     "cardAriaLabel": "Ver caso de estudio sobre el banner de NubeCommerce"
   },
   "cta-migrar-tienda": {
     "title": "CTA para migrar tiendas",
     "kicker": "Tiendanube blog · Growth",
-    "description": "A/B test de contenido y jerarquía para abrir un nuevo punto de conversión hacia una landing estratégica.",
+    "description": "A/B test de contenido y jerarquía para abrir un nuevo punto de conversión hacia la landing de Tiendanube Evolución.",
     "imageAlt": "Preview visual del caso CTA para migrar tiendas",
     "cardAriaLabel": "Ver caso de estudio del CTA Migrar tienda"
   },
@@ -30,7 +30,7 @@
   "ristretto": {
     "title": "Ristretto, mi app de microficción",
     "kicker": "Producto digital · UX/UI + IA",
-    "description": "De un problema de lectura cotidiana a una experiencia digital pensada, prototipada y construida con IA.",
+    "description": "De una propuesta de app para leer microficción al desarollo del prototipo y lanzamiento de la web app productiva con IA.",
     "imageAlt": "Pantallas del prototipo de Ristretto",
     "cardAriaLabel": "Ver caso de estudio de Ristretto"
   }

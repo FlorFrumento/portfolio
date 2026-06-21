@@ -56,7 +56,7 @@
   "action": {
     "label": "Action",
     "title": "Iterate the banner behavior and copy",
-    "intro": "Instead of relying on a dismissible appearance, we proposed leaving the invitation fixed as a header inside the admin during the final survey window. The content needed to be clear, direct, and contextual enough to explain why it was worth participating.",
+    "intro": "Instead of relying on a dismissible appearance, I proposed leaving the invitation fixed as a header inside the admin during the final survey window. The content needed to be clear, direct, and contextual enough to explain why it was worth participating.",
     "imageAlt": "Recreated in-app banner in the Tiendanube admin with a CTA to answer the NubeCommerce survey",
     "imageCaption": "Illustrative image recreated from the original banner. Some sensitive data was hidden.",
     "listHtml": [

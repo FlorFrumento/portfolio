@@ -115,7 +115,7 @@ const buildHeaderMarkup = (dictionary, locale, page, routeTranslations, options 
   const header = dictionary.shared.header;
   const navItems = [
     { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#casos`, label: header.nav.cases },
-    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#experiencia`, label: header.nav.experience },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#experiencia`, label: header.nav.experience, className: "desktop-only" },
     { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#enfoque`, label: header.nav.approach, className: "desktop-only" },
     { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#contacto`, label: header.nav.contact },
     { href: getLocalizedPagePath("about", locale, routeTranslations, i18nConfig, { explicit }), label: header.nav.about, currentPage: "about" }

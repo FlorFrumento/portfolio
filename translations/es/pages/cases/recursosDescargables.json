@@ -7,7 +7,7 @@
   "hero": {
     "eyebrow": "Caso de estudio · Lead generation",
     "title": "Recursos descargables",
-    "claim": "Cómo diseñé contenido para informes, e-books, playbooks y landings de descarga que conectan investigación, SEO/GEO y generación de leads.",
+    "claim": "Cómo diseñé contenido para informes, e-books, playbooks y landings de descarga que conectan investigación, SEO, GEO y generación de leads.",
     "actionsAriaLabel": "Acciones del caso",
     "primaryCta": "Conversemos",
     "secondaryCta": "Ver otros casos"
@@ -25,7 +25,7 @@
     "ariaLabel": "Piezas principales",
     "downloadablesValue": "+20 descargables",
     "downloadablesText": "aquí destacamos NubeCommerce, Hogar y deco, y Estrategias de alto impacto.",
-    "seoValue": "SEO/GEO",
+    "seoValue": "SEO y GEO",
     "seoText": "estructura orientada a búsqueda, intención y posicionamiento temático.",
     "gtmValue": "GTM",
     "gtmText": "derivación desde blog posts, performance y formularios de nutrición."

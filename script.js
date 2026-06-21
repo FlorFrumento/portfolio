@@ -31,12 +31,11 @@ const caseStudies = getCaseStudies(currentLocale);
 const renderSiteHeader = () => {
   const header = document.querySelector("[data-site-header]");
   if (!header) return;
-  if (header.children.length > 0) return;
 
   const currentPage = header.dataset.currentPage;
   const headerNavItems = [
     { href: getLocalizedHomeHash("casos", currentLocale), label: runtimeStrings.header.nav.cases },
-    { href: getLocalizedHomeHash("experiencia", currentLocale), label: runtimeStrings.header.nav.experience },
+    { className: "desktop-only", href: getLocalizedHomeHash("experiencia", currentLocale), label: runtimeStrings.header.nav.experience },
     { className: "desktop-only", href: getLocalizedHomeHash("enfoque", currentLocale), label: runtimeStrings.header.nav.approach },
     { href: getLocalizedHomeHash("contacto", currentLocale), label: runtimeStrings.header.nav.contact },
     { href: getLocalizedRoute("about", currentLocale), label: runtimeStrings.header.nav.about, page: "about" }
