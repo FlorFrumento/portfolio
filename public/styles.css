@@ -1486,11 +1486,26 @@ h3 {
   font-size: 0.9rem;
 }
 
+.clipboard-status {
+  min-height: 24px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .form-status.is-error {
   color: #8f2f2f;
 }
 
+.clipboard-status.is-error {
+  color: #8f2f2f;
+}
+
 .form-status.is-success {
+  color: var(--olive);
+}
+
+.clipboard-status.is-success {
   color: var(--olive);
 }
 

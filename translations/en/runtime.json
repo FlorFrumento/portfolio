@@ -32,9 +32,13 @@
   },
   "contactForm": {
     "submitBlocked": "The message could not be sent.",
-    "validationError": "Complete name, email, and message before sending.",
+    "validationError": "Check the form: use a 2 to 100 character name, a valid email, and an 11 to 4000 character message.",
     "sending": "Sending message...",
     "success": "Message sent. Thanks for reaching out.",
-    "firebaseError": "I couldn't send the message. We can review the Firebase setup together in the next step."
+    "firebaseError": "I couldn't send the message right now. If the problem continues, reach out via LinkedIn or email."
+  },
+  "clipboard": {
+    "copyEmailSuccess": "Email copied to clipboard.",
+    "copyEmailError": "I couldn't copy the email. You can write to me at florencia.frumento@gmail.com."
   }
 }

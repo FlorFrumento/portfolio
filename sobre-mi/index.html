@@ -56,9 +56,10 @@
         <section class="contact-section about-contact" id="contacto">
           <div class="contact-copy">
             <div class="contact-actions">
-              <a class="button primary" href="mailto:florencia.frumento@gmail.com">{{ contact.email }}</a>
+              <a class="button primary" href="mailto:florencia.frumento@gmail.com" data-copy-email>{{ contact.email }}</a>
               <a class="button secondary" href="https://www.linkedin.com/in/florenciafrumento/" target="_blank" rel="noreferrer">{{ contact.linkedin }}</a>
             </div>
+            <p class="clipboard-status" data-copy-email-status aria-live="polite"></p>
           </div>
         </section>
       </article>

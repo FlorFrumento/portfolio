@@ -28,7 +28,7 @@
           <p class="hero-claim">{{ hero.claim }}</p>
           <div class="hero-actions" aria-label="{{ hero.actionsAriaLabel }}">
             <a class="button primary" href="#casos">{{ hero.primaryCta }}</a>
-            <a class="button secondary" href="mailto:florencia.frumento@gmail.com">{{ hero.secondaryCta }}</a>
+            <a class="button secondary" href="#contacto">{{ hero.secondaryCta }}</a>
           </div>
         </div>
       </section>
@@ -199,7 +199,7 @@
           <h2 id="contacto-title">{{ contact.title }}</h2>
           <p>{{ contact.description }}</p>
           <div class="contact-actions">
-            <a class="button primary" href="mailto:florencia.frumento@gmail.com">florencia.frumento@gmail.com</a>
+            <a class="button primary" href="mailto:florencia.frumento@gmail.com" data-copy-email>florencia.frumento@gmail.com</a>
             <a class="button secondary" href="https://www.linkedin.com/in/florenciafrumento/" target="_blank" rel="noreferrer">
               LinkedIn
             </a>
@@ -210,6 +210,7 @@
               Medium
             </a>
           </div>
+          <p class="clipboard-status" data-copy-email-status aria-live="polite"></p>
         </div>
         <form class="contact-form" id="contact-form" novalidate>
           <p class="form-eyebrow">{{ contact.formEyebrow }}</p>
@@ -221,6 +222,8 @@
               id="contact-name"
               autocomplete="name"
               placeholder="{{ contact.namePlaceholder }}"
+              minlength="2"
+              maxlength="100"
               required
             />
           </label>
@@ -232,6 +235,8 @@
               id="contact-email"
               autocomplete="email"
               placeholder="{{ contact.emailPlaceholder }}"
+              minlength="6"
+              maxlength="200"
               required
             />
           </label>
@@ -242,6 +247,8 @@
               id="contact-message"
               rows="6"
               placeholder="{{ contact.messagePlaceholder }}"
+              minlength="11"
+              maxlength="4000"
               required
             ></textarea>
           </label>

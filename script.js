@@ -306,6 +306,7 @@ const externalProjectLinks = document.querySelectorAll('.project-content a[href=
 const siteHeader = document.querySelector(".site-header");
 const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#contact-form-status");
+const copyEmailButtons = document.querySelectorAll("[data-copy-email]");
 const carousels = document.querySelectorAll("[data-carousel]");
 const lightboxGalleries = document.querySelectorAll("[data-lightbox-gallery]");
 let activeLightbox = null;
@@ -323,9 +324,55 @@ const setFormStatus = (message, type = "") => {
   }
 };
 
+const isContactFormValid = (form) => {
+  const nameField = form.querySelector("#contact-name");
+  const emailField = form.querySelector("#contact-email");
+  const messageField = form.querySelector("#contact-message");
+
+  return Boolean(
+    nameField?.checkValidity() &&
+    emailField?.checkValidity() &&
+    messageField?.checkValidity()
+  );
+};
+
+const setCopyEmailStatus = (button, message, type = "") => {
+  const status = button.parentElement?.nextElementSibling;
+
+  if (!status?.matches("[data-copy-email-status]")) return;
+
+  status.textContent = message;
+  status.classList.remove("is-error", "is-success");
+
+  if (type) {
+    status.classList.add(type);
+  }
+};
+
 externalProjectLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault();
+  });
+});
+
+copyEmailButtons.forEach((button) => {
+  button.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    const emailAddress = button.getAttribute("href")?.replace(/^mailto:/, "").trim();
+
+    if (!emailAddress) {
+      setCopyEmailStatus(button, runtimeStrings.clipboard.copyEmailError, "is-error");
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+      setCopyEmailStatus(button, runtimeStrings.clipboard.copyEmailSuccess, "is-success");
+    } catch (error) {
+      console.error("Error copying email to clipboard:", error);
+      setCopyEmailStatus(button, runtimeStrings.clipboard.copyEmailError, "is-error");
+    }
   });
 });
 
@@ -654,6 +701,11 @@ contactForm?.addEventListener("submit", async (event) => {
   }
 
   if (!name || !email || !message) {
+    setFormStatus(runtimeStrings.contactForm.validationError, "is-error");
+    return;
+  }
+
+  if (!isContactFormValid(form)) {
     setFormStatus(runtimeStrings.contactForm.validationError, "is-error");
     return;
   }
