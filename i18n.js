@@ -35,6 +35,11 @@ const routeTranslations = {
   en: enRoutes
 };
 
+const runtimeTranslations = {
+  es: esRuntime,
+  en: enRuntime
+};
+
 export { i18nConfig, siteOrigin };
 
 export const getLocaleFromPathname = (pathname = "/") =>
@@ -64,7 +69,7 @@ export const getLocalizedRoute = (routeId, locale, options = {}) =>
 
 export const getLocalizedHomeHash = (sectionKey, locale, options = {}) =>
   getLocalizedHashPath(
-    getLocalizedHash(sectionKey, locale, localeResources, i18nConfig.defaultLocale),
+    getLocalizedHash(sectionKey, locale, runtimeTranslations, i18nConfig.defaultLocale),
     locale,
     routeTranslations,
     i18nConfig,
@@ -72,7 +77,7 @@ export const getLocalizedHomeHash = (sectionKey, locale, options = {}) =>
   );
 
 export const localizeHash = (hash, locale) =>
-  translateHashForLocale(hash, locale, localeResources, i18nConfig.defaultLocale);
+  translateHashForLocale(hash, locale, runtimeTranslations, i18nConfig.defaultLocale);
 
 export const getPageIdFromPathname = (pathname = "/") =>
   getPageByPathname(pathname, i18nConfig.pages, routeTranslations, i18nConfig)?.id ?? null;
