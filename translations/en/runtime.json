@@ -16,6 +16,13 @@
       "en": "EN"
     }
   },
+  "hashes": {
+    "home": "home",
+    "cases": "case-studies",
+    "experience": "experience",
+    "approach": "approach",
+    "contact": "contact"
+  },
   "relatedCases": {
     "cta": "View case"
   },

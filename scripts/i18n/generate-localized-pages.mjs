@@ -2,6 +2,7 @@ import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promi
 import path from "node:path";
 
 import { i18nConfig, siteOrigin } from "../../i18n.config.js";
+import { defaultSectionHashes, getLocalizedHash } from "../../hash-utils.js";
 import { getLocalizedPagePath } from "../../route-utils.js";
 
 const generatedRoot = ".i18n-build";
@@ -113,11 +114,12 @@ const toLegacyRoutePath = (page) => {
 const buildHeaderMarkup = (dictionary, locale, page, routeTranslations, options = {}) => {
   const explicit = options.explicit === true;
   const header = dictionary.shared.header;
+  const runtimeTranslations = { [i18nConfig.defaultLocale]: dictionary.runtime, [locale]: dictionary.runtime };
   const navItems = [
-    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#casos`, label: header.nav.cases },
-    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#experiencia`, label: header.nav.experience, className: "desktop-only" },
-    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#enfoque`, label: header.nav.approach, className: "desktop-only" },
-    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#contacto`, label: header.nav.contact },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("cases", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.cases },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("experience", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.experience, className: "desktop-only" },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("approach", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.approach, className: "desktop-only" },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("contact", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.contact },
     { href: getLocalizedPagePath("about", locale, routeTranslations, i18nConfig, { explicit }), label: header.nav.about, currentPage: "about" }
   ];
 
@@ -133,7 +135,7 @@ const buildHeaderMarkup = (dictionary, locale, page, routeTranslations, options 
   const explicitEnHref = getLocalizedPagePath(page.id, "en", routeTranslations, i18nConfig, { explicit: true });
 
   return `<div class="header-inner">
-      <a class="brand" href="${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#inicio" aria-label="${header.brandAriaLabel}">
+      <a class="brand" href="${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("home", locale, runtimeTranslations, i18nConfig.defaultLocale)}" aria-label="${header.brandAriaLabel}">
         <span>${header.brand}</span>
       </a>
       <div class="header-controls">
@@ -176,11 +178,28 @@ const replaceSeoTags = (html, page, locale, routeTranslations, options = {}) => 
   return nextHtml;
 };
 
-const replaceLocalizedRoutes = (html, locale, routeTranslations, options = {}) => {
+const localizeHashValue = (hash, locale, dictionary) =>
+  getLocalizedHash(
+    Object.entries(defaultSectionHashes).find(([, value]) => value === hash)?.[0] ?? hash,
+    locale,
+    { [i18nConfig.defaultLocale]: dictionary.runtime, [locale]: dictionary.runtime },
+    i18nConfig.defaultLocale
+  );
+
+const replaceLocalizedSectionIds = (html, locale, dictionary) =>
+  Object.entries(defaultSectionHashes).reduce(
+    (currentHtml, [sectionKey, defaultHash]) =>
+      currentHtml.replaceAll(`id="${defaultHash}"`, `id="${localizeHashValue(defaultHash, locale, dictionary).slice(1)}"`),
+    html
+  );
+
+const replaceLocalizedRoutes = (html, locale, routeTranslations, dictionary, options = {}) => {
   const explicit = options.explicit === true;
   let nextHtml = html
-    .replace(/href="\/#([^"]+)"/g, (_, hash) => `href="${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#${hash}"`)
-    .replace(/href='\/#([^']+)'/g, (_, hash) => `href='${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}#${hash}'`);
+    .replace(/href="\/#([^"]+)"/g, (_, hash) => `href="${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${localizeHashValue(hash, locale, dictionary)}"`)
+    .replace(/href='\/#([^']+)'/g, (_, hash) => `href='${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${localizeHashValue(hash, locale, dictionary)}'`)
+    .replace(/href="#([^"]+)"/g, (_, hash) => `href="${localizeHashValue(hash, locale, dictionary)}"`)
+    .replace(/href='#([^']+)'/g, (_, hash) => `href='${localizeHashValue(hash, locale, dictionary)}'`);
 
   for (const page of i18nConfig.pages) {
     const legacyPath = toLegacyRoutePath(page);
@@ -194,7 +213,7 @@ const replaceLocalizedRoutes = (html, locale, routeTranslations, options = {}) =
     nextHtml = nextHtml.replaceAll(`href='${absoluteLegacyPath}'`, `href='${absoluteLocalizedPath}'`);
   }
 
-  return nextHtml;
+  return replaceLocalizedSectionIds(nextHtml, locale, dictionary);
 };
 
 const replaceTokens = (html, dictionary, page) =>
@@ -252,7 +271,7 @@ export const generateLocalizedPages = async (rootDir) => {
         const outputPath = path.join(rootDir, toGeneratedRelativePath(page.id, locale, routeTranslations, { explicit }));
         const sourceHtml = await readFile(sourcePath, "utf8");
         const withTokens = replaceTokens(sourceHtml, dictionary, page);
-        const withLocalizedRoutes = replaceLocalizedRoutes(withTokens, locale, routeTranslations, { explicit });
+        const withLocalizedRoutes = replaceLocalizedRoutes(withTokens, locale, routeTranslations, dictionary, { explicit });
         const withHeader = replaceHeader(withLocalizedRoutes, dictionary, locale, page, routeTranslations, { explicit });
         const withSeo = replaceSeoTags(withHeader, page, locale, routeTranslations, { explicit });
         const withStaticStyles = withSeo.replace(/href="\.\.\/styles\.css"|href="styles\.css"/g, 'href="/styles.css"');

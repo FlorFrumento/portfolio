@@ -1,4 +1,5 @@
 import { i18nConfig, siteOrigin } from "./i18n.config.js";
+import { getLocalizedHash, translateHashForLocale } from "./hash-utils.js";
 import {
   getCanonicalPathname,
   getLocaleFromPathnameForConfig,
@@ -61,8 +62,17 @@ export const normalizeContentPath = (pathname = "/") =>
 export const getLocalizedRoute = (routeId, locale, options = {}) =>
   getLocalizedPagePath(routeId, locale, routeTranslations, i18nConfig, options);
 
-export const getLocalizedHomeHash = (hash, locale, options = {}) =>
-  getLocalizedHashPath(hash, locale, routeTranslations, i18nConfig, options);
+export const getLocalizedHomeHash = (sectionKey, locale, options = {}) =>
+  getLocalizedHashPath(
+    getLocalizedHash(sectionKey, locale, localeResources, i18nConfig.defaultLocale),
+    locale,
+    routeTranslations,
+    i18nConfig,
+    options
+  );
+
+export const localizeHash = (hash, locale) =>
+  translateHashForLocale(hash, locale, localeResources, i18nConfig.defaultLocale);
 
 export const getPageIdFromPathname = (pathname = "/") =>
   getPageByPathname(pathname, i18nConfig.pages, routeTranslations, i18nConfig)?.id ?? null;

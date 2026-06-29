@@ -8,6 +8,7 @@ import {
   getLocalizedHomeHash,
   getLocalizedRoute,
   getPageIdFromPathname,
+  localizeHash,
   getRuntimeStrings,
   normalizeContentPath
 } from "./i18n.js";
@@ -34,10 +35,10 @@ const renderSiteHeader = () => {
 
   const currentPage = header.dataset.currentPage;
   const headerNavItems = [
-    { href: getLocalizedHomeHash("casos", currentLocale), label: runtimeStrings.header.nav.cases },
-    { className: "desktop-only", href: getLocalizedHomeHash("experiencia", currentLocale), label: runtimeStrings.header.nav.experience },
-    { className: "desktop-only", href: getLocalizedHomeHash("enfoque", currentLocale), label: runtimeStrings.header.nav.approach },
-    { href: getLocalizedHomeHash("contacto", currentLocale), label: runtimeStrings.header.nav.contact },
+    { href: getLocalizedHomeHash("cases", currentLocale), label: runtimeStrings.header.nav.cases },
+    { className: "desktop-only", href: getLocalizedHomeHash("experience", currentLocale), label: runtimeStrings.header.nav.experience },
+    { className: "desktop-only", href: getLocalizedHomeHash("approach", currentLocale), label: runtimeStrings.header.nav.approach },
+    { href: getLocalizedHomeHash("contact", currentLocale), label: runtimeStrings.header.nav.contact },
     { href: getLocalizedRoute("about", currentLocale), label: runtimeStrings.header.nav.about, page: "about" }
   ];
   const inner = document.createElement("div");
@@ -45,7 +46,7 @@ const renderSiteHeader = () => {
 
   const brand = document.createElement("a");
   brand.className = "brand";
-  brand.href = getLocalizedHomeHash("inicio", currentLocale);
+  brand.href = getLocalizedHomeHash("home", currentLocale);
   brand.setAttribute("aria-label", runtimeStrings.header.brandAriaLabel);
 
   const brandText = document.createElement("span");
@@ -85,8 +86,9 @@ const renderSiteHeader = () => {
     const link = document.createElement("a");
     const pageId = localeSwitcher.dataset.pageId;
     const localizedPagePath = getLocalizedRoute(pageId, locale, { explicit: true });
+    const localizedHash = pageId === "home" ? localizeHash(window.location.hash, locale) : "";
     link.href = pageId === "home" && window.location.hash
-      ? `${localizedPagePath}${window.location.hash}`
+      ? `${localizedPagePath}${localizedHash}`
       : localizedPagePath;
     link.hreflang = locale;
     link.lang = locale;
@@ -120,8 +122,9 @@ const syncLocaleSwitcher = () => {
     switcher.querySelectorAll("[data-locale-link]").forEach((link) => {
       const locale = link.dataset.localeLink;
       const localizedPagePath = getLocalizedRoute(pageId, locale, { explicit: true });
+      const localizedHash = pageId === "home" ? localizeHash(currentHash, locale) : "";
       link.href = pageId === "home" && currentHash
-        ? `${localizedPagePath}${currentHash}`
+        ? `${localizedPagePath}${localizedHash}`
         : localizedPagePath;
       if (locale === currentLocale) {
         link.setAttribute("aria-current", "true");
