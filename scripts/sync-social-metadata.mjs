@@ -3,12 +3,17 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { caseStudies, siteOrigin } from "../case-studies.js";
+import { i18nConfig } from "../i18n.config.js";
+import { getLocalizedPagePath } from "../route-utils.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(__dirname, "..");
 
 const SOCIAL_BLOCK_START = "<!-- Social metadata -->";
 const SOCIAL_BLOCK_END = "<!-- /Social metadata -->";
+const routeTranslations = {
+  es: JSON.parse(await readFile(resolve(projectRoot, "translations/es/routes.json"), "utf8"))
+};
 
 const escapeAttribute = (value) => value
   .replaceAll("&", "&amp;")
@@ -58,7 +63,10 @@ const upsertSocialMetadata = async (caseStudy) => {
 
   const pageTitle = titleMatch[1];
   const description = descriptionMatch[1];
-  const pageUrl = new URL(caseStudy.href, siteOrigin).toString();
+  const pageUrl = new URL(
+    getLocalizedPagePath(caseStudy.routeId, i18nConfig.defaultLocale, routeTranslations, i18nConfig),
+    siteOrigin
+  ).toString();
   const socialBlock = buildSocialBlock({ description, pageTitle, pageUrl, caseStudy });
 
   const existingBlockPattern = new RegExp(
