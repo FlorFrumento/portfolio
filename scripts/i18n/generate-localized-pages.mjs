@@ -88,6 +88,8 @@ const loadJsonTree = async (rootDir, relativePath) => {
 const buildAbsoluteUrl = (routeId, locale, routeTranslations, options = {}) =>
   new URL(getLocalizedPagePath(routeId, locale, routeTranslations, i18nConfig, options), siteOrigin).toString();
 
+const usesExplicitSeoLocale = (locale) => locale !== i18nConfig.defaultLocale;
+
 const toGeneratedRelativePath = (routeId, locale, routeTranslations, options = {}) => {
   const localized = getLocalizedPagePath(routeId, locale, routeTranslations, i18nConfig, options);
   const trimmed = localized.replace(/^\/|\/$/g, "");
@@ -96,7 +98,7 @@ const toGeneratedRelativePath = (routeId, locale, routeTranslations, options = {
 
 const buildAlternateLinks = (page, routeTranslations) => {
   const alternates = i18nConfig.locales
-    .map((locale) => `<link rel="alternate" hreflang="${locale}" href="${buildAbsoluteUrl(page.id, locale, routeTranslations, { explicit: true })}" />`)
+    .map((locale) => `<link rel="alternate" hreflang="${locale}" href="${buildAbsoluteUrl(page.id, locale, routeTranslations, { explicit: usesExplicitSeoLocale(locale) })}" />`)
     .join("\n    ");
 
   return `${alternates}\n    <link rel="alternate" hreflang="x-default" href="${buildAbsoluteUrl(page.id, i18nConfig.defaultLocale, routeTranslations)}" />`;
@@ -156,10 +158,9 @@ const replaceHeader = (html, dictionary, locale, page, routeTranslations, option
     `<header$1>${buildHeaderMarkup(dictionary, locale, page, routeTranslations, options)}</header>`
   );
 
-const replaceSeoTags = (html, page, locale, routeTranslations, options = {}) => {
+const replaceSeoTags = (html, page, locale, routeTranslations) => {
   const localeMeta = i18nConfig.localeMeta[locale];
-  const explicit = options.explicit === true;
-  const canonicalUrl = buildAbsoluteUrl(page.id, locale, routeTranslations, { explicit });
+  const canonicalUrl = buildAbsoluteUrl(page.id, locale, routeTranslations, { explicit: usesExplicitSeoLocale(locale) });
   let nextHtml = html.replace(/<html lang="[^"]+">/, `<html lang="${localeMeta.htmlLang}">`);
 
   nextHtml = nextHtml.replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonicalUrl}" />`);
@@ -273,7 +274,7 @@ export const generateLocalizedPages = async (rootDir) => {
         const withTokens = replaceTokens(sourceHtml, dictionary, page);
         const withLocalizedRoutes = replaceLocalizedRoutes(withTokens, locale, routeTranslations, dictionary, { explicit });
         const withHeader = replaceHeader(withLocalizedRoutes, dictionary, locale, page, routeTranslations, { explicit });
-        const withSeo = replaceSeoTags(withHeader, page, locale, routeTranslations, { explicit });
+        const withSeo = replaceSeoTags(withHeader, page, locale, routeTranslations);
         const withStaticStyles = withSeo.replace(/href="\.\.\/styles\.css"|href="styles\.css"/g, 'href="/styles.css"');
         const finalHtml = withStaticStyles.replace(
           /<script type="module" src="([^"]*script\.js)"><\/script>/,
