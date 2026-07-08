@@ -319,6 +319,25 @@ const updateHeaderState = () => {
   siteHeader?.classList.toggle("is-scrolled", window.scrollY > 12);
 };
 
+const scrollToHashTarget = () => {
+  const hash = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
+  const target = hash ? document.getElementById(hash) : null;
+  if (!target) return;
+
+  target.scrollIntoView({ block: "start" });
+  updateHeaderState();
+};
+
+if (window.location.hash) {
+  window.addEventListener("load", () => {
+    scrollToHashTarget();
+    window.setTimeout(scrollToHashTarget, 250);
+    document.fonts?.ready.then(scrollToHashTarget).catch(() => {});
+  }, { once: true });
+}
+
+window.addEventListener("hashchange", scrollToHashTarget);
+
 const setFormStatus = (message, type = "") => {
   if (!formStatus) return;
   formStatus.textContent = message;

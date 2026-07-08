@@ -29,6 +29,10 @@ html {
   scroll-behavior: smooth;
 }
 
+[id] {
+  scroll-margin-top: 96px;
+}
+
 body {
   min-width: 320px;
   margin: 0;
