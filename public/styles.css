@@ -897,6 +897,13 @@ h3 {
   background: var(--surface);
 }
 
+.case-carousel-annotated img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+}
+
 .case-media figcaption,
 .case-video figcaption,
 .case-carousel figcaption {
