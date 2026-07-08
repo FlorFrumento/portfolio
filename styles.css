@@ -276,6 +276,61 @@ h3 {
   color: var(--ink);
 }
 
+.email-copy-button {
+  gap: 10px;
+  max-width: 100%;
+}
+
+.email-copy-label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.email-copy-icon {
+  position: relative;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.email-copy-icon svg {
+  position: absolute;
+  inset: 0;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.email-copy-icon-check {
+  opacity: 0;
+  transform: scale(0.72);
+}
+
+.email-copy-button.is-copied {
+  border-color: var(--olive);
+  background: var(--olive);
+  color: #fffefa;
+}
+
+.email-copy-button.is-copied .email-copy-icon-copy {
+  opacity: 0;
+  transform: scale(0.72);
+}
+
+.email-copy-button.is-copied .email-copy-icon-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.email-copy-button.has-copy-error {
+  border-color: #8f2f2f;
+}
+
 .button.secondary {
   background: transparent;
   color: var(--olive);

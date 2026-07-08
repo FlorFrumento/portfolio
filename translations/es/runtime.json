@@ -45,7 +45,7 @@
     "firebaseError": "No pude enviar el mensaje en este momento. Si el problema continúa, escribime por LinkedIn o por email."
   },
   "clipboard": {
-    "copyEmailSuccess": "Email copiado al portapapeles.",
+    "copyEmailSuccess": "Copiado al portapapeles.",
     "copyEmailError": "No pude copiar el email. Podés escribirme a florencia.frumento@gmail.com."
   }
 }

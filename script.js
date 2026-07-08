@@ -313,6 +313,7 @@ const copyEmailButtons = document.querySelectorAll("[data-copy-email]");
 const carousels = document.querySelectorAll("[data-carousel]");
 const lightboxGalleries = document.querySelectorAll("[data-lightbox-gallery]");
 let activeLightbox = null;
+let copyEmailResetTimer = null;
 
 const updateHeaderState = () => {
   siteHeader?.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -346,9 +347,22 @@ const setCopyEmailStatus = (button, message, type = "") => {
 
   status.textContent = message;
   status.classList.remove("is-error", "is-success");
+  button.classList.remove("is-copied", "has-copy-error");
 
   if (type) {
     status.classList.add(type);
+  }
+
+  if (type === "is-success") {
+    button.classList.add("is-copied");
+    window.clearTimeout(copyEmailResetTimer);
+    copyEmailResetTimer = window.setTimeout(() => {
+      button.classList.remove("is-copied");
+    }, 2400);
+  }
+
+  if (type === "is-error") {
+    button.classList.add("has-copy-error");
   }
 };
 

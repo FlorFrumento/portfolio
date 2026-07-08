@@ -45,7 +45,7 @@
     "firebaseError": "I couldn't send the message right now. If the problem continues, reach out via LinkedIn or email."
   },
   "clipboard": {
-    "copyEmailSuccess": "Email copied to clipboard.",
+    "copyEmailSuccess": "Copied to clipboard.",
     "copyEmailError": "I couldn't copy the email. You can write to me at florencia.frumento@gmail.com."
   }
 }
