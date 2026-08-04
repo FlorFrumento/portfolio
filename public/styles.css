@@ -1722,7 +1722,8 @@ h3 {
 @media (max-width: 600px) {
   .header-inner {
     position: static;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: flex-start;
     gap: 12px;
     width: min(100% - 32px, 1240px);
@@ -1730,24 +1731,22 @@ h3 {
   }
 
   .brand {
+    grid-column: 1;
+    grid-row: 1;
     font-size: 1.02rem;
     white-space: nowrap;
   }
 
   .header-controls {
-    width: 100%;
-    min-width: 0;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    display: contents;
   }
 
   .main-nav {
-    width: auto;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
     min-width: 0;
-    flex: 0 1 auto;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 10px;
     font-size: 0.77rem;
@@ -1758,7 +1757,10 @@ h3 {
   }
 
   .locale-switcher {
-    flex: 0 0 auto;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    justify-self: end;
   }
 
   .locale-switcher a {
