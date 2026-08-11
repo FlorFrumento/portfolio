@@ -1,13 +1,13 @@
 {
   "meta": {
-    "description": "Case study on Ristretto, a microfiction web app designed through UX/UI methodology, functional prototyping, and then built with AI.",
+    "description": "Case study on Ristretto, a microfiction web app designed through UX/UI methodology, functional prototyping, AI, and Contentful as its CMS.",
     "title": "Ristretto, my microfiction app | By Florencia Frumento",
     "ogImageAlt": "Screens from the Ristretto prototype"
   },
   "hero": {
     "eyebrow": "Case study · Personal project",
     "title": "Ristretto, my microfiction app",
-    "claim": "From a functional prototype for concentrated reading to a production web app built with AI and vibe coding.",
+    "claim": "From a functional prototype for reading to a production web app built with AI and integrated with Contentful as its CMS.",
     "actionsAriaLabel": "Case actions",
     "primaryCta": "Open web app",
     "secondaryCta": "See other cases"
@@ -19,12 +19,12 @@
     "processLabel": "Process",
     "processValue": "Research, architecture, flows, prototype, usability, and heuristics.",
     "implementationLabel": "Implementation",
-    "implementationValue": "Figma, FigJam, Optimal Workshop, Lovable, GitHub, and the terminal"
+    "implementationValue": "Figma, FigJam, Optimal Workshop, Lovable, Contentful, GitHub, and the terminal"
   },
   "results": {
     "ariaLabel": "Project scope",
     "productValue": "Product thinking",
-    "productText": "Initial idea validation, research, MVP, functional prototype, and a production web app built with AI.",
+    "productText": "Initial idea validation, research, MVP, functional prototype, production web app, and CMS integration.",
     "architectureValue": "Architecture and flows",
     "architectureText": "Search, navigation, and discovery flows designed for an intuitive experience.",
     "iterationValue": "Iteration and validation",
@@ -81,7 +81,10 @@
       "<p><strong>Later on, I picked the project back up to turn the prototype into a functional web app using Lovable, GitHub, Visual Studio Code, and the terminal.</strong></p>"
     ],
     "gifAlt": "Animated walkthrough of the functional Ristretto web app",
-    "gifCaption": "Walkthrough of the functional Ristretto web app."
+    "gifCaption": "Walkthrough of the functional Ristretto web app.",
+    "afterGifHtml": [
+      "<p>In a later stage, <strong>I added Contentful to separate the reading experience from content management</strong>. I first validated the flow by publishing a new microfiction entry from the CMS and, once the integration worked, migrated the full library so Ristretto could grow as an editorial product without depending on direct code changes.</p>"
+    ]
   },
   "result": {
     "label": "Result",
@@ -97,7 +100,7 @@
     "contentHtml": [
       "<p>Usability tests showed that the main discovery flow worked correctly: people could search for microfiction, explore results, and access works without significant friction.</p>",
       "<p>At the same time, testing revealed concrete opportunities for improvement in onboarding, microcopy, and understanding the “Discover” and “Library” modes, which helped refine the experience with greater clarity.</p>",
-      "<div class='case-note'><p>The most important learning came later: <strong>a project that began as research, MVP, and UX/UI prototype ended up becoming a functional web app</strong> built with Lovable, GitHub, and AI tools.</p></div>"
+      "<div class='case-note'><p>The most important learning came later: <strong>a project that began as research, MVP, and UX/UI prototype ended up becoming a functional web app with a more flexible editorial foundation</strong>: microfiction entries can be managed from Contentful, published, and updated without touching the frontend.</p></div>"
     ]
   },
   "related": {

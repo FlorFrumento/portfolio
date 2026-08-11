@@ -1,13 +1,13 @@
 {
   "meta": {
-    "description": "Caso de estudio sobre Ristretto, una web app de microficción diseñada con metodología UX/UI, desarrollo de prototipo funcional y construida con IA.",
+    "description": "Caso de estudio sobre Ristretto, una web app de microficción diseñada con metodología UX/UI, desarrollo de prototipo funcional, IA y Contentful como CMS.",
     "title": "Ristretto, mi app de microficción | Por Florencia Frumento",
     "ogImageAlt": "Pantallas del prototipo de Ristretto"
   },
   "hero": {
     "eyebrow": "Caso de estudio · Proyecto personal",
     "title": "Ristretto, mi app de microficción",
-    "claim": "Del prototipo funcional para disfrutar literatura concentrada a una web app productiva construida con IA y vibe coding.",
+    "claim": "Del prototipo funcional para disfrutar literatura a una web app construida con IA e integrada con Contentful como CMS.",
     "actionsAriaLabel": "Acciones del caso",
     "primaryCta": "Abrir web app",
     "secondaryCta": "Ver otros casos"
@@ -19,12 +19,12 @@
     "processLabel": "Proceso",
     "processValue": "Research, arquitectura, flujos, prototipo, usabilidad y heurísticas.",
     "implementationLabel": "Implementación",
-    "implementationValue": "Figma, FigJam, Optimal Workshop, Lovable, GitHub y terminal"
+    "implementationValue": "Figma, FigJam, Optimal Workshop, Lovable, Contentful, GitHub y terminal"
   },
   "results": {
     "ariaLabel": "Alcance del proyecto",
     "productValue": "Product thinking",
-    "productText": "Validación de idea inicial, research, MVP, prototipo funcional y web app en producción construida con IA.",
+    "productText": "Validación de idea inicial, research, MVP, prototipo funcional, web app en producción e integración de CMS.",
     "architectureValue": "Arquitectura y flows",
     "architectureText": "Flujos de búsqueda, navegación y descubrimiento diseñados para una experiencia intuitiva.",
     "iterationValue": "Iteración y validación",
@@ -81,7 +81,10 @@
       "<p><strong>Tiempo después, retomé el proyecto para convertir el prototipo en una web app funcional utilizando Lovable, GitHub, Visual Studio Code y la terminal.</strong></p>"
     ],
     "gifAlt": "Recorrido animado por la web app funcional de Ristretto",
-    "gifCaption": "Recorrido por la web app funcional de Ristretto."
+    "gifCaption": "Recorrido por la web app funcional de Ristretto.",
+    "afterGifHtml": [
+      "<p>En una etapa posterior, <strong>incorporé Contentful para separar la experiencia de lectura de la gestión del contenido</strong>. Primero validé el flujo cargando una nueva microficción desde el CMS y, una vez probada la integración, migré la biblioteca completa para que Ristretto pudiera crecer como producto editorial sin depender de cambios directos en el código.</p>"
+    ]
   },
   "result": {
     "label": "Resultado",
@@ -97,7 +100,7 @@
     "contentHtml": [
       "<p>Las pruebas de usabilidad mostraron que el flujo principal de descubrimiento funcionaba correctamente: las personas podían buscar microficciones, explorar resultados y acceder a las obras sin fricción significativa.</p>",
       "<p>Al mismo tiempo, el testing permitió detectar oportunidades concretas de mejora en onboarding, microcopy y comprensión de los modos “Descubrir” y “Biblioteca”, lo que ayudó a iterar la experiencia con mayor claridad.</p>",
-      "<div class='case-note'><p>El aprendizaje más importante llegó después: <strong>proyecto que había comenzado como investigación, MVP y prototipo UX/UI terminó convirtiéndose en una web app funcional</strong> construida con Lovable, GitHub y herramientas de IA.</p></div>"
+      "<div class='case-note'><p>El aprendizaje más importante llegó después: <strong>un proyecto que había comenzado como investigación, MVP y prototipo UX/UI terminó convirtiéndose en una web app funcional con una base editorial más flexible</strong>: las microficciones pueden administrarse desde Contentful, publicarse y actualizarse sin tocar el frontend.</p></div>"
     ]
   },
   "related": {

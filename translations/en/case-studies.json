@@ -30,7 +30,7 @@
   "ristretto": {
     "title": "Ristretto, my microfiction app",
     "kicker": "Digital product · UX/UI + AI",
-    "description": "From an everyday reading problem to a digital experience designed, prototyped, and built with AI.",
+    "description": "From an everyday reading problem to a digital experience designed, prototyped, built with AI, and connected to Contentful as its CMS.",
     "imageAlt": "Screens from the Ristretto prototype",
     "cardAriaLabel": "View the Ristretto case study"
   }
