@@ -40,17 +40,15 @@
   },
   "approach": {
     "eyebrow": "Cómo trabajo",
-    "title": "Contenido que guía decisiones",
-    "description": "Diseño contenido entendiendo el contexto completo: la necesidad de la persona, el objetivo del negocio y la lógica del producto.",
+    "title": "Del contenido a la implementación",
+    "description": "Además de diseñar contenido, puedo llevar una idea a un prototipo funcional y publicarlo. Así construí este portfolio bilingüe: combiné decisiones de UX, escritura y desarrollo asistido por IA.",
     "trackAriaLabel": "Principios de trabajo",
     "prevAriaLabel": "Ver criterio anterior",
     "nextAriaLabel": "Ver criterio siguiente",
     "itemsHtml": [
-      "<article class='stack-item carousel-slide'><div><h3>Claridad</h3><p>Ordenar información para que cada mensaje sea fácil de entender y accionar.</p></div></article>",
-      "<article class='stack-item carousel-slide'><div><h3>Contexto</h3><p>Escribir según el momento del flujo, la necesidad de la persona y el objetivo del producto.</p></div></article>",
-      "<article class='stack-item carousel-slide'><div><h3>Criterio de producto</h3><p>Pensar el contenido como parte de una experiencia, no como una capa final de texto.</p></div></article>",
-      "<article class='stack-item carousel-slide'><div><h3>Datos</h3><p>Usar señales cualitativas y cuantitativas para decidir, ajustar y aprender.</p></div></article>",
-      "<article class='stack-item carousel-slide'><div><h3>IA</h3><p>Explorar herramientas de inteligencia artificial para investigar, prototipar e iterar productos digitales.</p></div></article>"
+      "<article class='stack-item carousel-slide'><div><h3>Trabajo con código</h3><p>Uso la terminal, VS Code, Git y GitHub para iterar proyectos y revisar cambios mediante pull requests.</p></div></article>",
+      "<article class='stack-item carousel-slide'><div><h3>Estructuro contenido</h3><p>Trabajo con HTML, CSS, Markdown y JSON para dar forma a interfaces y contenido estructurado.</p></div></article>",
+      "<article class='stack-item carousel-slide'><div><h3>Prototipo y publico</h3><p>Uso Codex o Lovable para desarrollar e iterar, y Firebase Hosting para publicar proyectos web.</p></div></article>"
     ]
   },
   "contact": {

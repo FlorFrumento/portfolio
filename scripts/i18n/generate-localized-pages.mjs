@@ -189,8 +189,13 @@ const localizeHashValue = (hash, locale, dictionary) =>
 
 const replaceLocalizedSectionIds = (html, locale, dictionary) =>
   Object.entries(defaultSectionHashes).reduce(
-    (currentHtml, [sectionKey, defaultHash]) =>
-      currentHtml.replaceAll(`id="${defaultHash}"`, `id="${localizeHashValue(defaultHash, locale, dictionary).slice(1)}"`),
+    (currentHtml, [sectionKey, defaultHash]) => {
+      const localizedHash = localizeHashValue(defaultHash, locale, dictionary).slice(1);
+
+      return currentHtml
+        .replaceAll(`id="${defaultHash}"`, `id="${localizedHash}"`)
+        .replaceAll(`"${defaultHash}-title"`, `"${localizedHash}-title"`);
+    },
     html
   );
 

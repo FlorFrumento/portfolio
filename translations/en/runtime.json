@@ -7,7 +7,7 @@
     "nav": {
       "cases": "Case Studies",
       "experience": "Experience",
-      "approach": "Approach",
+      "approach": "How I work",
       "contact": "Contact",
       "about": "About GiraFlor"
     },
@@ -20,7 +20,7 @@
     "home": "home",
     "cases": "case-studies",
     "experience": "experience",
-    "approach": "approach",
+    "approach": "how-i-work",
     "contact": "contact"
   },
   "relatedCases": {

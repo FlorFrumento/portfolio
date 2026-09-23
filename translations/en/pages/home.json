@@ -40,17 +40,15 @@
   },
   "approach": {
     "eyebrow": "How I work",
-    "title": "Content that guides decisions",
-    "description": "I design content by understanding the full context: the person's need, the business goal, and the product logic.",
+    "title": "From content to implementation",
+    "description": "Beyond designing content, I can turn an idea into a functional prototype and publish it. That’s how I built this bilingual portfolio, bringing together UX decisions, writing, and AI-assisted development.",
     "trackAriaLabel": "Working principles",
     "prevAriaLabel": "View previous principle",
     "nextAriaLabel": "View next principle",
     "itemsHtml": [
-      "<article class='stack-item carousel-slide'><div><h3>Clarity</h3><p>Structuring information so each message is easy to understand and act on.</p></div></article>",
-      "<article class='stack-item carousel-slide'><div><h3>Context</h3><p>Writing according to the point in the flow, the person's need, and the product goal.</p></div></article>",
-      "<article class='stack-item carousel-slide'><div><h3>Product judgment</h3><p>Thinking of content as part of the experience, not as a final layer of text.</p></div></article>",
-      "<article class='stack-item carousel-slide'><div><h3>Data</h3><p>Using qualitative and quantitative signals to decide, refine, and learn.</p></div></article>",
-      "<article class='stack-item carousel-slide'><div><h3>AI</h3><p>Exploring artificial intelligence tools to research, prototype, and iterate digital products.</p></div></article>"
+      "<article class='stack-item carousel-slide'><div><h3>I work with code</h3><p>I use the terminal, VS Code, Git, and GitHub to iterate on projects and review changes through pull requests.</p></div></article>",
+      "<article class='stack-item carousel-slide'><div><h3>I structure content</h3><p>I work with HTML, CSS, Markdown, and JSON to shape interfaces and structured content.</p></div></article>",
+      "<article class='stack-item carousel-slide'><div><h3>I prototype and publish</h3><p>I use Codex or Lovable to develop and iterate, and Firebase Hosting to publish web projects.</p></div></article>"
     ]
   },
   "contact": {

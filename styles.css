@@ -241,6 +241,7 @@ h3 {
 .intro-section p,
 .section-heading p,
 .project-content p,
+.split-section > div:first-child p:not(.eyebrow),
 .stack-item p,
 .contact-section p,
 .site-footer {
@@ -1278,11 +1279,11 @@ h3 {
 
 .stack-list {
   display: grid;
-  grid-auto-columns: minmax(250px, 46%);
+  grid-auto-columns: minmax(220px, calc((100% - 36px) / 3));
   grid-auto-flow: column;
   gap: 18px;
   overflow-x: auto;
-  padding: 60px 72px 8px 4px;
+  padding: 60px 4px 8px;
   scroll-snap-type: x mandatory;
 }
 
@@ -1867,6 +1868,7 @@ h3 {
 
   .stack-list {
     grid-auto-columns: minmax(220px, 78%);
+    padding: 60px 72px 8px 4px;
   }
 
   .lightbox {
