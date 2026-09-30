@@ -39,6 +39,12 @@ export const i18nConfig = {
       scriptSrc: "/script.js"
     },
     {
+      id: "giraflor",
+      pageKey: "cases.giraflor",
+      source: "casos/giraflor.html",
+      scriptSrc: "/script.js"
+    },
+    {
       id: "ristretto",
       pageKey: "cases.ristretto",
       source: "casos/ristretto.html",

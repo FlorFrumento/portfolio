@@ -33,5 +33,12 @@
     "description": "De una propuesta de app para leer microficción al desarrollo del prototipo, la web app productiva con IA y la integración de Contentful como CMS.",
     "imageAlt": "Pantallas del prototipo de Ristretto",
     "cardAriaLabel": "Ver caso de estudio de Ristretto"
+  },
+  "giraflor": {
+    "title": "GiraFlor: de mi perfil profesional a un producto digital",
+    "kicker": "Proyecto personal · Content Design + UX/UI + IA",
+    "description": "Del contenido y la identidad visual al desarrollo de un portfolio bilingüe, publicado e iterado con asistencia de IA.",
+    "cardAriaLabel": "Ver caso de estudio de GiraFlor",
+    "imageAlt": "GiraFlor, mi portfolio, junto a una ilustración de un girasol"
   }
 }

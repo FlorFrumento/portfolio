@@ -2,6 +2,23 @@ export const siteOrigin = "https://florencia-frumento.web.app";
 
 export const caseStudyCatalog = [
   {
+    id: "giraflor",
+    href: "/casos/giraflor.html",
+    routeId: "giraflor",
+    imageSrc: "/case-assets/case-preview-giraflor.jpg",
+    imageAlt: "{{ meta.ogImageAlt }}",
+    imageType: "image/jpeg",
+    imageWidth: 1600,
+    imageHeight: 841,
+    socialImageSrc: "/case-assets/social/giraflor-social.jpg",
+    socialImageType: "image/jpeg",
+    socialImageWidth: 1200,
+    socialImageHeight: 630,
+    mediaClassName: "project-media-giraflor",
+    priority: "featured",
+    tags: ["independent", "featured", "content-design", "product", "ux"]
+  },
+  {
     id: "amazon",
     href: "/casos/carrito-amazon.html",
     routeId: "carrito-amazon",
@@ -16,7 +33,7 @@ export const caseStudyCatalog = [
     socialImageHeight: 630,
     mediaClassName: "project-media-amazon",
     priority: "featured",
-    tags: ["amazon", "featured", "research", "ux"]
+    tags: ["independent", "amazon", "featured", "research", "ux"]
   },
   {
     id: "banner-nubecommerce",
@@ -84,7 +101,7 @@ export const caseStudyCatalog = [
     socialImageHeight: 630,
     mediaClassName: "project-media-ristretto",
     priority: "featured",
-    tags: ["ristretto", "featured", "product", "ux"]
+    tags: ["independent", "ristretto", "featured", "product", "ux"]
   }
 ];
 

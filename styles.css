@@ -1108,7 +1108,7 @@ h3 {
   border-left: 4px solid var(--sunflower);
 }
 
-.about-section .about-quote p {
+:is(.about-section, .case-section) .about-quote p {
   margin-bottom: 18px;
   color: var(--ink);
   font-family: "Newsreader", Georgia, serif;
@@ -1687,7 +1687,7 @@ h3 {
     font-size: 1.2rem;
   }
 
-  .about-section .about-quote p {
+  :is(.about-section, .case-section) .about-quote p {
     font-size: 2.2rem;
   }
 
@@ -1832,7 +1832,7 @@ h3 {
     padding-left: 20px;
   }
 
-  .about-section .about-quote p {
+  :is(.about-section, .case-section) .about-quote p {
     font-size: 1.82rem;
   }
 
@@ -1951,4 +1951,13 @@ h3 {
     padding: 6px 9px;
     font-size: 0.78rem;
   }
+}
+
+/* Keep the shared card dimensions; bias the crop left to preserve the title. */
+.project-media-giraflor img {
+  object-position: 25% 50%;
+}
+
+.case-quote {
+  margin: 32px 0 0;
 }

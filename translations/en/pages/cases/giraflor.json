@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "title": "GiraFlor: from my professional profile to a digital product | Florencia Frumento",
+    "description": "How I conceptualized, wrote, designed, developed and published my bilingual portfolio with AI assistance, then iterated on it based on feedback.",
+    "ogImageAlt": "GiraFlor, my portfolio, alongside a sunflower illustration"
+  },
+  "hero": {
+    "eyebrow": "Case study · Personal project",
+    "title": "GiraFlor: from my professional profile to a digital product",
+    "claim": "I conceptualized, wrote, designed, developed and published my portfolio with AI assistance. I then made it bilingual and continued iterating on it based on feedback and new needs.",
+    "actionsAriaLabel": "Case study actions",
+    "primaryCta": "View repository on GitHub",
+    "secondaryCta": "Explore other case studies"
+  },
+  "metaSummary": {
+    "ariaLabel": "Case study overview",
+    "roleLabel": "Role",
+    "roleValue": "Content Design, UX/UI design and AI-assisted development.",
+    "processLabel": "Process",
+    "processValue": "Architecture, storytelling, design, implementation and iteration.",
+    "implementationLabel": "Tools",
+    "implementationValue": "Stitch, Codex, VS Code, Git, GitHub and Firebase."
+  },
+  "results": {
+    "ariaLabel": "Project scope",
+    "productValue": "End to end",
+    "productText": "From content and visual identity to code and publishing.",
+    "architectureValue": "Two languages",
+    "architectureText": "An initial Spanish version that evolved into a bilingual portfolio.",
+    "iterationValue": "Continuous iteration",
+    "iterationText": "Content, interaction and navigation improvements based on feedback and analysis."
+  },
+  "situation": {
+    "label": "Situation",
+    "title": "A space to show more than a résumé",
+    "contentHtml": [
+      "<p>The project began during UX Content Vibe, a training program by Sol Parnofiello and Joni Ariste with hands-on practice in Git, GitHub, the terminal and AI-assisted development.</p>",
+      "<p>I needed a space of my own to showcase my experience at Tiendanube, explain my decisions and share personal projects. I also wanted to highlight what I was learning beyond my role: UX skills I wanted to develop beyond my team’s needs.</p>"
+    ]
+  },
+  "task": {
+    "label": "Task",
+    "title": "Turning my career into an experience",
+    "contentHtml": [
+      "<p>The challenge was to create a portfolio that would help people understand my profile, explore my work and contact me. It needed its own identity and a structure I could update independently while learning to work with code.</p>"
+    ]
+  },
+  "action": {
+    "label": "Action",
+    "title": "Designing, building and evolving",
+    "contentHtml": [
+      "<p><strong>Architecture and writing.</strong> I organized the sections and case studies using the STAR method. I worked on titles, bold emphasis and H2 and H3 hierarchies to support scanning and bring key information forward. The portfolio’s writing needed to demonstrate the content judgment I wanted to communicate.</p>",
+      "<p><strong>Visual identity.</strong> I took the symbolism of sunflowers as a starting point for GiraFlor. With help from Stitch, I defined the foundations of the design system: colors, typography and components.</p>",
+      "<p><strong>Development and publishing.</strong> I worked with HTML for structure and content, and CSS for visual presentation. I used Codex as a development agent and learned to manage changes through VS Code, the terminal, Git and GitHub. I published V1 on Firebase Hosting and shared the code in a public repository.</p>",
+      "<p>I incorporated commands such as <code>git status</code>, <code>git add .</code>, <code>git commit -m \"…\"</code>, <code>git push</code> and <code>npm run deploy</code> into my workflow.</p>",
+      "<p><strong>Discoverability and contact.</strong> I applied my SEO experience: I configured the sitemap and <code>robots.txt</code>, created the property in Google Search Console and submitted the sitemap. I reviewed page titles, meta descriptions and social previews. I also added a contact form connected to Firestore.</p>",
+      "<p><strong>Bilingual evolution.</strong> After launch, I translated the portfolio into English and worked with JSON and i18n to organize the translations. I updated the routes and configured redirects from the old URLs ending in <code>.html</code>.</p>",
+      "<h3>Iterating on specific points of friction</h3>",
+      "<ul><li><strong>Copying my email address.</strong> Based on feedback, I replaced the action that opened an email app with a copy-to-clipboard action. The icon changes to a check mark to confirm it.</li><li><strong>Showing my technical practice.</strong> I replaced “Approach” with “How I work” to explain my workflow and highlight skills that were on my résumé but less visible on the site.</li></ul>"
+    ]
+  },
+  "result": {
+    "label": "Result",
+    "title": "A published portfolio and newfound independence",
+    "linksAriaLabel": "Project repository",
+    "visitCta": "View repository on GitHub",
+    "contentHtml": [
+      "<p>I built a bilingual portfolio with its own identity, case studies, a contact form and version-controlled code. The project gave me practice in turning content and design decisions into implemented, published changes.</p>",
+      "<p>I am still evaluating mobile navigation: after prioritizing visible links in the header, I am considering a hamburger menu that would provide access to every section.</p>"
+    ]
+  },
+  "related": {
+    "eyebrow": "Other case studies",
+    "title": "More content, design and product decisions"
+  },
+  "quote": {
+    "body": "\"Let us say that the world is a figure, it has to be read.  By read let us understand generated.\"",
+    "author": "Julio Cortázar,",
+    "source": "Hopscotch"
+  }
+}

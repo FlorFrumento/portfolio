@@ -33,5 +33,12 @@
     "description": "From an everyday reading problem to a digital experience designed, prototyped, built with AI, and connected to Contentful as its CMS.",
     "imageAlt": "Screens from the Ristretto prototype",
     "cardAriaLabel": "View the Ristretto case study"
+  },
+  "giraflor": {
+    "title": "GiraFlor: from my professional profile to a digital product",
+    "kicker": "Personal project · Content Design + UX/UI + AI",
+    "description": "From content and visual identity to building a bilingual portfolio, published and iterated on with AI assistance.",
+    "cardAriaLabel": "View the GiraFlor case study",
+    "imageAlt": "GiraFlor, my portfolio, alongside a sunflower illustration"
   }
 }

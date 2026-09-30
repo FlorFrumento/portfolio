@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="{{ meta.description }}"
+    />
+    <!-- Social metadata -->
+    <link rel="canonical" href="https://florencia-frumento.web.app/casos/mi-portfolio/" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Florencia Frumento" />
+    <meta property="og:title" content="{{ meta.title }}" />
+    <meta property="og:description" content="{{ meta.description }}" />
+    <meta property="og:url" content="https://florencia-frumento.web.app/casos/mi-portfolio/" />
+    <meta property="og:image" content="https://florencia-frumento.web.app/case-assets/social/giraflor-social.jpg" />
+    <meta property="og:image:url" content="https://florencia-frumento.web.app/case-assets/social/giraflor-social.jpg" />
+    <meta property="og:image:secure_url" content="https://florencia-frumento.web.app/case-assets/social/giraflor-social.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ meta.ogImageAlt }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://florencia-frumento.web.app/casos/mi-portfolio/" />
+    <meta name="twitter:title" content="{{ meta.title }}" />
+    <meta name="twitter:description" content="{{ meta.description }}" />
+    <meta name="twitter:image" content="https://florencia-frumento.web.app/case-assets/social/giraflor-social.jpg" />
+    <meta name="twitter:image:alt" content="{{ meta.ogImageAlt }}" />
+    <!-- /Social metadata -->
+    <title>{{ meta.title }}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌻</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..700&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-site-header></header>
+
+    <main class="case-main">
+      <section class="hero section case-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">{{ hero.eyebrow }}</p>
+          <h1>{{ hero.title }}</h1>
+          <p class="hero-claim">{{ hero.claim }}</p>
+          <div class="hero-actions" aria-label="{{ hero.actionsAriaLabel }}">
+            <a class="button primary" href="https://github.com/FlorFrumento/portfolio" target="_blank" rel="noreferrer">{{ hero.primaryCta }}</a>
+            <a class="button secondary" href="/#casos">{{ hero.secondaryCta }}</a>
+          </div>
+        </div>
+
+        <aside class="case-meta" aria-label="{{ metaSummary.ariaLabel }}">
+          <div class="case-meta-item">
+            <span>{{ metaSummary.roleLabel }}</span>
+            <strong>{{ metaSummary.roleValue }}</strong>
+          </div>
+          <div class="case-meta-item">
+            <span>{{ metaSummary.processLabel }}</span>
+            <strong>{{ metaSummary.processValue }}</strong>
+          </div>
+          <div class="case-meta-item">
+            <span>{{ metaSummary.implementationLabel }}</span>
+            <strong>{{ metaSummary.implementationValue }}</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section case-summary" aria-label="{{ results.ariaLabel }}">
+        <div class="case-summary-item">
+          <strong>{{ results.productValue }}</strong>
+          <p>{{ results.productText }}</p>
+        </div>
+        <div class="case-summary-item">
+          <strong>{{ results.architectureValue }}</strong>
+          <p>{{ results.architectureText }}</p>
+        </div>
+        <div class="case-summary-item">
+          <strong>{{ results.iterationValue }}</strong>
+          <p>{{ results.iterationText }}</p>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="situacion-title">
+        <div>
+          <p class="case-section-label">{{ situation.label }}</p>
+          <h2 id="situacion-title">{{ situation.title }}</h2>
+        </div>
+        <div>
+          {{ situation.contentHtml }}
+          <blockquote class="about-quote case-quote">
+            <p>{{ quote.body }}</p>
+            <cite>{{ quote.author }} <span>{{ quote.source }}</span></cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="tarea-title">
+        <div>
+          <p class="case-section-label">{{ task.label }}</p>
+          <h2 id="tarea-title">{{ task.title }}</h2>
+        </div>
+        <div>{{ task.contentHtml }}</div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="accion-title">
+        <div>
+          <p class="case-section-label">{{ action.label }}</p>
+          <h2 id="accion-title">{{ action.title }}</h2>
+        </div>
+
+        <div>
+          {{ action.contentHtml }}
+        </div>
+      </section>
+
+      <section class="section case-section" aria-labelledby="resultado-title">
+        <div>
+          <p class="case-section-label">{{ result.label }}</p>
+          <h2 id="resultado-title">{{ result.title }}</h2>
+        </div>
+        <div>
+          {{ result.contentHtml }}
+          <div class="case-links" aria-label="{{ result.linksAriaLabel }}">
+            <a class="button primary" href="https://github.com/FlorFrumento/portfolio" target="_blank" rel="noreferrer">{{ result.visitCta }}</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section related-cases" aria-labelledby="otros-casos-title">
+        <div class="related-cases-heading">
+          <p class="eyebrow">{{ related.eyebrow }}</p>
+          <h2 id="otros-casos-title">{{ related.title }}</h2>
+        </div>
+        <div class="related-cases-grid"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>{{ shared.footer.tagline }}</p>
+      <a href="/#inicio">{{ shared.footer.backHome }}</a>
+    </footer>
+
+    <script type="module" src="../script.js"></script>
+  </body>
+</html>

@@ -205,11 +205,19 @@ const buildRelatedCaseCard = (caseStudy) => {
   const media = document.createElement("div");
   media.className = `project-media project-media-image ${caseStudy.mediaClassName}`;
 
-  const image = document.createElement("img");
-  image.src = caseStudy.imageSrc;
-  image.alt = caseStudy.imageAlt;
-  image.loading = "lazy";
-  media.append(image);
+  if (caseStudy.imageSrc) {
+    const image = document.createElement("img");
+    image.src = caseStudy.imageSrc;
+    image.alt = caseStudy.imageAlt;
+    image.loading = "lazy";
+    media.append(image);
+  } else {
+    const label = document.createElement("span");
+    label.className = "project-cover-label";
+    label.textContent = caseStudy.coverLabel;
+    label.setAttribute("aria-hidden", "true");
+    media.append(label);
+  }
 
   const content = document.createElement("div");
 
@@ -261,7 +269,7 @@ const selectRelatedCaseStudies = (currentCaseId, count = 3) => {
 
   addCase(
     pickWeightedCase(
-      getRemainingCandidates((caseStudy) => caseStudy.id === "amazon" || caseStudy.id === "ristretto"),
+      getRemainingCandidates((caseStudy) => caseStudy.tags.includes("independent")),
       random,
       (caseStudy) => (caseStudy.priority === "featured" ? 4 : 2)
     )
