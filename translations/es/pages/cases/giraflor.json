@@ -6,8 +6,8 @@
   },
   "hero": {
     "eyebrow": "Caso de estudio · Proyecto personal",
-    "title": "GiraFlor: de mi perfil profesional a un producto digital",
-    "claim": "Conceptualicé, redacté, diseñé, desarrollé y publiqué mi portfolio con asistencia de IA. Después lo convertí en bilingüe y continué iterándolo a partir de feedback y nuevas necesidades.",
+    "title": "GiraFlor: de mi perfil a un producto digital",
+    "claim": "Conceptualicé, diseñé y publiqué mi portfolio con asistencia de IA. Después lo convertí en bilingüe y continué iterándolo a partir de feedback.",
     "actionsAriaLabel": "Acciones del caso",
     "primaryCta": "Ver repositorio en GitHub",
     "secondaryCta": "Ver otros casos"
@@ -15,11 +15,11 @@
   "metaSummary": {
     "ariaLabel": "Resumen del caso",
     "roleLabel": "Rol",
-    "roleValue": "Content Design, diseño UX/UI y desarrollo asistido por IA.",
+    "roleValue": "Content Design, UX/UI Design y desarrollo asistido por IA.",
     "processLabel": "Proceso",
     "processValue": "Arquitectura, storytelling, diseño, implementación e iteración.",
     "implementationLabel": "Herramientas",
-    "implementationValue": "Stitch, Codex, VS Code, Git, GitHub y Firebase."
+    "implementationValue": "VS Code, Git, GitHub, Codex, Firebase y Stitch."
   },
   "results": {
     "ariaLabel": "Alcance del proyecto",
@@ -34,15 +34,15 @@
     "label": "Situación",
     "title": "Un espacio para mostrar más que un CV",
     "contentHtml": [
-      "<p>El proyecto comenzó en la Formación UX Content Vibe, de Sol Parnofiello y Joni Ariste: una capacitación práctica en Git, GitHub, terminal y desarrollo asistido por IA.</p>",
-      "<p>Necesitaba un lugar propio donde mostrar mi experiencia en Tiendanube, explicar mis decisiones y compartir proyectos personales. También quería hacer visible lo que aprendía por fuera de mi rol: capacidades de UX que buscaba desarrollar más allá de las necesidades de mi equipo.</p>"
+      "<p><strong>El proyecto comenzó en la formación <a class='inline-link' href='https://uxcontentvibe.web.app/' target='_blank' rel='noopener noreferrer'>UX Content Vibe</a>, de Sol Parnofiello y Joni Ariste:</strong> una capacitación práctica en Git, GitHub, terminal y desarrollo con IA como copiloto. Además, trabajamos en la narrativa estratégica del portfolio.</p>",
+      "<p>Necesitaba un lugar propio donde <strong>mostrar mi experiencia en Tiendanube, explicar mis decisiones y compartir proyectos personales.</strong> También quería hacer visible lo que aprendía por fuera de mi rol: capacidades de UX que buscaba desarrollar más allá de las necesidades de mi equipo.</p>"
     ]
   },
   "task": {
     "label": "Tarea",
     "title": "Convertir mi trayectoria en una experiencia",
     "contentHtml": [
-      "<p>El desafío fue crear un portfolio que permitiera entender mi perfil, explorar mi trabajo y contactarme. Debía tener una identidad propia y una estructura que pudiera actualizar de forma autónoma mientras aprendía a trabajar con código.</p>"
+      "<p>El desafío fue <strong>crear un portfolio que permitiera entender mi perfil, explorar mi trabajo y contactarme</strong>. Debía tener una identidad propia y una estructura que pudiera actualizar de forma autónoma mientras aprendía a trabajar con código y repositorios.</p>"
     ]
   },
   "action": {
@@ -52,11 +52,11 @@
       "<p><strong>Arquitectura y escritura.</strong> Organicé las secciones y los casos con metodología STAR. Trabajé títulos, negritas y jerarquías H2 y H3 para facilitar el escaneo y anticipar lo importante. La escritura del portfolio debía demostrar el criterio de contenido que buscaba comunicar.</p>",
       "<p><strong>Identidad visual.</strong> Tomé la simbología de los girasoles como punto de partida para GiraFlor. Con ayuda de Stitch, definí la base del sistema de diseño: colores, tipografía y componentes.</p>",
       "<p><strong>Desarrollo y publicación.</strong> Trabajé con HTML para la estructura y el contenido, y CSS para la presentación visual. Usé Codex como agente de desarrollo y aprendí a gestionar cambios desde VS Code, la terminal, Git y GitHub. Publiqué la V1 en Firebase Hosting y compartí el código en un repositorio público.</p>",
-      "<p>Incorporé a mi flujo comandos como <code>git status</code>, <code>git add .</code>, <code>git commit -m \"…\"</code>, <code>git push</code> y <code>npm run deploy</code>.</p>",
-      "<p><strong>Encontrabilidad y contacto.</strong> Apliqué mi experiencia en SEO: configuré el sitemap y <code>robots.txt</code>, creé la propiedad en Google Search Console y envié el sitemap. Revisé titles, meta descriptions y previews sociales por página. También incorporé un formulario de contacto conectado con Firestore.</p>",
+      "<p>Incorporé a mi flujo de trabajo diario comandos como <code>git status</code>, <code>git add .</code>, <code>git commit -m \"…\"</code>, <code>git push</code> y <code>npm run deploy</code>.</p>",
+      "<p><strong>Encontrabilidad y contacto.</strong> Apliqué mi experiencia en SEO: configuré el sitemap y <code>robots.txt</code>, creé la propiedad en Google Search Console y envié el sitemap. Revisé titles, meta descriptions y previews sociales por página e incorporé un formulario de contacto conectado con Firestore.</p>",
       "<p><strong>Evolución bilingüe.</strong> Después del lanzamiento, traduje el portfolio al inglés y trabajé con JSON e i18n para organizar las traducciones. Actualicé las rutas y configuré redirecciones desde las antiguas URL con terminación <code>.html</code>.</p>",
       "<h3>Iterar sobre fricciones concretas</h3>",
-      "<ul><li><strong>Copiar el correo.</strong> A partir de feedback, reemplacé la apertura de una aplicación de mail por una acción de copiar al portapapeles. El ícono cambia a un check para confirmar la acción.</li><li><strong>Mostrar mi práctica técnica.</strong> Reemplacé «Enfoque» por «Cómo trabajo» para explicar mi flujo e incorporar capacidades que estaban en el CV, pero poco visibles en el sitio.</li></ul>"
+      "<ul><li><strong>Facilitar el contacto.</strong> Recibí feedback sobre el esfuerzo de completar el formulario y la necesidad de copiar mi correo directamente. Cambié el CTA, que abría la aplicación de mail predeterminada, para que copiara la dirección al portapapeles. Para anticipar y confirmar la acción, incorporé un ícono de copiar que, después del clic, cambia a un check acompañado de un mensaje de confirmación.</li><li><strong>Mostrar mi práctica técnica.</strong> Reemplacé «Enfoque» por «Cómo trabajo» para explicar mi flujo de trabajo y hacer visibles capacidades técnicas que estaban en mi CV, pero no en el portfolio.</li></ul>"
     ]
   },
   "result": {
@@ -65,8 +65,9 @@
     "linksAriaLabel": "Repositorio del proyecto",
     "visitCta": "Ver repositorio en GitHub",
     "contentHtml": [
-      "<p>Construí un portfolio bilingüe con identidad propia, casos de estudio, formulario de contacto y código versionado. El proyecto me dio práctica para transformar decisiones de contenido y diseño en cambios implementados y publicados.</p>",
-      "<p>Sigo evaluando la navegación mobile: después de priorizar los enlaces visibles en el header, analizo incorporar un menú hamburguesa que permita acceder a todas las secciones.</p>"
+      "<p><strong>Construí un portfolio bilingüe con identidad propia, casos de estudio, formulario de contacto y código versionado.</strong> El proyecto me dio práctica para llevar decisiones de contenido y diseño a la implementación: modificar el sitio, verificar los cambios y publicarlos.</p>",
+      "<h3>Próximo paso: revisar la navegación mobile</h3>",
+      "<p>Con un enfoque mobile first, reduje la cantidad de enlaces visibles en el header para priorizar las secciones principales. Ahora, <strong>evalúo reunir todas las secciones en un menú hamburguesa:</strong> el ícono ocuparía menos espacio y, al abrirlo, la persona tendría todas las opciones de navegación disponibles.</p>"
     ]
   },
   "related": {

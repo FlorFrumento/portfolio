@@ -35,9 +35,9 @@
     "cardAriaLabel": "Ver caso de estudio de Ristretto"
   },
   "giraflor": {
-    "title": "GiraFlor: de mi perfil profesional a un producto digital",
-    "kicker": "Proyecto personal · Content Design + UX/UI + IA",
-    "description": "Del contenido y la identidad visual al desarrollo de un portfolio bilingüe, publicado e iterado con asistencia de IA.",
+    "title": "GiraFlor: de mi perfil a un producto digital",
+    "kicker": "Mi portfolio · Content Design + UX/UI + IA",
+    "description": "Del contenido y la identidad visual al desarrollo de mi portfolio bilingüe, publicado e iterado con asistencia de IA.",
     "cardAriaLabel": "Ver caso de estudio de GiraFlor",
     "imageAlt": "GiraFlor, mi portfolio, junto a una ilustración de un girasol"
   }

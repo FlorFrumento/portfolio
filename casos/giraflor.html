@@ -90,13 +90,7 @@
           <p class="case-section-label">{{ situation.label }}</p>
           <h2 id="situacion-title">{{ situation.title }}</h2>
         </div>
-        <div>
-          {{ situation.contentHtml }}
-          <blockquote class="about-quote case-quote">
-            <p>{{ quote.body }}</p>
-            <cite>{{ quote.author }} <span>{{ quote.source }}</span></cite>
-          </blockquote>
-        </div>
+        <div>{{ situation.contentHtml }}</div>
       </section>
 
       <section class="section case-section" aria-labelledby="tarea-title">
@@ -104,7 +98,13 @@
           <p class="case-section-label">{{ task.label }}</p>
           <h2 id="tarea-title">{{ task.title }}</h2>
         </div>
-        <div>{{ task.contentHtml }}</div>
+        <div>
+          {{ task.contentHtml }}
+          <blockquote class="about-quote case-quote">
+            <p>{{ quote.body }}</p>
+            <cite>{{ quote.author }} <span>{{ quote.source }}</span></cite>
+          </blockquote>
+        </div>
       </section>
 
       <section class="section case-section" aria-labelledby="accion-title">
