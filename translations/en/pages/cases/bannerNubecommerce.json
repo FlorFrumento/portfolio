@@ -21,14 +21,14 @@
     "channelLabel": "Channel",
     "channelValue": "In-app banner in the admin panel",
     "impactLabel": "Impact",
-    "impactValue": "+60% CTR on the survey CTA"
+    "impactValue": "+98% survey responses"
   },
   "results": {
     "ariaLabel": "Key results",
-    "ctrValue": "+60%",
-    "ctrText": "increase in CTR on the CTA to complete the survey.",
-    "responsesValue": "+3,770",
-    "responsesText": "total consolidated responses in the report survey.",
+    "growthValue": "+98%",
+    "growthText": "increase in consolidated survey responses.",
+    "responsesValue": "3,773",
+    "responsesText": "total responses in the report survey.",
     "windowValue": "15 days",
     "windowText": "critical window before the survey closed."
   },
@@ -75,8 +75,8 @@
   "result": {
     "label": "Result",
     "title": "More participation from a focused improvement",
-    "bodyBefore": "The iteration achieved a +60% increase in CTA CTR to complete the survey. After three weeks with around 1,900 responses,",
-    "bodyEmphasis": "we reached 3,773 total consolidated responses in the report within 15 days.",
+    "bodyBefore": "After three weeks with around 1,900 responses, the survey reached",
+    "bodyEmphasis": "3,773 consolidated responses over the 15 days following the iteration: an increase of 98.5% over the initial total.",
     "carouselAriaLabel": "Pages from the 2026 NubeCommerce report",
     "carouselPrevAriaLabel": "View previous report page",
     "carouselNextAriaLabel": "View next report page",

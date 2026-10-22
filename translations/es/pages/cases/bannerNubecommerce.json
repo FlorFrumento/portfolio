@@ -21,14 +21,14 @@
     "channelLabel": "Canal",
     "channelValue": "Banner in-app en el panel administrador",
     "impactLabel": "Impacto",
-    "impactValue": "+60 % de CTR en el CTA de la encuesta"
+    "impactValue": "+98 % de respuestas en la encuesta"
   },
   "results": {
     "ariaLabel": "Resultados principales",
-    "ctrValue": "+60 %",
-    "ctrText": "de aumento en el CTR del CTA para completar la encuesta.",
-    "responsesValue": "+3.770",
-    "responsesText": "respuestas totales consolidadas en la encuesta del informe.",
+    "growthValue": "+98 %",
+    "growthText": "de aumento en las respuestas consolidadas de la encuesta.",
+    "responsesValue": "3.773",
+    "responsesText": "respuestas totales en la encuesta del informe.",
     "windowValue": "15 días",
     "windowText": "de ventana crítica antes del cierre de la encuesta."
   },
@@ -75,8 +75,8 @@
   "result": {
     "label": "Resultado",
     "title": "Más participación desde una mejora puntual",
-    "bodyBefore": "La iteración logró un aumento de +60 % en el CTR del CTA para completar la encuesta. Después de tres semanas con alrededor de 1.900 respuestas,",
-    "bodyEmphasis": "alcanzamos en 15 días las 3.773 respuestas totales consolidadas en el informe.",
+    "bodyBefore": "Después de tres semanas con alrededor de 1.900 respuestas, la encuesta alcanzó un total de",
+    "bodyEmphasis": "3.773 respuestas consolidadas en los 15 días posteriores a la iteración: un aumento del 98,5 % respecto de la base inicial.",
     "carouselAriaLabel": "Páginas del informe NubeCommerce 2026",
     "carouselPrevAriaLabel": "Ver página anterior del informe",
     "carouselNextAriaLabel": "Ver página siguiente del informe",
