@@ -21,7 +21,8 @@
     "cases": "casos",
     "experience": "experiencia",
     "approach": "como-trabajo",
-    "contact": "contacto"
+    "contact": "contacto",
+    "recommendations": "recomendaciones"
   },
   "relatedCases": {
     "cta": "Ver caso"

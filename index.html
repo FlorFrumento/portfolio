@@ -211,6 +211,54 @@
         <div class="experience-list">{{ experience.itemsHtml }}</div>
       </section>
 
+      <section class="section recommendations-section" id="recomendaciones" aria-labelledby="recomendaciones-title">
+        <div class="section-heading">
+          <p class="eyebrow">{{ recommendations.eyebrow }}</p>
+          <h2 id="recomendaciones-title">{{ recommendations.title }}</h2>
+          <p>{{ recommendations.description }}</p>
+        </div>
+
+        <div class="recommendations-grid">
+          <figure class="recommendation-card">
+            <blockquote><p>{{ recommendations.bruno.quote }}</p></blockquote>
+            <figcaption>
+              <p class="recommendation-name"><a href="https://www.linkedin.com/in/bfbatista/" target="_blank" rel="noreferrer">Bruno Fernandes</a></p>
+              <p class="recommendation-role">{{ recommendations.bruno.role }}</p>
+              <p class="recommendation-relationship">{{ recommendations.bruno.relationship }}</p>
+            </figcaption>
+          </figure>
+          <figure class="recommendation-card">
+            <blockquote><p>{{ recommendations.ana.quote }}</p></blockquote>
+            <figcaption>
+              <p class="recommendation-name"><a href="https://www.linkedin.com/in/ana-florencia-codeglia/" target="_blank" rel="noreferrer">Ana Codeglia</a></p>
+              <p class="recommendation-role">{{ recommendations.ana.role }}</p>
+              <p class="recommendation-relationship">{{ recommendations.ana.relationship }}</p>
+            </figcaption>
+          </figure>
+          <figure class="recommendation-card">
+            <blockquote><p>{{ recommendations.elena.quote }}</p></blockquote>
+            <figcaption>
+              <p class="recommendation-name"><a href="https://www.linkedin.com/in/elenajaramillo/" target="_blank" rel="noreferrer">Elena Jaramillo</a></p>
+              <p class="recommendation-role">{{ recommendations.elena.role }}</p>
+              <p class="recommendation-relationship">{{ recommendations.elena.relationship }}</p>
+            </figcaption>
+          </figure>
+          <figure class="recommendation-card">
+            <blockquote><p>{{ recommendations.paula.quote }}</p></blockquote>
+            <figcaption>
+              <p class="recommendation-name"><a href="https://www.linkedin.com/in/paulabecchetti/" target="_blank" rel="noreferrer">Paula Andrea Becchetti</a></p>
+              <p class="recommendation-role">{{ recommendations.paula.role }}</p>
+              <p class="recommendation-relationship">{{ recommendations.paula.relationship }}</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="recommendations-footer">
+          <a class="inline-link" href="https://www.linkedin.com/in/florenciafrumento/details/recommendations/" target="_blank" rel="noreferrer">{{ recommendations.linkLabel }} <span aria-hidden="true">↗</span></a>
+          <p class="recommendations-note">{{ recommendations.note }}</p>
+        </div>
+      </section>
+
       <section class="section split-section" id="como-trabajo" aria-labelledby="como-trabajo-title">
         <div>
           <p class="eyebrow">{{ approach.eyebrow }}</p>

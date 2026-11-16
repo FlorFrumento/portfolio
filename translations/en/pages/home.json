@@ -29,7 +29,7 @@
     "caseCta": "View case"
   },
   "experience": {
-    "eyebrow": "Experience",
+    "eyebrow": "My experience",
     "title": "Professional path",
     "description": "A journey across content, product, digital projects, and communities, where I bring together language, research, and data to design better experiences.",
     "itemsHtml": [
@@ -37,6 +37,33 @@
       "<article class='experience-item'><div class='experience-meta'><p>2017 — 2021</p><span>Organization of Ibero-American States (OEI)</span></div><div class='experience-content'><h3>Technical project manager</h3><p>I managed Cooperation and Innovation projects related to education and culture. I coordinated activities, tracked budgets, prepared reports on results, and organized in-person and virtual events.</p><p class='experience-takeaway'>Key takeaway: tools for managing complex projects, bringing teams together, and communicating clearly with different stakeholders.</p></div></article>",
       "<article class='experience-item'><div class='experience-meta'><p>2017 — 2021</p><span>Corear Video Game Music Orchestra</span></div><div class='experience-content'><h3>Community Manager</h3><p>I led the orchestra’s content, social media, communications, and press strategy. I developed content for different platforms and analyzed results to optimize reach, boost engagement, and strengthen the community.</p><p class='experience-takeaway'>Key takeaway: I learned to connect narrative, audience, and brand, as well as use data to strengthen communities.</p></div></article>"
     ]
+  },
+  "recommendations": {
+    "eyebrow": "From the team",
+    "title": "Recommendations",
+    "description": "People I’ve worked with on teams and projects share how I work, what I contribute, and how I collaborate with others.",
+    "bruno": {
+      "quote": "Flor played a key role in helping us build and scale our content strategy in Argentina. What started practically from scratch eventually became one of the strongest inbound engines across Latam, and she was an important contributor to making that happen.",
+      "role": "Global Growth Director & Founding Team · Tiendanube",
+      "relationship": "Growth department director"
+    },
+    "ana": {
+      "quote": "Her energy, intelligence, and organizational skills were some of the qualities that stood out to me most, along with her impeccable and creative writing.",
+      "role": "Growth Manager, Argentina · Tiendanube",
+      "relationship": "My direct manager"
+    },
+    "elena": {
+      "quote": "Something I particularly value is the quality of her feedback. She pays close attention, understands other people’s work, and offers clear, well-reasoned assessments that help them improve.",
+      "role": "Content Strategist · Tiendanube",
+      "relationship": "Content teammate"
+    },
+    "paula": {
+      "quote": "Both pragmatic and personable, Flor represents Tiendanube’s content team in its work with our agency, providing clear briefs, offering feedback for continuous improvement, and ensuring that we deliver the expected volume and quality of work.",
+      "role": "Founder & Strategic Lead · Deploy Contents",
+      "relationship": "Content agency I worked with at Tiendanube"
+    },
+    "linkLabel": "Read the full recommendations on LinkedIn",
+    "note": "Excerpts from LinkedIn recommendations. Some have been translated."
   },
   "approach": {
     "eyebrow": "How I work",

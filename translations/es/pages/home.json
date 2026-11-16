@@ -29,7 +29,7 @@
     "caseCta": "Ver caso"
   },
   "experience": {
-    "eyebrow": "Experiencia",
+    "eyebrow": "Mi experiencia",
     "title": "Trayectoria profesional",
     "description": "Un recorrido entre contenido, producto, proyectos digitales y comunidades, donde reúno lenguaje, investigación y datos para diseñar mejores experiencias.",
     "itemsHtml": [
@@ -37,6 +37,33 @@
       "<article class='experience-item'><div class='experience-meta'><p>2017 — 2021</p><span>Organización de Estados Iberoamericanos</span></div><div class='experience-content'><h3>Gestora técnica de proyectos</h3><p>Gestioné proyectos de Cooperación e Innovación vinculados a educación y cultura. Coordiné actividades, seguí presupuestos, elaboré informes de resultados y organicé eventos presenciales y virtuales.</p><p class='experience-takeaway'>Lo que me llevé: herramientas para gestionar proyectos complejos, articular equipos y comunicar con claridad a distintos stakeholders.</p></div></article>",
       "<article class='experience-item'><div class='experience-meta'><p>2017 — 2021</p><span>Corear Orquesta de Música de Videojuegos</span></div><div class='experience-content'><h3>Community Manager</h3><p>Lideré la estrategia de contenido, redes sociales, comunicación y prensa de la orquesta. Desarrollé contenidos para distintas plataformas y analicé resultados para optimizar el alcance, potenciar la interacción y fortalecer la comunidad.</p><p class='experience-takeaway'>Lo que me llevé: aprendí a conectar narrativa, audiencia y marca, además de usar datos para fortalecer comunidades.</p></div></article>"
     ]
+  },
+  "recommendations": {
+    "eyebrow": "Desde el equipo",
+    "title": "Recomendaciones",
+    "description": "Personas con las que compartí equipos y proyectos cuentan cómo trabajo, qué aporto y cómo colaboro con otros.",
+    "bruno": {
+      "quote": "Flor tuvo un papel clave en ayudarnos a construir y escalar nuestra estrategia de contenidos en Argentina. Lo que empezó prácticamente desde cero terminó convirtiéndose en uno de los motores de inbound más sólidos de Latinoamérica, y ella contribuyó a lograrlo.",
+      "role": "Global Growth Director & Founding Team · Tiendanube",
+      "relationship": "Director del área de Growth"
+    },
+    "ana": {
+      "quote": "Su energía, inteligencia y capacidad de organización fueron algunas de las cualidades que más me llamaron la atención, además de su escritura impecable y creativa.",
+      "role": "Growth Manager de Argentina · Tiendanube",
+      "relationship": "Mi líder directa"
+    },
+    "elena": {
+      "quote": "Algo que valoro especialmente es la calidad de su feedback. Ella observa con atención, entiende el trabajo de los demás y entrega evaluaciones claras, bien fundamentadas y útiles para mejorar.",
+      "role": "Content Strategist · Tiendanube",
+      "relationship": "Colega del equipo de contenidos"
+    },
+    "paula": {
+      "quote": "Concreta y humana a la vez, Flor responde por el equipo de contenidos de Tiendanube de cara a nuestra agencia, enviándonos requerimientos claros, brindándonos feedback para un proceso de mejora continua, y garantizando que los resultados se cumplan.",
+      "role": "Fundadora y líder de estrategia · Deploy Contents",
+      "relationship": "Agencia de contenidos con la que trabajé en Tiendanube"
+    },
+    "linkLabel": "Leer las recomendaciones completas en LinkedIn",
+    "note": "Extractos de recomendaciones en LinkedIn. Algunos textos fueron traducidos."
   },
   "approach": {
     "eyebrow": "Cómo trabajo",

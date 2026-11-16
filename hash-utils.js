@@ -2,6 +2,7 @@ export const defaultSectionHashes = {
   home: "inicio",
   cases: "casos",
   experience: "experiencia",
+  recommendations: "recomendaciones",
   approach: "como-trabajo",
   contact: "contacto"
 };

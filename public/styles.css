@@ -1264,6 +1264,98 @@ h3 {
   line-height: 1.45;
 }
 
+.recommendations-section {
+  border-bottom: 1px solid var(--line);
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.recommendation-card {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+  margin: 0;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.recommendation-card blockquote {
+  margin: 0;
+  padding-left: 22px;
+  border-left: 4px solid var(--sunflower);
+  color: var(--muted);
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.recommendation-card blockquote p {
+  margin-bottom: 0;
+}
+
+.recommendation-card figcaption {
+  margin-top: auto;
+}
+
+.recommendation-name {
+  margin-bottom: 8px;
+  color: var(--olive);
+  font-weight: 600;
+}
+
+.recommendation-name a {
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+
+.recommendation-name a:hover {
+  text-decoration-color: currentColor;
+}
+
+.recommendation-name a:focus-visible {
+  outline: 2px solid var(--sunflower-dark);
+  outline-offset: 4px;
+}
+
+.recommendation-role,
+.recommendation-relationship {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.recommendation-role {
+  margin-bottom: 4px;
+}
+
+.recommendation-relationship {
+  margin-bottom: 0;
+}
+
+.recommendations-footer {
+  margin-top: 32px;
+  line-height: 1.65;
+}
+
+.recommendations-footer > a {
+  font-weight: 700;
+}
+
+.recommendations-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 .split-section {
   grid-template-columns: minmax(0, 4.5fr) minmax(320px, 7.5fr);
 }
@@ -1627,6 +1719,7 @@ h3 {
     gap: 36px;
   }
 
+  .recommendations-grid,
   .project-grid,
   .case-summary,
   .case-comparison,
@@ -1721,6 +1814,14 @@ h3 {
 }
 
 @media (max-width: 600px) {
+  .recommendations-section h2 {
+    font-size: clamp(2rem, 10vw, 2.55rem);
+  }
+
+  .recommendation-card {
+    padding: 24px;
+  }
+
   .header-inner {
     position: static;
     display: grid;
