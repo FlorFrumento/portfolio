@@ -73,6 +73,7 @@ a:hover {
   width: 100%;
   border-bottom: 1px solid transparent;
   background: transparent;
+  -webkit-backdrop-filter: none;
   backdrop-filter: none;
   transition: background 180ms ease, border-color 180ms ease, backdrop-filter 180ms ease;
 }
@@ -80,6 +81,7 @@ a:hover {
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
   background: rgba(250, 249, 246, 0.9);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
 

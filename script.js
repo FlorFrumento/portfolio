@@ -314,7 +314,6 @@ const renderRelatedCases = () => {
 renderRelatedCases();
 
 const externalProjectLinks = document.querySelectorAll('.project-content a[href="#"]');
-const siteHeader = document.querySelector(".site-header");
 const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#contact-form-status");
 const copyEmailButtons = document.querySelectorAll("[data-copy-email]");
@@ -323,17 +322,12 @@ const lightboxGalleries = document.querySelectorAll("[data-lightbox-gallery]");
 let activeLightbox = null;
 let copyEmailResetTimer = null;
 
-const updateHeaderState = () => {
-  siteHeader?.classList.toggle("is-scrolled", window.scrollY > 12);
-};
-
 const scrollToHashTarget = () => {
   const hash = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
   const target = hash ? document.getElementById(hash) : null;
   if (!target) return;
 
   target.scrollIntoView({ block: "start" });
-  updateHeaderState();
 };
 
 if (window.location.hash) {
@@ -778,6 +772,3 @@ contactForm?.addEventListener("submit", async (event) => {
     submitButton?.removeAttribute("disabled");
   }
 });
-
-updateHeaderState();
-window.addEventListener("scroll", updateHeaderState, { passive: true });
