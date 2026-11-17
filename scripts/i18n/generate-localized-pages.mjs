@@ -8,6 +8,11 @@ import { getLocalizedPagePath } from "../../route-utils.js";
 const generatedRoot = ".i18n-build";
 const tokenPattern = /\{\{\s*([a-zA-Z0-9._-]+)\s*\}\}/g;
 
+// Keep the embed shared across all pages and locales. Appearance and language
+// support are managed in ElevenLabs, without local overrides.
+const voiceAgentEmbed = `    <elevenlabs-convai agent-id="agent_6001m5j6gjhve29bt6fna6jsyqb1"></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>`;
+
 const deepMerge = (base, override) => {
   if (Array.isArray(base) || Array.isArray(override)) {
     return override ?? base;
@@ -287,7 +292,7 @@ export const generateLocalizedPages = async (rootDir) => {
         );
 
         await mkdir(path.dirname(outputPath), { recursive: true });
-        await writeFile(outputPath, finalHtml);
+        await writeFile(outputPath, finalHtml.replace("  </body>", `${voiceAgentEmbed}\n  </body>`));
       }
     }
   }

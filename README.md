@@ -72,6 +72,21 @@ There are no automated tests yet. The current command is:
 npm run test
 ```
 
+## Voice Agent
+
+The ElevenLabs widget is added to every portfolio page by
+`scripts/i18n/generate-localized-pages.mjs`, including Spanish routes (with and
+without `/es/`) and English routes under `/en/`. It uses agent
+`agent_6001m5j6gjhve29bt6fna6jsyqb1` and loads the official embed script asynchronously.
+
+Manage appearance, text, and language support in the ElevenLabs dashboard. The
+embed does not override those settings. The agent must be public with
+authentication disabled. If using a domain allowlist, include the production
+hostname and any preview hostname needed for testing. No API key is needed in
+the portfolio.
+
+Documentation: [ElevenLabs widget](https://elevenlabs.io/docs/eleven-agents/customization/widget).
+
 ## Firebase Deploy
 
 Initial setup TLDR: [docs/firebase-hosting.md](docs/firebase-hosting.md).
