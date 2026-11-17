@@ -8,10 +8,93 @@ import { getLocalizedPagePath } from "../../route-utils.js";
 const generatedRoot = ".i18n-build";
 const tokenPattern = /\{\{\s*([a-zA-Z0-9._-]+)\s*\}\}/g;
 
-// Keep the embed shared across all pages and locales. Appearance and language
-// support are managed in ElevenLabs, without local overrides.
-const voiceAgentEmbed = `    <elevenlabs-convai agent-id="agent_6001m5j6gjhve29bt6fna6jsyqb1"></elevenlabs-convai>
+// Set locale attributes before the widget loads. Spanish pages use the dashboard
+// defaults; English pages override UI copy and the initial conversation language.
+const buildVoiceAgentEmbed = (locale) => {
+  const englishTextContents = {
+    main_label: "Talk to my voice portfolio",
+    start_call: "Start conversation",
+    start_chat: "Start chat",
+    send_message: "Send",
+    new_call: "New conversation",
+    resume_call: "Resume conversation?",
+    end_call: "End call",
+    end_chat: "End chat",
+    mute_microphone: "Mute microphone",
+    text_mode: "Switch to text mode",
+    voice_mode: "Switch to voice mode",
+    voice_mode_label: "Voice",
+    text_mode_label: "Text",
+    switched_to_text_mode: "Switched to text mode",
+    switched_to_voice_mode: "Switched to voice mode",
+    change_language: "Change language",
+    collapse: "Minimize",
+    expand: "Open chat",
+    copied: "Copied!",
+    accept_terms: "Accept",
+    dismiss_terms: "Cancel",
+    end_chat_confirmation_title: "End this chat?",
+    end_chat_confirmation_description: "You won't be able to send more messages in this conversation. You can start a new one at any time.",
+    end_call_confirmation_title: "End this call?",
+    end_call_confirmation_description: "The agent will stop listening. You can start a new conversation at any time.",
+    end_call_confirm: "End call",
+    cancel_end_confirmation: "Cancel",
+    listening_status: "Listening...",
+    speaking_status: "Speaking...",
+    connecting_status: "Connecting...",
+    reconnecting_status: "Reconnecting...",
+    chatting_status: "Chatting with the AI agent",
+    queue_waiting_status: "The agent is busy right now. You'll be connected as soon as it's available.",
+    queue_waiting_status_short: "Waiting for the agent",
+    input_label: "Message",
+    input_placeholder: "Send a message...",
+    input_placeholder_text_only: "Send a message...",
+    input_placeholder_new_conversation: "Start a conversation...",
+    user_ended_conversation: "You ended the conversation",
+    agent_ended_conversation: "The agent ended the conversation",
+    conversation_id: "Conversation ID",
+    error_occurred: "Something went wrong",
+    queue_timed_out: "The agent is still busy. Please try again later.",
+    copy_id: "Copy ID",
+    initiate_feedback: "How was this conversation?",
+    request_follow_up_feedback: "Tell me more",
+    thanks_for_feedback: "Thank you for your feedback!",
+    thanks_for_feedback_details: "Your feedback helps me improve this portfolio's voice experience.",
+    follow_up_feedback_placeholder: "Tell me about your experience...",
+    submit: "Submit",
+    go_back: "Go back",
+    copy: "Copy",
+    download: "Download",
+    wrap: "Wrap text",
+    agent_working: "Working...",
+    agent_done: "Completed",
+    agent_error: "Something went wrong",
+    attach_file: "Attach file",
+    remove_file: "Remove file",
+    file_upload_error: "The file couldn't be uploaded. Please try again.",
+    file_type_unsupported: "Unsupported file type. Accepted types:",
+    file_too_large: "This file exceeds the size limit.",
+    file_limit_reached: "You've reached the file limit for this conversation.",
+    typing_indicator: "The agent is typing...",
+    thinking_status: "Thinking...",
+    rich_content_unavailable: "This content couldn't be displayed",
+    carousel_previous: "Previous",
+    carousel_next: "Next",
+    new_message: "1 new message",
+    new_messages: "{count} new messages"
+  };
+  const serializedTextContents = JSON.stringify(englishTextContents)
+    .replaceAll("&", "&amp;")
+    .replaceAll("'", "&#39;")
+    .replaceAll("<", "&lt;");
+  const englishAttributes = locale === "en" ? `
+      language="en"
+      override-language="en"
+      text-contents='${serializedTextContents}'` : "";
+
+  return `    <elevenlabs-convai agent-id="agent_6001m5j6gjhve29bt6fna6jsyqb1"${englishAttributes}></elevenlabs-convai>
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>`;
+};
 
 const deepMerge = (base, override) => {
   if (Array.isArray(base) || Array.isArray(override)) {
@@ -292,7 +375,7 @@ export const generateLocalizedPages = async (rootDir) => {
         );
 
         await mkdir(path.dirname(outputPath), { recursive: true });
-        await writeFile(outputPath, finalHtml.replace("  </body>", `${voiceAgentEmbed}\n  </body>`));
+        await writeFile(outputPath, finalHtml.replace("  </body>", `${buildVoiceAgentEmbed(locale)}\n  </body>`));
       }
     }
   }

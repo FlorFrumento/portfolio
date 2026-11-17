@@ -79,8 +79,20 @@ The ElevenLabs widget is added to every portfolio page by
 without `/es/`) and English routes under `/en/`. It uses agent
 `agent_6001m5j6gjhve29bt6fna6jsyqb1` and loads the official embed script asynchronously.
 
-Manage appearance, text, and language support in the ElevenLabs dashboard. The
-embed does not override those settings. The agent must be public with
+Manage appearance and Spanish defaults in the ElevenLabs dashboard. English pages
+set `language="en"`, `override-language="en"`, and English labels through the
+JSON `text-contents` attribute in the generated HTML before the widget loads.
+The current embed reads keys such as `main_label`, `start_call`, and
+`listening_status`; legacy attributes such as `action-text` and `start-call-text`
+are not supported by the current script. Update these labels in
+`buildVoiceAgentEmbed`.
+The English dictionary covers all text keys supported by the current embed,
+including connection states, message inputs, feedback, errors, confirmations,
+attachments, and accessibility labels. Spanish pages keep the dashboard copy.
+Enable English language support and allow the language override in the agent's
+settings so conversations can start in English.
+
+The agent must be public with
 authentication disabled. If using a domain allowlist, include the production
 hostname and any preview hostname needed for testing. No API key is needed in
 the portfolio.
