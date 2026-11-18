@@ -1,4 +1,5 @@
 import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 
 import { i18nConfig, siteOrigin } from "../../i18n.config.js";
@@ -230,7 +231,7 @@ const buildHeaderMarkup = (dictionary, locale, page, routeTranslations, options 
         <span>${header.brand}</span>
       </a>
       <div class="header-controls">
-        <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="${header.menuOpenLabel}" data-menu-open-label="${header.menuOpenLabel}" data-menu-close-label="${header.menuCloseLabel}">
+        <button class="menu-toggle" type="button" hidden aria-controls="site-navigation" aria-expanded="false" aria-label="${header.menuOpenLabel}" data-menu-open-label="${header.menuOpenLabel}" data-menu-close-label="${header.menuCloseLabel}">
           <span class="menu-toggle-icon" aria-hidden="true"></span>
         </button>
         <nav class="main-nav" id="site-navigation" aria-label="${header.navAriaLabel}">
@@ -355,6 +356,14 @@ export const generateLocalizedPages = async (rootDir) => {
   await rm(absoluteGeneratedRoot, { force: true, recursive: true });
   await mkdir(path.join(rootDir, "public"), { recursive: true });
   await copyFile(path.join(rootDir, "styles.css"), path.join(rootDir, "public", "styles.css"));
+  // Refresh static header assets when their contents change, including after a deploy.
+  const assetVersion = async (relativePath) => createHash("sha256")
+    .update(await readFile(path.join(rootDir, relativePath)))
+    .digest("hex").slice(0, 12);
+  const [stylesVersion, headerVersion] = await Promise.all([
+    assetVersion("styles.css"),
+    assetVersion("public/header-scroll.js")
+  ]);
   const routeTranslations = Object.fromEntries(await Promise.all(
     i18nConfig.locales.map(async (locale) => [locale, await loadJson(rootDir, `translations/${locale}/routes.json`)])
   ));
@@ -372,7 +381,9 @@ export const generateLocalizedPages = async (rootDir) => {
         const withLocalizedRoutes = replaceLocalizedRoutes(withTokens, locale, routeTranslations, dictionary, { explicit });
         const withHeader = replaceHeader(withLocalizedRoutes, dictionary, locale, page, routeTranslations, { explicit });
         const withSeo = replaceSeoTags(withHeader, page, locale, routeTranslations);
-        const withStaticStyles = withSeo.replace(/href="\.\.\/styles\.css"|href="styles\.css"/g, 'href="/styles.css"');
+        const withStaticStyles = withSeo
+          .replace(/href="(?:\.\.\/)?styles\.css"/g, `href="/styles.css?v=${stylesVersion}"`)
+          .replace('src="/header-scroll.js"', `src="/header-scroll.js?v=${headerVersion}"`);
         const finalHtml = withStaticStyles.replace(
           /<script type="module" src="([^"]*script\.js)"><\/script>/,
           `<script type="module" src="${page.scriptSrc}"></script>`

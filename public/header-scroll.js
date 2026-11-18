@@ -48,7 +48,13 @@ if (menuToggle && siteNavigation) {
     if (!siteHeader.contains(event.relatedTarget)) setMenuOpen(false);
   });
 
-  mobileViewport.addEventListener("change", () => setMenuOpen(false));
+  const syncMenuViewport = () => {
+    menuToggle.hidden = !mobileViewport.matches;
+    setMenuOpen(false);
+  };
+
+  syncMenuViewport();
+  mobileViewport.addEventListener("change", syncMenuViewport);
   window.addEventListener("hashchange", () => setMenuOpen(false));
-  window.addEventListener("pageshow", () => setMenuOpen(false));
+  window.addEventListener("pageshow", syncMenuViewport);
 }

@@ -146,6 +146,10 @@ a:hover {
   cursor: pointer;
 }
 
+.menu-toggle[hidden] {
+  display: none !important;
+}
+
 .menu-toggle:hover {
   background: var(--olive-soft);
 }

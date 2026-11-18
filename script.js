@@ -82,6 +82,7 @@ const renderSiteHeader = () => {
   const menuToggle = document.createElement("button");
   menuToggle.className = "menu-toggle";
   menuToggle.type = "button";
+  menuToggle.hidden = true;
   menuToggle.setAttribute("aria-controls", nav.id);
   menuToggle.setAttribute("aria-expanded", "false");
   menuToggle.setAttribute("aria-label", runtimeStrings.header.menuOpenLabel);
