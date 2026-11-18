@@ -15,11 +15,11 @@
   "metaSummary": {
     "ariaLabel": "Case study overview",
     "roleLabel": "Role",
-    "roleValue": "Content Design, UX/UI Design and AI-assisted development.",
+    "roleValue": "Content Design, UX/UI Design, conversation design and AI-assisted development.",
     "processLabel": "Process",
     "processValue": "Architecture, storytelling, design, implementation and iteration.",
     "implementationLabel": "Tools",
-    "implementationValue": "VS Code, Git, GitHub, Codex, Firebase and Stitch."
+    "implementationValue": "VS Code, Git, GitHub, Codex, Firebase, Stitch and ElevenLabs."
   },
   "results": {
     "ariaLabel": "Project scope",
@@ -55,7 +55,12 @@
       "<p>I incorporated commands such as <code>git status</code>, <code>git add .</code>, <code>git commit -m \"…\"</code>, <code>git push</code> and <code>npm run deploy</code> into my daily workflow.</p>",
       "<p><strong>Discoverability and contact.</strong> I applied my SEO experience: I configured the sitemap and <code>robots.txt</code>, created the property in Google Search Console and submitted the sitemap. I reviewed titles, meta descriptions and social previews for each page and added a contact form connected to Firestore.</p>",
       "<p><strong>Bilingual evolution.</strong> After launch, I translated the portfolio into English and worked with JSON and i18n to organize the translations. I updated the routes and configured redirects from the old URLs ending in <code>.html</code>.</p>",
-      "<h3>Iterating on specific points of friction</h3>",
+      "<h3>From a website to a conversation</h3>",
+      "<p><strong>I extended GiraFlor with a voice portfolio built with ElevenLabs.</strong> The goal was to offer another way to learn about my experience and explore my work through questions, with answers tailored to each visitor’s interests.</p>",
+      "<p><strong>I defined the agent’s role, greeting, tone, instructions and reference content.</strong> I designed guidelines for recommending case studies, distinguishing professional experience from personal projects and training exercises, acknowledging missing information and providing my contact details when relevant. I also configured responses and greetings in Spanish and English.</p>",
+      "<p>I tested introductions, case study recommendations, interruptions, topic changes, contact requests and farewells. Based on the responses I observed, I iterated on specific issues:</p>",
+      "<ul><li><strong>Brevity and positioning.</strong> I shortened responses and prioritized my actual contributions, explaining limitations when relevant to the question.</li><li><strong>Accuracy.</strong> I refined how the agent describes projects and results to prevent confusion and unsupported attribution.</li><li><strong>Conversation continuity and endings.</strong> I simplified a flow that caused premature endings and technical narration. I then refined the ending conditions so the agent would give one farewell and end the call when the visitor indicated they were done.</li><li><strong>Language and voice.</strong> I reviewed language consistency, pacing and farewell behavior in Spanish and English.</li></ul>",
+      "<h3>Iterating on specific points of friction on web</h3>",
       "<ul><li><strong>Making it easier to get in touch.</strong> I received feedback about the effort of filling out the form and the need to copy my email address directly. I changed the CTA, which opened the default email app, so it would copy the address to the clipboard. To make the action clear and confirm it, I added a copy icon that changes to a check mark after a click, accompanied by a confirmation message.</li><li><strong>Showing my technical practice.</strong> I replaced “Approach” with “How I work” to explain my workflow and highlight technical skills that were on my résumé but missing from the portfolio.</li></ul>"
     ]
   },
@@ -66,8 +71,9 @@
     "visitCta": "View repository on GitHub",
     "contentHtml": [
       "<p><strong>I built a bilingual portfolio with its own identity, case studies, a contact form and version-controlled code.</strong> The project helped me learn to implement content and design decisions: modifying the site, checking the changes and publishing them.</p>",
+      "<p>The portfolio now also includes a voice experience in Spanish and English, embedded in the site. The project expanded my practice into conversation design, with scenario testing and iterations on the agent’s responses and behavior.</p>",
       "<h3>Next step: review mobile navigation</h3>",
-      "<p>Taking a mobile-first approach, I reduced the number of visible links in the header to prioritize the main sections. Now, <strong>I am considering bringing all sections together in a hamburger menu:</strong> the icon would take up less space, and opening the menu would give visitors access to all navigation options.</p>"
+      "<p>Taking a mobile-first approach, I reduced the number of visible links in the header to prioritize the main sections. Now, <strong>I am considering bringing all sections together in a hamburger menu:</strong> the icon would take up less space, and opening the menu would give access to all navigation options.</p>"
     ]
   },
   "related": {
