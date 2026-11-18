@@ -5,16 +5,19 @@
     "navAriaLabel": "Main navigation",
     "localeSwitcherLabel": "Language",
     "nav": {
-      "cases": "Case Studies",
+      "cases": "Case studies",
       "experience": "Experience",
       "approach": "How I work",
       "contact": "Contact",
-      "about": "About GiraFlor"
+      "about": "About GiraFlor",
+      "recommendations": "Recommendations"
     },
     "locales": {
       "es": "ES",
       "en": "EN"
-    }
+    },
+    "menuOpenLabel": "Open menu",
+    "menuCloseLabel": "Close menu"
   },
   "hashes": {
     "home": "home",
@@ -22,7 +25,8 @@
     "experience": "experience",
     "approach": "how-i-work",
     "contact": "contact",
-    "recommendations": "recommendations"
+    "recommendations": "recommendations",
+    "intro": "about-me"
   },
   "relatedCases": {
     "cta": "View case"

@@ -1,5 +1,6 @@
 export const defaultSectionHashes = {
   home: "inicio",
+  intro: "sobre-mi",
   cases: "casos",
   experience: "experiencia",
   recommendations: "recomendaciones",

@@ -31,13 +31,15 @@ const caseStudies = getCaseStudies(currentLocale);
 
 const renderSiteHeader = () => {
   const header = document.querySelector("[data-site-header]");
-  if (!header) return;
+  // Preserve the generated header, including an already open mobile menu.
+  if (!header || header.querySelector(".header-inner")) return;
 
   const currentPage = header.dataset.currentPage;
   const headerNavItems = [
     { href: getLocalizedHomeHash("cases", currentLocale), label: runtimeStrings.header.nav.cases },
-    { className: "desktop-only", href: getLocalizedHomeHash("experience", currentLocale), label: runtimeStrings.header.nav.experience },
-    { className: "desktop-only", href: getLocalizedHomeHash("approach", currentLocale), label: runtimeStrings.header.nav.approach },
+    { href: getLocalizedHomeHash("experience", currentLocale), label: runtimeStrings.header.nav.experience },
+    { href: getLocalizedHomeHash("recommendations", currentLocale), label: runtimeStrings.header.nav.recommendations },
+    { className: "mobile-nav-only", href: getLocalizedHomeHash("approach", currentLocale), label: runtimeStrings.header.nav.approach },
     { href: getLocalizedHomeHash("contact", currentLocale), label: runtimeStrings.header.nav.contact },
     { href: getLocalizedRoute("about", currentLocale), label: runtimeStrings.header.nav.about, page: "about" }
   ];
@@ -55,6 +57,7 @@ const renderSiteHeader = () => {
 
   const nav = document.createElement("nav");
   nav.className = "main-nav";
+  nav.id = "site-navigation";
   nav.setAttribute("aria-label", runtimeStrings.header.navAriaLabel);
 
   headerNavItems.forEach((item) => {
@@ -75,6 +78,19 @@ const renderSiteHeader = () => {
 
   const controls = document.createElement("div");
   controls.className = "header-controls";
+
+  const menuToggle = document.createElement("button");
+  menuToggle.className = "menu-toggle";
+  menuToggle.type = "button";
+  menuToggle.setAttribute("aria-controls", nav.id);
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", runtimeStrings.header.menuOpenLabel);
+  menuToggle.dataset.menuOpenLabel = runtimeStrings.header.menuOpenLabel;
+  menuToggle.dataset.menuCloseLabel = runtimeStrings.header.menuCloseLabel;
+  const menuIcon = document.createElement("span");
+  menuIcon.className = "menu-toggle-icon";
+  menuIcon.setAttribute("aria-hidden", "true");
+  menuToggle.append(menuIcon);
 
   const localeSwitcher = document.createElement("div");
   localeSwitcher.className = "locale-switcher";
@@ -102,7 +118,7 @@ const renderSiteHeader = () => {
     localeSwitcher.append(link);
   });
 
-  controls.append(nav, localeSwitcher);
+  controls.append(menuToggle, nav, localeSwitcher);
   inner.append(brand, controls);
   header.replaceChildren(inner);
 };

@@ -207,8 +207,9 @@ const buildHeaderMarkup = (dictionary, locale, page, routeTranslations, options 
   const runtimeTranslations = { [i18nConfig.defaultLocale]: dictionary.runtime, [locale]: dictionary.runtime };
   const navItems = [
     { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("cases", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.cases },
-    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("experience", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.experience, className: "desktop-only" },
-    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("approach", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.approach, className: "desktop-only" },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("experience", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.experience },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("recommendations", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.recommendations },
+    { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("approach", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.approach, className: "mobile-nav-only" },
     { href: `${getLocalizedPagePath("home", locale, routeTranslations, i18nConfig, { explicit })}${getLocalizedHash("contact", locale, runtimeTranslations, i18nConfig.defaultLocale)}`, label: header.nav.contact },
     { href: getLocalizedPagePath("about", locale, routeTranslations, i18nConfig, { explicit }), label: header.nav.about, currentPage: "about" }
   ];
@@ -229,7 +230,10 @@ const buildHeaderMarkup = (dictionary, locale, page, routeTranslations, options 
         <span>${header.brand}</span>
       </a>
       <div class="header-controls">
-        <nav class="main-nav" aria-label="${header.navAriaLabel}">
+        <button class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="${header.menuOpenLabel}" data-menu-open-label="${header.menuOpenLabel}" data-menu-close-label="${header.menuCloseLabel}">
+          <span class="menu-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <nav class="main-nav" id="site-navigation" aria-label="${header.navAriaLabel}">
           ${links}
         </nav>
         <div class="locale-switcher" aria-label="${header.localeSwitcherLabel}" data-locale-switcher data-page-id="${page.id}" data-current-path="${localizedPageRoute}">

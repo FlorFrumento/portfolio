@@ -6,16 +6,19 @@
       "navAriaLabel": "Main navigation",
       "localeSwitcherLabel": "Language",
       "nav": {
-        "cases": "Case Studies",
+        "cases": "Case studies",
         "experience": "Experience",
         "approach": "How I work",
         "contact": "Contact",
-        "about": "About GiraFlor"
+        "about": "About GiraFlor",
+        "recommendations": "Recommendations"
       },
       "locales": {
         "es": "ES",
         "en": "EN"
-      }
+      },
+      "menuOpenLabel": "Open menu",
+      "menuCloseLabel": "Close menu"
     },
     "footer": {
       "tagline": "I care about the questions, the language, and the decisions that shape an experience.",

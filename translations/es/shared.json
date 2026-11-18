@@ -6,16 +6,19 @@
       "navAriaLabel": "Navegacion principal",
       "localeSwitcherLabel": "Idioma",
       "nav": {
-        "cases": "Casos",
+        "cases": "Casos de estudio",
         "experience": "Experiencia",
         "approach": "Cómo trabajo",
         "contact": "Contacto",
-        "about": "Sobre GiraFlor"
+        "about": "Sobre GiraFlor",
+        "recommendations": "Recomendaciones"
       },
       "locales": {
         "es": "ES",
         "en": "EN"
-      }
+      },
+      "menuOpenLabel": "Abrir menú",
+      "menuCloseLabel": "Cerrar menú"
     },
     "footer": {
       "tagline": "Me interesan las preguntas, el lenguaje y las decisiones que dan forma a una experiencia.",
