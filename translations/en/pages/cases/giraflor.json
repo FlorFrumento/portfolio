@@ -7,7 +7,7 @@
   "hero": {
     "eyebrow": "Case study · Personal project",
     "title": "GiraFlor: from my profile to a digital product",
-    "claim": "I conceptualized, designed and published my portfolio with AI assistance. I then made it bilingual and continued iterating on it based on feedback.",
+    "claim": "I conceptualized, designed and published my portfolio with AI assistance. I made it bilingual and expanded the experience with a voice agent.",
     "actionsAriaLabel": "Case study actions",
     "primaryCta": "View repository on GitHub",
     "secondaryCta": "Explore other case studies"
@@ -15,7 +15,7 @@
   "metaSummary": {
     "ariaLabel": "Case study overview",
     "roleLabel": "Role",
-    "roleValue": "Content Design, UX/UI Design, conversation design and AI-assisted development.",
+    "roleValue": "Content Design, UX/UI Design, Conversation Design and AI-assisted development.",
     "processLabel": "Process",
     "processValue": "Architecture, storytelling, design, implementation and iteration.",
     "implementationLabel": "Tools",
@@ -25,8 +25,8 @@
     "ariaLabel": "Project scope",
     "productValue": "End to end",
     "productText": "From content and visual identity to code and publishing.",
-    "architectureValue": "Two languages",
-    "architectureText": "An initial Spanish version that evolved into a bilingual portfolio.",
+    "architectureValue": "Web and voice",
+    "architectureText": "A bilingual portfolio with a voice agent to explore my experience and case studies.",
     "iterationValue": "Continuous iteration",
     "iterationText": "Content, interaction and navigation improvements based on feedback and analysis."
   },

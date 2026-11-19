@@ -7,7 +7,7 @@
   "hero": {
     "eyebrow": "Caso de estudio · Proyecto personal",
     "title": "GiraFlor: de mi perfil a un producto digital",
-    "claim": "Conceptualicé, diseñé y publiqué mi portfolio con asistencia de IA. Después lo convertí en bilingüe y continué iterándolo a partir de feedback.",
+    "claim": "Conceptualicé, diseñé y publiqué mi portfolio con asistencia de IA. Después lo convertí en bilingüe y amplié la experiencia con un agente de voz.",
     "actionsAriaLabel": "Acciones del caso",
     "primaryCta": "Ver repositorio en GitHub",
     "secondaryCta": "Ver otros casos"
@@ -25,8 +25,8 @@
     "ariaLabel": "Alcance del proyecto",
     "productValue": "De punta a punta",
     "productText": "Del contenido y la identidad visual al código y la publicación.",
-    "architectureValue": "Dos idiomas",
-    "architectureText": "Una primera versión en español que evolucionó a un portfolio bilingüe.",
+    "architectureValue": "Web y voz",
+    "architectureText": "Un portfolio bilingüe con un agente de voz para conocer mi experiencia y casos.",
     "iterationValue": "Iteración continua",
     "iterationText": "Mejoras de contenido, interacción y navegación a partir de feedback y análisis."
   },
